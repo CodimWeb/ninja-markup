@@ -1,0 +1,33 @@
+// BS Abstract
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+//BS reboot
+@import "~bootstrap/scss/reboot";
+
+// BS grid
+@import "~bootstrap/scss/grid";
+
+// BS components
+
+
+// plugins
+@import "plugin/slick";
+
+@import "base/fonts";
+@import "base/ui";
+@import "base/typography";
+@import "base/grid";
+
+@import "components/buttons";
+@import "components/header";
+@import "components/content";
+@import "components/footer";
+@import "components/main-slider";
+@import "components/product-type";
+@import "components/product-item";
+
+body {
+    background: #000;
+}

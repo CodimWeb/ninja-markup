@@ -1,0 +1,23 @@
+.product-type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 18px auto -5px;
+}
+
+.product-type__item {
+    display: flex;
+    align-items: center;
+    margin: 0 16px;
+}
+
+.product-type__img {
+    margin-right: 8px;
+}
+
+.product-type__text {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20px;
+    color: #888888;
+}

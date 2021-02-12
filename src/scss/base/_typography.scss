@@ -1,0 +1,23 @@
+.title {
+    position: relative;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 27px;
+    color: #fff;
+    text-align: center;
+    margin-top: 68px;
+    margin-bottom: 0;
+    padding-bottom: 12px;
+
+    &:after {
+        content: '';
+        width: 100%;
+        max-width: 796px;
+        height: 1px;
+        background: #FCC500;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+    }
+}

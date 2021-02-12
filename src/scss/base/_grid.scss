@@ -1,0 +1,14 @@
+.container {
+    padding: 0 16px;
+    @media (min-width: 1700px) {
+        max-width: 1690px;
+    }
+}
+
+.row {
+    margin: 0 -16px;
+}
+
+[class*="col-"] {
+    padding: 0 16px;
+}
