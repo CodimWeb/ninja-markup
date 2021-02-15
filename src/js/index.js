@@ -21,5 +21,26 @@ $(document).ready(function(){
         slidesToScroll: 1,
         slidesToShow: 1,
     });
+
+    var header = $('.header');
+    $(window).scroll(function() {
+        var scrollLength = $(this).scrollTop();
+        if(scrollLength > 0) {
+             header.addClass('scrolled')
+        } else {
+            header.removeClass('scrolled') 
+        }
+    });
+
+    var toggleProduct = $('#toggle-product');
+    var products = $('.product-item');
+
+    toggleProduct.on('change', function() {
+        if(toggleProduct.is(":checked")) {
+            products.addClass('show-composition')
+        } else {
+            products.removeClass('show-composition')
+        }
+    })
 });
 

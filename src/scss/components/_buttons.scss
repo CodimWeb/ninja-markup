@@ -18,3 +18,59 @@
         box-shadow: none !important;
     }
 }
+
+.toggle-filter {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #FCC500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 200px;
+    right: 32px;
+    cursor: pointer;
+}
+
+.toggle-product {
+    position: fixed;
+    top: 248px;
+    right: 32px;
+}
+
+.toggle-product__checkbox {
+    display: none;
+}
+
+.toggle-product__label {
+    position: relative;
+    display: block;
+    width: 32px;
+    height: 61px;
+    text-align: center;
+    border-radius: 32px;
+    background: #FCC500;
+    cursor: pointer;
+
+    &:before {
+        content: '';
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        position: absolute;
+        left: 3px;
+        top: 0;
+        background: #fff;
+        transform: translateY(31px);
+        transition: transform 0.2s ease-in-out;
+    }
+}
+
+.toggle-product__img-top {
+    margin: 4px 0;
+}
+
+.toggle-product__checkbox:checked + .toggle-product__label:before {
+    transform: translateY(3px);
+}
