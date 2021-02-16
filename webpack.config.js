@@ -73,8 +73,16 @@ module.exports = (env, options) => {
         plugins: [
             new ExtractTextPlugin("./css/style.css"),
             new HtmlWebpackPlugin({  // Also generate a test.html
-                filename: 'index.html',
-                template: 'src/index.html'
+                filename: 'home.html',
+                template: 'src/home.html'
+            }),
+            new HtmlWebpackPlugin({
+                filename: 'sales.html',
+                template: 'src/sales.html'
+            }),
+            new HtmlWebpackPlugin({
+                filename: 'about.html',
+                template: 'src/about.html'
             }),
             //img,
             new CopyWebpackPlugin([{

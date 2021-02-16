@@ -32,6 +32,8 @@ $(document).ready(function(){
         }
     });
 
+
+    // показ сотава
     var toggleProduct = $('#toggle-product');
     var products = $('.product-item');
 
@@ -41,6 +43,16 @@ $(document).ready(function(){
         } else {
             products.removeClass('show-composition')
         }
+    })
+
+    //показ фильтров
+    $('.toggle-filter').on('click', function(){
+        $('.filter').fadeIn(250);
+    })
+
+    //скрытие фильтров
+    $('.btn-close-filter').on('click', function(){
+        $('.filter').fadeOut(250);
     })
 });
 

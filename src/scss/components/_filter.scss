@@ -7,6 +7,7 @@
     background: #141414;
     border-radius: 4px 0px 0px 4px;
     padding: 0 55px 0 34px;
+    display: none;
 }
 
 .filter .row {
@@ -22,6 +23,18 @@
     padding-bottom: 22px;
 }
 
+.filter__header .btn-filter {
+    text-align: center;
+}
+
+.filter-group {
+    margin-bottom: 22px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
 .btn-group {
     display: flex;
     align-items: center;
@@ -29,8 +42,10 @@
 }
 
 .btn-filter {
+    position: relative;
     flex: 1;
-    background: #1E1E1E;
+    background-color: #1E1E1E;
+    white-space: nowrap;
     border-radius: 2px;
     height: 30px;
     font-size: 14px;
@@ -38,7 +53,36 @@
     color: #DEDEDE;
     text-transform: none;
     margin: 0 2px;
-    padding: 0 4px;
+    padding: 0 12px;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+        background-color:#354A2E;
+    }
+}
+
+.btn-filter--with-icon {
+    text-align: left;
+}
+
+.icon-check {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    display: none;
+}
+
+.btn-filter.selected {
+    background: #3B6421;
+}
+
+.btn-filter.selected .icon-check {
+    display: inline-block;
+}
+
+.btn-filter.removed {
+    background: #531414;
 }
 
 .btn-filter-round {
@@ -60,10 +104,15 @@
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: #fff;
+    background-color: #fff;
     padding: 0;
     position: absolute;
     top: -1px;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+        background-color: #FCC500;
+    }
 }
 
 .btn-close-filter {
@@ -72,4 +121,9 @@
 
 .btn-reset-filter {
     right: 28px;
+}
+
+.btn-reset-filter:disabled {
+    background: #1E1E1E;
+    pointer-events: none;
 }

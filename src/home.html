@@ -11,7 +11,7 @@
 <body>
 
     <div class="wrapper">
-        <div class="header">
+        <div class="header header-home">
             <a href="https://ninjapizza.ru/" class="header-logo">
                 <img src="img/logo.svg" alt="">
             </a>
@@ -1004,7 +1004,7 @@
                             </div>
                         </div>
                         <div class="col-6">
-                            <button class="btn btn-control btn-reset-filter">
+                            <button class="btn btn-control btn-reset-filter" disabled>
                                 <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M15.4478 0L8.70674 7.77818C7.74183 7.49648 6.62438 7.6009 5.56064 8.25484C2.32056 9.94471 0.793352 12.3933 0.247762 14.7903C-0.290513 17.1551 0.134257 19.4245 0.703303 20.8213C0.832561 21.1386 1.14104 21.346 1.48363 21.346H13.561C13.8801 21.346 14.1719 21.1657 14.3146 20.8802C14.4574 20.5947 14.4266 20.2531 14.2351 19.9978C13.6736 19.2492 12.4052 17.501 11.7557 16.4186C11.4433 15.898 11.2789 15.0909 11.2298 14.1483C11.1819 13.2295 11.2475 12.2947 11.3107 11.5909C11.417 10.4056 10.9624 9.35297 10.1972 8.63151L16.7213 1.10369L15.4478 0ZM18.5373 12.9199C19.0027 12.9199 19.3799 12.5427 19.3799 12.0773C19.3799 11.612 19.0027 11.2347 18.5373 11.2347H14.0434C13.5781 11.2347 13.2008 11.612 13.2008 12.0773C13.2008 12.5427 13.5781 12.9199 14.0434 12.9199H18.5373ZM18.5373 16.2904C19.0027 16.2904 19.3799 15.9131 19.3799 15.4478C19.3799 14.9824 19.0027 14.6052 18.5373 14.6052H14.6052C14.1398 14.6052 13.7626 14.9824 13.7626 15.4478C13.7626 15.9131 14.1398 16.2904 14.6052 16.2904H18.5373ZM19.38 18.8182C19.38 19.2835 19.0027 19.6608 18.5374 19.6608H16.2904C15.8251 19.6608 15.4478 19.2835 15.4478 18.8182C15.4478 18.3528 15.8251 17.9756 16.2904 17.9756H18.5374C19.0027 17.9756 19.38 18.3528 19.38 18.8182ZM9.63221 11.4403C9.77038 9.90026 8.09233 8.65967 6.4241 9.70231C6.40498 9.71426 6.3854 9.72543 6.36539 9.73581C6.24734 9.79702 6.13209 9.85926 6.01957 9.92248C6.3814 10.2611 6.83589 10.6231 7.34466 10.9234C8.09266 11.3648 8.87676 11.6263 9.62031 11.5753L9.63221 11.4403ZM4.59357 10.8853C5.07646 11.3759 5.72986 11.9272 6.48819 12.3747C7.34062 12.8777 8.39791 13.291 9.52961 13.2662C9.52549 13.5823 9.52981 13.9086 9.54688 14.236C9.59994 15.2539 9.78041 16.4019 10.3106 17.2856C10.7212 17.9699 11.3449 18.877 11.9034 19.6608H9.12589C9.06629 19.5549 9.00375 19.4207 8.94161 19.2544C8.8174 18.9219 8.71613 18.5196 8.63731 18.085C8.47952 17.215 8.42614 16.2975 8.42614 15.7286H6.74093C6.74093 16.3768 6.7999 17.3973 6.97915 18.3857C7.05701 18.815 7.16028 19.2537 7.29782 19.6608H5.75542C5.69583 19.5549 5.63328 19.4207 5.57114 19.2544C5.44694 18.9219 5.34566 18.5196 5.26685 18.085C5.10906 17.215 5.05568 16.2975 5.05568 15.7286H3.37047C3.37047 16.3768 3.42943 17.3973 3.60869 18.3857C3.68655 18.815 3.78981 19.2537 3.92735 19.6608H2.07648C1.71711 18.5116 1.50504 16.8597 1.89094 15.1643C2.22482 13.6975 3.01061 12.1717 4.59357 10.8853Z" fill="#3D3D3D"/>
                                 </svg>    
@@ -1020,32 +1020,212 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="btn-group">
-                                    <button class="btn btn-filter">Детское</button>
+                                    <button class="btn btn-filter btn-filter--with-icon selected">
+                                        Детское
+                                        <img class="icon-check" src="img/icons/icon-check.svg" alt="">
+                                    </button>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="btn-group">
-                                    <button class="btn btn-filter">Вегетарианское</button>
+                                    <button class="btn btn-filter btn-filter--with-icon">
+                                        Вегетарианское
+                                        <img class="icon-check" src="img/icons/icon-check.svg" alt="">
+                                    </button>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="btn-group">
-                                    <button class="btn btn-filter">Острое</button>
+                                    <button class="btn btn-filter btn-filter--with-icon">
+                                        Острое
+                                        <img class="icon-check" src="img/icons/icon-check.svg" alt="">
+                                    </button>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="btn-group">
-                                    <button class="btn btn-filter">Не острое</button>
+                                    <button class="btn btn-filter btn-filter--with-icon removed">
+                                        Не острое
+                                        <img class="icon-check" src="img/icons/icon-check.svg" alt="">
+                                    </button>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="btn-group">
-                                    <button class="btn btn-filter">Новинка</button>
+                                    <button class="btn btn-filter btn-filter--with-icon">
+                                        Новинка
+                                        <img class="icon-check" src="img/icons/icon-check.svg" alt="">
+                                    </button>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="btn-group">
-                                    <button class="btn btn-filter">Хит</button>
+                                    <button class="btn btn-filter btn-filter--with-icon">
+                                        Хит
+                                        <img class="icon-check" src="img/icons/icon-check.svg" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="btn-group">
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-close-white.svg" alt="">
+                                    </button>
+                                    <button class="btn btn-filter">Сервелат</button>
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-heart.svg" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="btn-group">
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-close-white.svg" alt="">
+                                    </button>
+                                    <button class="btn btn-filter">Салями</button>
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-heart.svg" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="btn-group">
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-close-white.svg" alt="">
+                                    </button>
+                                    <button class="btn btn-filter">Ветчина</button>
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-heart.svg" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="btn-group">
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-close-white.svg" alt="">
+                                    </button>
+                                    <button class="btn btn-filter">Бекон</button>
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-heart.svg" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="btn-group">
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-close-white.svg" alt="">
+                                    </button>
+                                    <button class="btn btn-filter">Куриное филе</button>
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-heart.svg" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="btn-group">
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-close-white.svg" alt="">
+                                    </button>
+                                    <button class="btn btn-filter">Охотничьи колбаски</button>
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-heart.svg" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="btn-group">
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-close-white.svg" alt="">
+                                    </button>
+                                    <button class="btn btn-filter">Огурец</button>
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-heart.svg" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="btn-group">
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-close-white.svg" alt="">
+                                    </button>
+                                    <button class="btn btn-filter">Маслины</button>
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-heart.svg" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="btn-group">
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-close-white.svg" alt="">
+                                    </button>
+                                    <button class="btn btn-filter">Помидор</button>
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-heart.svg" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="btn-group">
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-close-white.svg" alt="">
+                                    </button>
+                                    <button class="btn btn-filter">Пом. Черри</button>
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-heart.svg" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="btn-group">
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-close-white.svg" alt="">
+                                    </button>
+                                    <button class="btn btn-filter">Перец</button>
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-heart.svg" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="btn-group">
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-close-white.svg" alt="">
+                                    </button>
+                                    <button class="btn btn-filter">Халопеньо</button>
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-heart.svg" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="btn-group">
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-close-white.svg" alt="">
+                                    </button>
+                                    <button class="btn btn-filter">Грибы</button>
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-heart.svg" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="btn-group">
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-close-white.svg" alt="">
+                                    </button>
+                                    <button class="btn btn-filter">Ананас</button>
+                                    <button class="btn btn-filter btn-filter-round">
+                                        <img src="img/icons/icon-heart.svg" alt="">
+                                    </button>
                                 </div>
                             </div>
                         </div>
