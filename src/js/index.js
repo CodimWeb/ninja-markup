@@ -6,12 +6,13 @@ import $ from 'jquery';
 // import bootstrap from 'bootstrap';
 
 import '../js/slick.min.js';
+import select2 from 'select2';
 
 //styles
 import '../scss/style.scss';
 
 $(document).ready(function(){
-    $('.slick-slider').slick({
+    $('.main-slider .slick-slider').slick({
         dots: true,
         arrows: false,
         autoplay: true,
@@ -54,5 +55,47 @@ $(document).ready(function(){
     $('.btn-close-filter').on('click', function(){
         $('.filter').fadeOut(250);
     })
+
+    // показ редактирования пиццы
+    // $('.product-pizza .product-item__picture').on('click', function(){
+    //     var offset = $(this).closest('.product-pizza').offset().top;
+    //     $('.editor').css('top', offset + 'px');
+    //     offset = offset - $('.header').outerHeight(); 
+    //     console.log(offset)
+    //     $('body,html').animate({scrollTop: offset}, 350);
+
+    //     setTimeout(() => {
+    //         document.body.style.overflow = 'hidden';
+    //     }, 400);
+        
+    // })
+
+    // скрытие редактирования пиццы
+    // $('.btn-close-editor').on('click', function(){
+    //     $('.editor').fadeOut(300);
+    //     document.body.removeAttribute('style');
+    // })
+     
+
+    $('#editor-sauces').select2({
+        width: '100%',
+        selectionCssClass: 'editor-select',
+        dropdownCssClass: 'editor-select__dropdown'
+    });
+
+    $('.editor').fadeIn(300, function() {
+        console.log('asdasd')
+        $('.editor-slider .slick-slider').slick({
+            dots: false,
+            arrows: true,
+            autoplay: false,
+            speed: 300,
+            infinite: false,
+            slidesToScroll: 1,
+            slidesToShow: 2,
+            prevArrow: $('.editor-slider-prev'),
+            nextArrow: $('.editor-slider-next'),
+        });
+    });
 });
 

@@ -69,6 +69,10 @@
     overflow: hidden;
 }
 
+.product-pizza .product-item__picture {
+    cursor: pointer;
+}
+
 .product-item__picture img {
     position: absolute;
     top: 50%;

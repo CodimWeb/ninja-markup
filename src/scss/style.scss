@@ -14,6 +14,7 @@
 
 // plugins
 @import "plugin/slick";
+@import "~select2/src/scss/core.scss";
 
 @import "base/fonts";
 @import "base/ui";
@@ -28,6 +29,7 @@
 @import "components/product-type";
 @import "components/product-item";
 @import "components/filter";
+@import "components/editor";
 
 @import "pages/sales";
 @import "pages/about";
