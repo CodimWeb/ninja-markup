@@ -1,0 +1,94 @@
+.modal-cart .modal-dialog {
+    margin-top: 144px;
+
+    @media (min-width: 992px) {
+        max-width: 982px;
+        margin: 144px auto 30px;
+    }
+}
+
+.modal-cart .modal-content {
+    background: #141414;
+    border-radius: 4px;
+}
+
+.modal-cart .modal-header {
+    padding: 37px 41px;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: none;
+    border-radius: 0;
+}
+
+.cart-step {
+    position: relative;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    margin-right: 137px;
+    color: #C4C4C4;
+    margin-bottom: 0;
+
+    &:before {
+        content: '';
+        width: 75px;
+        height: 2px;
+        background: #C4C4C4;
+        position: absolute;
+        left: 100%;
+        top: 50%;
+        margin-left: 18px;
+        transform: translateY(2px);
+    }
+
+    &:after {
+        content: '';
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        border: 2px solid #C4C4C4;
+        position: absolute;
+        left: 100%;
+        top: 50%;
+        margin-left: 109px;
+        transform: translateY(-7px);
+    }
+}
+
+.cart-step:nth-child(1) {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 37px;
+    color: #FCC500;
+}
+
+.cart-step:nth-child(3) {
+    margin-right: 0;
+
+    &:before,
+    &:after {
+        content: none;
+    }
+}
+
+.modal-cart .close {
+    width: 22px;
+    height: 22px;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    opacity: 1;
+    position: absolute;
+    right: 30px;
+    top: 27px;
+    cursor: pointer;
+}
+
+.modal-cart .modal-body {
+    padding: 0;
+}
+
+.cart-container {
+    background: #1D1D1D;
+}
