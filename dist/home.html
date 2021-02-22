@@ -78,7 +78,7 @@
                             <img src="img/icons/icon-close-white.svg" alt="">
                         </button>
                         <div class="header-cart__item__picture">
-                            <img class="header-cart__item__img" src="img/header-cart-pizza.png" alt="">
+                            <img class="header-cart__item__img" src="img/header-cart-pizza.jpg" alt="">
                         </div>
                         <div class="header-cart__item__detail">
                             <div class="header-cart__item__name">СОЛЯНКА ЗЛОДЕЙСКАЯ</div>
@@ -118,7 +118,7 @@
                             <img src="img/icons/icon-close-white.svg" alt="">
                         </button>
                         <div class="header-cart__item__picture">
-                            <img class="header-cart__item__img" src="img/header-cart-pizza.png" alt="">
+                            <img class="header-cart__item__img" src="img/header-cart-pizza.jpg" alt="">
                         </div>
                         <div class="header-cart__item__detail">
                             <div class="header-cart__item__name">СОЛЯНКА ЗЛОДЕЙСКАЯ</div>
@@ -1515,11 +1515,13 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <p class="cart-step">КОРЗИНА</p>
+                    <p class="cart-step cart-step-lg">КОРЗИНА</p>
                     <p class="cart-step">Доставка и оплата</p>
                     <p class="cart-step">Заказ оформлен</p>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <img src="img/icons/icon-close-lg.svg" alt="">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23 1L1 23M1 1L23 23" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
                     </button>
                 </div>
                 <div class="modal-body">
@@ -1529,30 +1531,247 @@
                                 <div class="cart-list__products">
                                     <div class="cart-item">
                                         <div class="cart-item__picture">
-                                            <img src="img/header-cart-pizza.jpg" alt="">
+                                            <img src="img/header-cart-pizza.png" alt="">
                                         </div>
                                         <div class="cart-item__detail">
-                                            <div class="cart-item__description">
-                                                <div class="cart-item__name">СОЛЯНКА ЗЛОДЕЙСКАЯ</div>
-                                                <div class="cart-item__type">Пицца 32 см</div>
-                                                <div class="cart-item__text">Убрано: Огурец маринованный </div>
-                                                <div class="cart-item__text">Добавлено: Халапеньо, Сервелат «Сердечко», Сыр</div>
+                                            <div class="cart-item__name">СОЛЯНКА ЗЛОДЕЙСКАЯ</div>
+                                            <div class="cart-item__type">Пицца 32 см</div>
+                                            <div class="cart-item__text">Убрано: Огурец маринованный </div>
+                                            <div class="cart-item__text">Добавлено: Халапеньо, Сервелат «Сердечко», Сыр</div>
+                                        </div>
+                                        <div class="cart-item__control">
+                                            <div class="cart-item__price">
+                                                <span>1 338 &#8381;</span>
+                                                <button class="btn cart-item__remove">
+                                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M17 1L1 17M1 1L17 17" stroke="" stroke-width="2" stroke-linecap="round"/>
+                                                    </svg>    
+                                                </button>
                                             </div>
-                                            <div class="cart-item__control">
-                                                
+                                            <div class="header-cart__item__control">
+                                                <button class="btn header-cart__item__btn header-cart__item__btn-minus">
+                                                    <svg width="8" height="2" viewBox="0 0 8 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7.39912 0.333008L4.60088 0.333013H3.39912L0.600879 0.333008C0.269031 0.332998 -8.49647e-06 0.631492 0 0.999669C1.27389e-05 1.36785 0.269036 1.66633 0.600887 1.66634L3.39912 1.66634H4.60088L7.39911 1.66634C7.73096 1.66633 7.99999 1.36785 8 0.999669C8.00001 0.631492 7.73097 0.332998 7.39912 0.333008Z" fill="#C0C0C0"/>
+                                                    </svg>                                                        
+                                                </button>
+                                                <div class="header-cart__item__cnt">1</div>
+                                                <button class="btn header-cart__item__btn header-cart__item__btn-plus">
+                                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4 0C4.33186 4.242e-06 4.60088 0.269027 4.60089 0.600887L4.60088 3.39912L7.39912 3.39912C7.73097 3.39911 8.00001 3.66815 8 4C7.99999 4.33185 7.73096 4.60087 7.39911 4.60089L4.60088 4.60088V7.39912C4.60088 7.73096 4.33184 8 4 8C3.66816 8 3.39912 7.73096 3.39912 7.39912V4.60088L0.600887 4.60089C0.269036 4.60087 1.27389e-05 4.33185 2.01251e-10 4C-8.49647e-06 3.66815 0.269031 3.39911 0.600879 3.39912L3.39912 3.39912L3.39911 0.600887C3.39912 0.269027 3.66814 4.242e-06 4 0Z" fill="#C0C0C0"/>
+                                                    </svg>    
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="cart-item">
+                                        <div class="cart-item__picture">
+                                            <img src="img/header-cart-pizza.png" alt="">
+                                        </div>
+                                        <div class="cart-item__detail">
+                                            <div class="cart-item__name">Своя пицца</div>
+                                            <div class="cart-item__type">Пицца 32 см</div>
+                                            <div class="cart-item__text">Состав: Тесто, Сыр Гауда, Соус «Пикантный томатный», Бекон (120 гр.), Охотничьи колбаски (50 гр.), Шампиньоны, Дополнительный Сыр Гауда,
+                                                Помидорки черри, Сырный бортик</div>
+                                        </div>
+                                        <div class="cart-item__control">
+                                            <div class="cart-item__price">
+                                                <span>940 &#8381;</span>
+                                                <button class="btn cart-item__remove">
+                                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M17 1L1 17M1 1L17 17" stroke="" stroke-width="2" stroke-linecap="round"/>
+                                                    </svg>    
+                                                </button>
+                                            </div>
+                                            <div class="header-cart__item__control">
+                                                <button class="btn header-cart__item__btn header-cart__item__btn-minus">
+                                                    <svg width="8" height="2" viewBox="0 0 8 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7.39912 0.333008L4.60088 0.333013H3.39912L0.600879 0.333008C0.269031 0.332998 -8.49647e-06 0.631492 0 0.999669C1.27389e-05 1.36785 0.269036 1.66633 0.600887 1.66634L3.39912 1.66634H4.60088L7.39911 1.66634C7.73096 1.66633 7.99999 1.36785 8 0.999669C8.00001 0.631492 7.73097 0.332998 7.39912 0.333008Z" fill="#C0C0C0"/>
+                                                    </svg>                                                        
+                                                </button>
+                                                <div class="header-cart__item__cnt">1</div>
+                                                <button class="btn header-cart__item__btn header-cart__item__btn-plus">
+                                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4 0C4.33186 4.242e-06 4.60088 0.269027 4.60089 0.600887L4.60088 3.39912L7.39912 3.39912C7.73097 3.39911 8.00001 3.66815 8 4C7.99999 4.33185 7.73096 4.60087 7.39911 4.60089L4.60088 4.60088V7.39912C4.60088 7.73096 4.33184 8 4 8C3.66816 8 3.39912 7.73096 3.39912 7.39912V4.60088L0.600887 4.60089C0.269036 4.60087 1.27389e-05 4.33185 2.01251e-10 4C-8.49647e-06 3.66815 0.269031 3.39911 0.600879 3.39912L3.39912 3.39912L3.39911 0.600887C3.39912 0.269027 3.66814 4.242e-06 4 0Z" fill="#C0C0C0"/>
+                                                    </svg>    
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cart-item">
+                                        <div class="cart-item__picture">
+                                            <img src="img/header-cart-pizza.png" alt="">
+                                        </div>
+                                        <div class="cart-item__detail">
+                                            <div class="cart-item__name">СОЛЯНКА ЗЛОДЕЙСКАЯ</div>
+                                            <div class="cart-item__type">Пицца 32 см</div>
+                                            <div class="cart-item__text">Убрано: Огурец маринованный </div>
+                                            <div class="cart-item__text">Добавлено: Халапеньо, Сервелат «Сердечко», Сыр</div>
+                                        </div>
+                                        <div class="cart-item__control">
+                                            <div class="cart-item__price">
+                                                <span>50 &#8381;</span>
+                                                <button class="btn cart-item__remove">
+                                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M17 1L1 17M1 1L17 17" stroke="" stroke-width="2" stroke-linecap="round"/>
+                                                    </svg>    
+                                                </button>
+                                            </div>
+                                            <div class="header-cart__item__control">
+                                                <button class="btn header-cart__item__btn header-cart__item__btn-minus">
+                                                    <svg width="8" height="2" viewBox="0 0 8 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7.39912 0.333008L4.60088 0.333013H3.39912L0.600879 0.333008C0.269031 0.332998 -8.49647e-06 0.631492 0 0.999669C1.27389e-05 1.36785 0.269036 1.66633 0.600887 1.66634L3.39912 1.66634H4.60088L7.39911 1.66634C7.73096 1.66633 7.99999 1.36785 8 0.999669C8.00001 0.631492 7.73097 0.332998 7.39912 0.333008Z" fill="#C0C0C0"/>
+                                                    </svg>                                                        
+                                                </button>
+                                                <div class="header-cart__item__cnt">1</div>
+                                                <button class="btn header-cart__item__btn header-cart__item__btn-plus">
+                                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4 0C4.33186 4.242e-06 4.60088 0.269027 4.60089 0.600887L4.60088 3.39912L7.39912 3.39912C7.73097 3.39911 8.00001 3.66815 8 4C7.99999 4.33185 7.73096 4.60087 7.39911 4.60089L4.60088 4.60088V7.39912C4.60088 7.73096 4.33184 8 4 8C3.66816 8 3.39912 7.73096 3.39912 7.39912V4.60088L0.600887 4.60089C0.269036 4.60087 1.27389e-05 4.33185 2.01251e-10 4C-8.49647e-06 3.66815 0.269031 3.39911 0.600879 3.39912L3.39912 3.39912L3.39911 0.600887C3.39912 0.269027 3.66814 4.242e-06 4 0Z" fill="#C0C0C0"/>
+                                                    </svg>    
+                                                </button>
+                                            </div> 
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="cart-list__sales-title">ПОДАРКИ</div>
+                                <div class="cart-list__title">
+                                    <p>ПОДАРКИ</p>
+                                </div>
                                 <div class="cart-list__sales">
-
-                                </div>  
+                                    <div class="cart-item">
+                                        <div class="cart-item__picture">
+                                            <img src="img/header-cart-pizza.png" alt="">
+                                        </div>
+                                        <div class="cart-item__detail">
+                                            <div class="cart-item__name">СОЛЯНКА ЗЛОДЕЙСКАЯ</div>
+                                            <div class="cart-item__type">Пицца 32 см</div>
+                                        </div>
+                                        <div class="cart-item__control">
+                                            <div class="cart-item__price">
+                                                <span>50 &#8381;</span>
+                                                <button class="btn cart-item__remove">
+                                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M17 1L1 17M1 1L17 17" stroke="" stroke-width="2" stroke-linecap="round"/>
+                                                    </svg>    
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cart-item">
+                                        <div class="cart-item__picture">
+                                            <img src="img/header-cart-pizza.png" alt="">
+                                        </div>
+                                        <div class="cart-item__detail">
+                                            <div class="cart-item__name">СОЛЯНКА ЗЛОДЕЙСКАЯ</div>
+                                            <div class="cart-item__type">Пицца 32 см</div>
+                                        </div>
+                                        <div class="cart-item__control">
+                                            <div class="cart-item__price">
+                                                <span>50 &#8381;</span>
+                                                <button class="btn cart-item__remove">
+                                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M17 1L1 17M1 1L17 17" stroke="" stroke-width="2" stroke-linecap="round"/>
+                                                    </svg>    
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
                             </div>
                         </div>
                         <div class="cart-devider"></div>
-                        <div class="cart-right"></div>
+                        <div class="cart-right">
+                            <div class="cart-promocode">
+                                <div class="cart-promocode__title">У меня есть промокод:</div>
+                                <div class="cart-promocode__panel">
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11 1L1 11M1 1L11 11" stroke="" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>    
+                                    <input type="text" class="form-control cart-promocode__field" placeholder="______">
+                                </div>
+                                <p class="cart-promocode__warning">!  Код  работает при сумме заказа  больше 1 700 &#8381;. Вам нужно добавить товаров на сумму 362 &#8381;</p>
+                                <div class="cart-total-title">
+                                    <span>Товары в корзине <br/>+ подарки</span>
+                                    <span>2 278 &#8381;</span>
+                                </div>
+                                <div class="cart-total-result">
+                                    <span>К оплате</span>
+                                    <span>1 338 &#8381;</span>
+                                </div>
+                                <button class="btn btn-secondary cart-btn-send">Продолжить</button>
+                            </div>
+                        </div>
                     </div>
+                    <div class="cart-footer">
+                        <div class="cart-list__title">
+                            <p>РЕКОМЕНДУЕМ К ВАШЕМУ ЗАКАЗУ</p>
+                        </div>
+                        <p class="cart-footer__subtitle">Если вы выберите одну из пицц помеченных значком «Подарок»,  то получите пиццу «Ниндзя» 26 см бесплатно</p>
+                        <div class="cart-slider">
+                            <span class="cart-slider-btn cart-slider-prev"></span>
+                            <span class="cart-slider-btn cart-slider-next"></span>
+                            <div class="slider slick-slider">
+                                <div class="slick-item">
+                                    <div class="cart-slider__item">
+                                        <div class="carr-slider__icon">
+                                            <img src="img/icons/icon-gift.svg" alt="">
+                                        </div>
+                                        <div class="cart-slider__picture">
+                                            <img class="cart-slider__img" src="img/header-cart-pizza.png" alt="">
+                                        </div>
+                                        <div class="cart-slider__detail">
+                                            <div class="cart-slider__name">НИНДЗЯ</div>
+                                            <div class="cart-slider__type">Пицца 26 см</div>
+                                            <button class="btn cart-slider__item__btn">299 &#8381;</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slick-item">
+                                    <div class="cart-slider__item">
+                                        <div class="carr-slider__icon">
+                                            <img src="img/icons/icon-gift.svg" alt="">
+                                        </div>
+                                        <div class="cart-slider__picture">
+                                            <img class="cart-slider__img" src="img/header-cart-pizza.png" alt="">
+                                        </div>
+                                        <div class="cart-slider__detail">
+                                            <div class="cart-slider__name">СОЛЯНКА ЗЛОДЕЙСКАЯ</div>
+                                            <div class="cart-slider__type">Пицца 26 см</div>
+                                            <button class="btn cart-slider__item__btn">299 &#8381;</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slick-item">
+                                    <div class="cart-slider__item">
+                                        <div class="carr-slider__icon">
+                                            <img src="img/icons/icon-gift.svg" alt="">
+                                        </div>
+                                        <div class="cart-slider__picture">
+                                            <img class="cart-slider__img" src="img/header-cart-pizza.png" alt="">
+                                        </div>
+                                        <div class="cart-slider__detail">
+                                            <div class="cart-slider__name">НИНДЗЯ</div>
+                                            <div class="cart-slider__type">Пицца 26 см</div>
+                                            <button class="btn cart-slider__item__btn">299 &#8381;</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slick-item">
+                                    <div class="cart-slider__item">
+                                        <div class="carr-slider__icon">
+                                            <img src="img/icons/icon-gift.svg" alt="">
+                                        </div>
+                                        <div class="cart-slider__picture">
+                                            <img class="cart-slider__img" src="img/header-cart-pizza.png" alt="">
+                                        </div>
+                                        <div class="cart-slider__detail">
+                                            <div class="cart-slider__name">НИНДЗЯ</div>
+                                            <div class="cart-slider__type">Пицца 26 см</div>
+                                            <button class="btn cart-slider__item__btn">299 &#8381;</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
                 </div>
             </div>
         </div>

@@ -70,6 +70,8 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 20px;
+    padding: 0;
+    display: inline-block;
     color: #fff;
     text-decoration: none;
     text-transform: uppercase;
@@ -435,6 +437,39 @@
 .header-cart__footer__total {
     font-weight: 500;
     color: #FCC500;
+}
+
+.header-steps-container {
+    flex: 1;
+}
+
+.header-steps {
+    width: 715px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-steps .cart-step.completed {
+    padding-left: 26px;
+
+    img {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &:after {
+        border-color: #FCC500;
+    }
+}
+
+.header-steps .cart-step.current-step {
+    color: #fff;
 }
 
 

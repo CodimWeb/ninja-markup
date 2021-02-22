@@ -1,6 +1,9 @@
+// fonts
+@import "base/fonts";
+
 // BS Abstract
 @import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
+@import "abstract/variables"; // override bootstrap variables
 @import "~bootstrap/scss/mixins";
 
 //BS reboot
@@ -12,13 +15,14 @@
 // BS components
 @import "~bootstrap/scss/transitions";
 @import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/nav";
 
 
 // plugins
 @import "plugin/slick";
 @import "~select2/src/scss/core.scss";
 
-@import "base/fonts";
 @import "base/ui";
 @import "base/typography";
 @import "base/grid";
@@ -33,9 +37,11 @@
 @import "components/filter";
 @import "components/editor";
 @import "components/modal-cart";
+@import "components/toggler";
 
 @import "pages/sales";
 @import "pages/about";
+@import "pages/order";
 
 body {
     background: #000;

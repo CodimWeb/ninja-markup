@@ -4,8 +4,8 @@ import $ from 'jquery';
 
 //BS4 components
 // import bootstrap from 'bootstrap';
-// import Util from 'bootstrap/js/dist/util'
 import Modal from 'bootstrap/js/dist/modal'
+import Tab from 'bootstrap/js/dist/tab'
 
 import '../js/slick.min.js';
 import select2 from 'select2';
@@ -113,6 +113,32 @@ $(document).ready(function(){
             $(this).addClass('active')
         }
     })
+
+    var cartSlick;
+
+    $('#modal-cart').on('shown.bs.modal', function (event) {
+        cartSlick = $('.cart-slider .slider').slick({
+            dots: false,
+            arrows: true,
+            autoplay: false,
+            draggable: false,
+            speed: 300,
+            infinite: false,
+            slidesToScroll: 1,
+            slidesToShow: 3,
+            prevArrow: $('.cart-slider-prev'),
+            nextArrow: $('.cart-slider-next'),
+        });
+    })
+
+    $('#modal-cart').on('hidden.bs.modal', function (event) {
+        // cartSlick.destroy();
+        $('.cart-slider .slick-slider').slick('unslick');
+    });
+
+    
+
+    
 });
 
 function getScrollbarWidth() { 
@@ -123,5 +149,5 @@ function getScrollbarWidth() {
     document.body.removeChild(scrollDiv)
     console.log(scrollbarWidth);
     return scrollbarWidth
-  }
+}
 
