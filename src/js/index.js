@@ -9,6 +9,7 @@ import Tab from 'bootstrap/js/dist/tab'
 
 import '../js/slick.min.js';
 import select2 from 'select2';
+import Inputmask from "inputmask";
 
 //styles
 import '../scss/style.scss';
@@ -136,9 +137,27 @@ $(document).ready(function(){
         $('.cart-slider .slick-slider').slick('unslick');
     });
 
-    
+    var phoneInput = document.querySelector("#order-phone");
+    if(phoneInput) {
+        Inputmask({"mask": "+7(999) 999-99-99"}).mask(phoneInput);
+    }
 
-    
+    $('#without-contact').on('change', function() {
+        if($(this).is(':checked')) {
+            console.log('checked')
+            $(this).closest('.order-option').find('.order-option__text').removeClass('dark')
+        }
+        else {
+            $(this).closest('.order-option').find('.order-option__text').addClass('dark')
+            console.log('unchecked')
+        }
+    })
+
+    $('.select-delivery').select2({
+        width: '100%',
+        selectionCssClass: 'select-delivery',
+        dropdownCssClass: 'select-delivery__dropdown'
+    });
 });
 
 function getScrollbarWidth() { 

@@ -1,5 +1,3 @@
-// fonts
-@import "base/fonts";
 
 // BS Abstract
 @import "~bootstrap/scss/functions";
@@ -18,14 +16,15 @@
 @import "~bootstrap/scss/forms";
 @import "~bootstrap/scss/nav";
 
+// base custom
+@import "base/fonts";
+@import "base/ui";
+@import "base/typography";
+@import "base/grid";
 
 // plugins
 @import "plugin/slick";
 @import "~select2/src/scss/core.scss";
-
-@import "base/ui";
-@import "base/typography";
-@import "base/grid";
 
 @import "components/buttons";
 @import "components/header";
@@ -38,6 +37,8 @@
 @import "components/editor";
 @import "components/modal-cart";
 @import "components/toggler";
+@import "components/radio";
+@import "components/checkbox";
 
 @import "pages/sales";
 @import "pages/about";
