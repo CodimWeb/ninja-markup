@@ -1,0 +1,98 @@
+.modal-schedule .modal-dialog {
+    @media (min-width: 576px) {
+        max-width: 550px;
+    }   
+}
+
+.modal-schedule .modal-content {
+    background: #141414;
+    border: none;
+    border-radius: 4px;
+}
+
+.modal-schedule .modal-header {
+    background: #141414;
+    padding: 36px 110px 33px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+}
+
+.modal-schedule__ninja {
+    position: absolute;
+    top: -66px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.modal-schedule .modal-body {
+    padding: 0 110px 32px;
+}
+
+.modal-schedule .modal-title {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 34px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.modal-schedule__title {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    margin-bottom: 7px;
+}
+
+.modal-schedule__list {
+    position: relative;
+    max-width: 190px;
+    margin: 0 auto 37px;
+
+    &:before {
+        content: '';
+        width: 70px;
+        height: 70px;
+        position: absolute;
+        left: -54px;
+        top: 24px;
+        background-image: url(../img/suriken.png);
+    }
+}
+
+.modal-schedule__item {
+    display: flex;
+    justify-content: flex-end;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 4px;
+
+    span:nth-child(1) {
+        margin-right: 8px;
+    }
+}
+
+.modal-schedule__time {
+    margin: 0 !important;
+    font-family: 'Roboto Mono', monospace;
+    // font-family: Courier New, monospace;
+}
+
+.modal-schedule__subtitle {
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 24px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.modal-schedule__btn {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+    padding: 14px 0;
+}

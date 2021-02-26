@@ -396,6 +396,30 @@
     }
 }
 
+.pay-type {
+    height: 366px;
+}
+
+.send-check {
+    max-width: 380px;
+}
+
+.send-check__title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 5px;
+}
+
+.order-cart__send {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: none;
+    width: 220px;
+    padding: 9px 0 14px;
+}
+
 .filial-list {
     padding-top: 25px;
     display: flex;
@@ -613,9 +637,6 @@
 .detail-address__group {
     margin-bottom: 30px;
 
-    :last-child {
-        margin-bottom: 0;
-    }
 }
 
 .detail-adress__row {
@@ -696,10 +717,23 @@
 
 .pay-form__icon-card {
     position: absolute;
-    top: 21px;
+    top: 22px;
     right: 11px;
 }
 
 .pay-form-card {
     margin-top: 12px;
+}
+
+.pay-form__security {
+    font-weight: 300;
+    font-size: 10px;
+    line-height: 14px;
+    color: #666;
+    margin-top: 25px;
+}
+
+.pay-form__paykeeper {
+    margin-top: 4px;
+    max-width: 66px;
 }

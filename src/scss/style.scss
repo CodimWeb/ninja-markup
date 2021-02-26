@@ -26,6 +26,7 @@
 @import "plugin/slick";
 @import "~select2/src/scss/core.scss";
 
+@import "components/loader";
 @import "components/buttons";
 @import "components/header";
 @import "components/content";
@@ -35,10 +36,12 @@
 @import "components/product-item";
 @import "components/filter";
 @import "components/editor";
-@import "components/modal-cart";
 @import "components/toggler";
 @import "components/radio";
 @import "components/checkbox";
+@import "components/modal-cart";
+@import "components/modal-auth";
+@import "components/modal-schedule";
 
 @import "pages/sales";
 @import "pages/about";

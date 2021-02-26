@@ -1,0 +1,128 @@
+.modal-auth .modal-dialog {
+    @media (min-width: 576px) {
+        max-width: 450px;
+    }   
+}
+
+.modal-auth .modal-content {
+    background: #1D1D1D;
+    border: none;
+    border-radius: 4px;
+}
+
+.modal-auth .modal-header {
+    background: #141414;
+    padding: 33px 41px 31px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+}
+
+.modal-auth .modal-title {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.modal-auth .modal-body {
+    padding: 30px 60px;
+}
+
+.modal-body__content {
+    height: 275px;
+    overflow: hidden;
+}
+
+.auth-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    margin-bottom: 22px;
+}
+
+.auth-phone {
+    margin-bottom: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.auth-agreement__link {
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 16px;
+    color: #C0C0C0;
+    text-indent: 34px;
+    text-decoration: underline;
+    display: inline-block;
+    transform: translateY(-4px);
+}
+
+.auth-send__label {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.btn-auth-send {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 10px 0 11px;
+}
+
+.btn-auth-send:disabled {
+    background: #333333;
+    pointer-events: none;
+}
+
+.modal-body__auth {
+    height: 275px;
+}
+
+.modal-body__confirm {
+    height: 275px;
+}
+
+.modal-body__container {
+    transform: translateY(0);
+    transition: transform 0.15s ease-in-out;
+}
+
+.modal-body__content.confirm .modal-body__container{
+    transform: translateY(-50%);
+}
+
+.btn-auth-confirm {
+    margin-bottom: 10px;
+}
+
+.confirm-control {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.confirm-link {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20px;
+    color: #C0C0C0;
+    text-decoration: underline;
+    transition: color 0.2s ease-in-out;
+
+    &:visited {
+        color: #C0C0C0; 
+    }
+
+    &:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
