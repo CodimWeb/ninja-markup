@@ -100,12 +100,14 @@ $(document).ready(function(){
     })
      
 
+    // селект в редакторе пицц
     $('#editor-sauces').select2({
         width: '100%',
         selectionCssClass: 'editor-select',
         dropdownCssClass: 'editor-select__dropdown'
     });
 
+    // слайдер редактора пицц
     $('.editor-slider .slick-slider').slick({
         dots: false,
         arrows: true,
@@ -128,6 +130,7 @@ $(document).ready(function(){
         }
     })
 
+    // слайдер в редакторе заказа
     $('#modal-cart').on('shown.bs.modal', function (event) {
         $('.cart-slider .slider').slick({
             dots: false,
@@ -154,12 +157,10 @@ $(document).ready(function(){
 
     $('#without-contact').on('change', function() {
         if($(this).is(':checked')) {
-            console.log('checked')
             $(this).closest('.order-option').find('.order-option__text').removeClass('dark')
         }
         else {
             $(this).closest('.order-option').find('.order-option__text').addClass('dark')
-            console.log('unchecked')
         }
     })
 
@@ -229,6 +230,19 @@ $(document).ready(function(){
         $('.modal-auth .modal-title').html('РАДЫ ВАС ВИДЕТЬ!')
         $('.modal-body__content').removeClass('confirm');
     })
+
+    $('.mobile-burger-menu').on('click', function(){
+        openNav();
+    })
+
+    $('.mobile-nav-close').on('click', function(){
+        closeNav();
+    })
+
+    $('.nav-backdrop').on('click', function(){
+        closeNav();
+    })
+    
 });
 
 function getScrollbarWidth() { 
@@ -239,5 +253,18 @@ function getScrollbarWidth() {
     document.body.removeChild(scrollDiv)
     console.log(scrollbarWidth);
     return scrollbarWidth
+}
+
+function openNav() {
+    $('.nav-wrap').addClass('visible open');
+    $('body').addClass('modal-open')
+}
+
+function closeNav() {
+    $('.nav-wrap').removeClass('open');
+    $('body').removeClass('modal-open')
+    setTimeout(() => {
+        $('.nav-wrap').removeClass('visible');
+    }, 200);
 }
 

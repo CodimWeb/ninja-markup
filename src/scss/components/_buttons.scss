@@ -99,3 +99,19 @@
 .toggle-product__checkbox:checked + .toggle-product__label:before {
     transform: translateY(3px);
 }
+
+@media (max-width: 1140px) {
+    .toggle-filter {
+        right: 17px;
+    }
+
+    .toggle-product {
+        right: 17px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .toggle-product {
+        display: none;
+    }
+}

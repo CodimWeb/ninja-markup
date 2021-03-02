@@ -21,3 +21,21 @@
     line-height: 20px;
     color: #888888;
 }
+
+@media (max-width: 1023px) {
+
+    .product-type__item {
+        margin: 0 7px;
+    }
+
+    .product-type__img {
+        width: 24px;
+        height: 24px;
+        margin-right: 6px;
+    }
+
+    .product-type__text {
+        font-size: 14px;
+        line-height: 15px;
+    }
+}

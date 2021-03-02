@@ -10,3 +10,9 @@ body {
 .wrapper {
     padding-top: 113px;
 }
+
+@media (max-width: 1279px) {
+    .wrapper {
+        padding-top: 68px;
+    }
+}
