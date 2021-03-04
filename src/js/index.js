@@ -263,8 +263,14 @@ function openNav() {
 function closeNav() {
     $('.nav-wrap').removeClass('open');
     $('body').removeClass('modal-open')
-    setTimeout(() => {
+    if(window.innerWidth > 767) {
+        setTimeout(() => {
+            $('.nav-wrap').removeClass('visible');
+        }, 200);
+    }
+    else {
         $('.nav-wrap').removeClass('visible');
-    }, 200);
+    }
+    
 }
 

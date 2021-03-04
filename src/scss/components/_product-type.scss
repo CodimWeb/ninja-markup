@@ -39,3 +39,16 @@
         line-height: 15px;
     }
 }
+
+@media (max-width: 715px) {
+    .product-type {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .product-type__item {
+        margin-left: 0;
+        margin-right: 11px;
+        margin-bottom: 3px;
+    }
+}

@@ -54,3 +54,31 @@
         margin: 0 6px;
     }
 }
+
+@media (max-width: 767px) {
+
+    .main-slider {
+        margin: 8px -13px 0;
+    }
+
+    .main-slider__picture {
+        border-radius: 6px;
+    }
+
+    .slick-dots {
+        justify-content: flex-start;
+        padding-left: 30px;
+    }
+
+    .slick-dots li {
+        width: 10px;
+        height: 10px;
+        margin: 0 4px;
+    }
+}
+
+@media (max-width: 359px) {
+    .main-slider {
+        margin: 8px -5px 0;
+    }
+}

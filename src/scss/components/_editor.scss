@@ -330,3 +330,12 @@
 .editor__btn-container .product-item__btn {
     background: #FF5F00;
 }
+
+
+@media (max-width: 1023px) {
+    .editor__container {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+}

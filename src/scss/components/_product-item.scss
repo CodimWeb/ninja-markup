@@ -246,6 +246,14 @@
     display: none;
 }
 
+.product-item__name--tablet {
+    display: none;
+}
+
+.product-item__composition--tablet {
+    display: none;
+}
+
 @media (max-width: 1023px) {
     .product-row {
         justify-content: flex-start;
@@ -375,4 +383,197 @@
     .product-item__weight {
         display: none;
     }
+
+    // наборы
+
+    .product-group-item {
+        padding-left: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .product-group-item .product-item__header {
+        display: none;
+    }
+
+    .product-group-item .product-item__name {
+        display: none;
+    }
+
+    .product-group-item .product-item__body {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .product-group-item .product-item__name--tablet {
+        display: block;
+        text-align: center;
+        margin-top: 16px;
+        margin-bottom: 2px;
+    }
+
+    .product-group-item .product-item__picture {
+        position: relative;
+    }
+
+    .product-group-item .product-item__picture img {
+        position: static;
+        width: 100%;
+    }
+
+    .product-group-item .product-item__composition {
+        display: none;
+    }
+
+    .product-group-item .product-item__footer {
+        position: relative;
+        top: 0;
+        width: 100%;
+        padding-left: 141px;
+        padding-right: 0;
+        padding-bottom: 0;
+    }
+
+    .product-group-item .product-item__btn-container {
+        position: absolute;
+        left: 25px;
+        top: 15px;
+        justify-content: space-around;
+    }
+
+    .product-group-item .product-item__composition--tablet {
+        display: block;
+        height: auto;
+    }
+
+    .product-group-item .product-item__sale {
+        display: none;
+    }
+
+    .product-group-item .product-item__sale--tablet {
+        display: block;
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        width: 88px;
+        text-align: center;
+        text-decoration: line-through;
+    }
+
+    .product-group-item .product-item__composition-weight--tablet {
+        display: block;
+        position: relative;
+        font-size: 12px;
+        line-height: 15px;
+        color: #DEDEDE;
+        position: absolute;
+        bottom: 5px;
+        right: 0;
+    }
+
+    // напитки
+
+    .product-col--drink {
+        max-width: 33.3333%;
+        flex: 0 0 33.3333%;
+    }
+
+    .product-item--drink {
+        padding-left: 0;
+        width: 100%;
+    }
+
+    .product-item--drink .product-item__header {
+        height: auto;
+    }
+
+    .product-item--drink .product-item__name {
+        text-align: center;
+    }
+
+    .product-item--drink .product-item__body {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .product-item--drink .product-item__picture img {
+        position: static;
+        width: 100%;
+    }
+
+    .product-item--drink .product-item__footer {
+        position: static;
+        width: 100%;
+    }
+
+    .product-item--drink .product-item__btn {
+        width: 73px;
+    }
+
+    .product-item--drink .product-item__weight {
+        display: block;
+        bottom: -1px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .product-item--drink .product-item__btn-group .product-item__weight {
+        bottom: -21px;
+    }
 }
+
+@media (max-width: 767px) {
+    
+}
+
+@media (max-width: 715px) {
+    .product-col {
+        width: 100%;
+        padding: 0 8px;
+    }
+
+    .product-item {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .product-col--drink {
+        max-width: 50%;
+        flex: 0 0 50%;
+    }
+}
+
+@media (max-width: 374px) {
+
+    .product-item__name {
+        font-size: 18px;
+    }
+
+    .product-item,
+    .product-group-item, 
+    .product-group-item--lg {
+        width: 286px;
+        max-width: 286px;
+    }
+
+    .product-item__name {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .product-item__body {
+        width: 140px;
+        max-width: 140px;
+    }
+
+    .product-item--drink {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .product-item--drink .product-item__btn {
+        width: 66px;
+        font-size: 18px;
+    }
+}
+

@@ -115,3 +115,17 @@
         display: none;
     }
 }
+
+@media (max-width: 767px) {
+    .toggle-filter {
+        top: 112px;
+    }
+}
+
+@media (max-width: 359px) {
+
+    .toggle-filter,
+    .toggle-product {
+        right: 11px;
+    }
+}
