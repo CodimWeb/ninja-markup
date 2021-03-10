@@ -22,7 +22,7 @@
     img {
         width: 150px;
         transform-origin: center;
-        animation: spinning 1.5s infinite ease-in-out;
+        animation: spinning 1.5s infinite linear;
     }
 }
 

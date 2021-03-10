@@ -242,6 +242,46 @@ $(document).ready(function(){
     $('.nav-backdrop').on('click', function(){
         closeNav();
     })
+
+    // $(window).resize(function(){
+    //     console.log($(window).outerWidth());
+    // })
+    if($(window).outerWidth() < 768) {
+        var height = $('.product-group-set').outerHeight() + 'px';
+        $('.product-list').css('height', height)
+    }
+
+    $('.product-nav__item').on('click', function(){
+        $('.product-nav__item').removeClass('active');
+        $(this).addClass('active');
+        var target = $(this).attr('data-target');
+        var height = 'auto';
+        if(target == 'show-set') {
+            var height = $('.product-group-set').outerHeight() + 'px';
+        }
+        else if(target == 'show-pizza') {
+            var height = $('.product-group-pizza').outerHeight() + 'px';
+        }
+        else if(target == 'show-hot') {
+            var height = $('.product-group-hot').outerHeight() + 'px';
+        }
+        else if(target == 'show-salads') {
+            var height = $('.product-group-salads').outerHeight() + 'px';
+        }
+        else if(target == 'show-deserts') {
+            var height = $('.product-group-deserts').outerHeight() + 'px';
+        }
+        else if(target == 'show-sauces') {
+            var height = $('.product-group-sauces').outerHeight() + 'px';
+        }
+        else if(target == 'show-drinks') {
+            var height = $('.product-group-drinks').outerHeight() + 'px';
+        }
+        
+        document.querySelector('.product-list').setAttribute('class', 'product-list' + ' ' + target);
+        $('.product-list').css('height', height)
+
+    })
     
 });
 

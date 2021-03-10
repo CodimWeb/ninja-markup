@@ -1,0 +1,77 @@
+.product-nav {
+    position: fixed;
+    left: 0;
+    top: 68px;
+    z-index: 5;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FCC500;
+    padding: 0 15px;
+}
+
+.product-nav__item svg path {
+    fill: rgba(0,0,0, 0.25);
+}
+
+.product-nav__item.active svg path {
+    fill: #000;
+}
+
+@media (max-width: 767px) {
+
+    .product-list-wrap {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .product-list {
+        width: 700%;
+        display: flex;
+        align-items: flex-start;
+        overflow: hidden;
+        transform: translate(0);
+        transition: transform 0.2s ease-in-out;
+
+        &.show-set {
+            transform: translateX(0);
+        }
+
+        &.show-pizza {
+            transform: translateX(-14.285%);
+        }
+
+        &.show-hot {
+            transform: translateX(-28.57%);
+        }
+
+        &.show-salads {
+            transform: translateX(-42.855%);
+        }
+
+        &.show-deserts {
+            transform: translateX(-57.14%);
+        }
+
+        &.show-sauces {
+            transform: translateX(-71.425%);
+        }
+
+        &.show-drinks {
+            transform: translateX(-85.71%);
+        }
+
+        &.show-combo {
+            transform: translateX(-14.285%);
+        }
+    }
+
+    .product-group {
+        width: 14.285%;
+        max-width: 14.285%;
+        min-width: 14.285%;
+        overflow: hidden;
+    }
+}

@@ -501,6 +501,10 @@
     display: none;
 }
 
+.mobile-header-logo {
+    display: none;
+}
+
 @media (max-width: 1920px) {
     .header-link--time-delivery {
         display: none;
@@ -627,16 +631,24 @@
         right: 0;
         top: 0;
         width: 375px;
-        height: 100%;
+        height: auto;
         display: flex;
         flex-direction: column;
         background: #141414;
         margin: 0;
         padding-bottom: 25px;
         perspective: none;
-        overflow-y: auto;
         transform: translateX(101%);
         transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-scroll-container {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
     }
 
     .nav-wrap.visible {
@@ -656,7 +668,9 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        padding: 10px 22px 5px 25px;
+        padding: 5px 25px 5px 25px;
+        height: 68px;
+        border-bottom: 1px solid transparent;
     }
 
     .mobile-nav-close {
@@ -665,6 +679,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .mobile-nav-close svg {
+        transform: translateX(2px);
     }
 
     .mobile-nav-action {
@@ -866,6 +884,8 @@
 
     .nav-container {
         width: 100%;
+        transform: translateX(0);
+        min-height: fit-content;
     }
 
     .nav-wrap {
@@ -876,11 +896,17 @@
     }
 
     .nav-wrap.visible {
-        max-height: 100vh;
+        max-height: 100%;
     }
 
-    .nav-container {
-        transform: translateX(0);
+    // .nav-container {
+    //     transform: translateX(0);
+    // }
+
+    .mobile-header-logo {
+        display: inline-flex;
+        margin-top: 4px;
+        margin-right: auto;
     }
 }
 

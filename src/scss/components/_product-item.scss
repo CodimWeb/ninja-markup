@@ -254,6 +254,14 @@
     display: none;
 }
 
+.product-item__composition-weight--tablet {
+    display: none;
+}
+
+.product-item__sale--tablet {
+    display: none;
+}
+
 @media (max-width: 1023px) {
     .product-row {
         justify-content: flex-start;
@@ -506,9 +514,13 @@
         width: 100%;
     }
 
-    .product-item--drink .product-item__btn {
+    .product-item__btn-group .product-item__btn {
         width: 73px;
     }
+
+    // .product-item--drink .product-item__btn {
+    //     width: 73px;
+    // }
 
     .product-item--drink .product-item__weight {
         display: block;
@@ -572,8 +584,12 @@
     }
 
     .product-item--drink .product-item__btn {
-        width: 66px;
+        // width: 66px;
         font-size: 18px;
+    }
+
+    .product-item__btn-group .product-item__btn {
+        width: 66px;
     }
 }
 
