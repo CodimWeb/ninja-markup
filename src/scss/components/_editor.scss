@@ -242,7 +242,8 @@
 .editor-slider__item__name {
     font-size: 18px;
     line-height: 20px;
-    height: 40px;
+    height: 34px;
+    margin-bottom: 5px;
     text-align: center;
     font-weight: 300;
     display: flex;
@@ -331,6 +332,13 @@
     background: #FF5F00;
 }
 
+
+@media (max-width: 1279px) {
+
+    .editor__container {
+        position: relative;
+    }
+}
 
 @media (max-width: 1023px) {
     .editor__container {

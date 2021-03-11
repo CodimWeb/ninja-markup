@@ -5,9 +5,10 @@
 
     }
 
-    @media (min-width: 716px) {
+    @media (min-width: 716px) and (max-width: 767px) {
         max-width: 676px;
     }
+
     @media (min-width: 1700px) {
         max-width: 1690px;
     }
@@ -22,6 +23,10 @@
 }
 
 @media (max-width: 1023px) {
+
+    .product-list .container {
+        max-width: 676px;
+    }
     
     .col-table-12 {
         flex: 0 0 100%;

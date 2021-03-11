@@ -631,7 +631,7 @@
         right: 0;
         top: 0;
         width: 375px;
-        height: auto;
+        height: 100%;
         display: flex;
         flex-direction: column;
         background: #141414;
@@ -884,6 +884,7 @@
 
     .nav-container {
         width: 100%;
+        height: auto;
         transform: translateX(0);
         min-height: fit-content;
     }
