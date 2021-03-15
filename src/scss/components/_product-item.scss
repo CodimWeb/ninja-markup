@@ -164,6 +164,14 @@
     width: 123px;
 }
 
+.product-item__btn-group:nth-child(1) .product-item__btn {
+    border-radius: 6px 0 0 6px;
+}
+
+.product-item__btn-group:nth-child(2) .product-item__btn {
+    border-radius: 0 6px 6px 0;
+}
+
 .product-item__btn-group .product-item__weight {
     bottom: -29px;
 }

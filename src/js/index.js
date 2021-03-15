@@ -55,19 +55,21 @@ $(document).ready(function(){
     //показ фильтров
     $('.toggle-filter').on('click', function(){
         $('.filter').fadeIn(250);
+        $('body').addClass('filter-open');
     })
 
     //скрытие фильтров
     $('.btn-close-filter').on('click', function(){
         $('.filter').fadeOut(250);
+        $('body').removeClass('filter-open');
     })
 
     // показ редактирования пиццы
     $('.product-pizza .product-item__picture').on('click', function(){
         var offset = $(this).closest('.product-pizza').offset().top;
-        console.log(offset);
-        $('.editor').css('top', offset + 'px');
-        offset = offset - ($('.header').outerHeight() / 2) - ($(window).outerHeight() / 2) + ($(this).closest('.product-pizza').outerHeight(true) / 2); //
+        // $('.editor').css('top', offset + 'px');
+        // offset = offset - ($('.header').outerHeight() / 2) - ($(window).outerHeight() / 2) + ($(this).closest('.product-pizza').outerHeight(true) / 2); //
+        offset = offset - $('.header').outerHeight() - (($(window).outerHeight() - $('.header').outerHeight() - $(this).closest('.product-pizza').outerHeight())/2);
         console.log(offset);
         console.log($(window).outerHeight())
         var currScroll =  $(window).scrollTop();
@@ -146,6 +148,29 @@ $(document).ready(function(){
             slidesToShow: 3,
             prevArrow: $('.cart-slider-prev'),
             nextArrow: $('.cart-slider-next'),
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2,
+                        variableWidth: true,
+                    }
+                },
+                // {
+                //     breakpoint: 600,
+                //     settings: {
+                //         slidesToShow: 2,
+                //         slidesToScroll: 2
+                //     }
+                // },
+                // {
+                //     breakpoint: 480,
+                //     settings: {
+                //         slidesToShow: 1,
+                //         slidesToScroll: 1
+                //     }
+                // }
+            ]
         });
     })
 
@@ -305,6 +330,23 @@ $(document).ready(function(){
         var height = $('.product-group-set').outerHeight() + 'px';
         $('.product-list').css('height', height)
     }
+
+    var isResize = false;
+    $(window).resize(function(){
+        if($(window).outerWidth() < 768) {
+            if(!isResize) {
+                isResize = true;
+                var height = $('.product-group-set').outerHeight() + 'px';
+                $('.product-list').css('height', height)
+                currentSlide = 0;
+                getProductGroup(currentSlide)
+            }    
+        }
+        else {
+            $('.product-list').css('height', 'auto')
+            isResize = false;
+        }
+    })
 
     $('.product-nav__item').on('click', function(){
         $('.product-nav__item').removeClass('active');

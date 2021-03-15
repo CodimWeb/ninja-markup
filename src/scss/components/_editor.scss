@@ -1,8 +1,9 @@
 .editor {
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
-    top: 200px;
+    top: 50%;
+    margin-top: -237px;
     height: 584px;
     padding-top: 24px;
     background: url(../img/editor-bg.jpg) no-repeat center bottom;
@@ -335,8 +336,17 @@
 
 @media (max-width: 1279px) {
 
+    .editor {
+        margin-top: -258px;
+    }
+
     .editor__container {
         position: relative;
+    }
+
+    .btn-close-editor {
+        top: -38px;
+        right: -42px;
     }
 }
 
@@ -346,4 +356,5 @@
         max-width: 100%;
         overflow: hidden;
     }
+    
 }
