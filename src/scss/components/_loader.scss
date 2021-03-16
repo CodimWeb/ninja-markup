@@ -43,3 +43,9 @@
         transform: rotate(360deg);
     }
 }
+
+@media (max-width: 767px) {
+    .loader img {
+        width: 75px;
+    }
+}

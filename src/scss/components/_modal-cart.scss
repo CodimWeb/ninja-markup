@@ -555,7 +555,7 @@
         }
     }
 
-    .modal .close {
+    .modal-cart .close {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -564,7 +564,7 @@
         transform: translateY(-50%);
     }
 
-    .modal .close svg {
+    .modal-cart .close svg {
         width: 22px;
         height: 22px;
     }

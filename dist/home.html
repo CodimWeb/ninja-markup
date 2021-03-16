@@ -1622,7 +1622,10 @@
             <div class="editor">
                 <div class="editor__container">
                     <button class="btn btn-close-editor">
-                        <img src="img/icons/icon-close-dark.svg" alt="">
+                        <img src="img/icons/icon-close-dark.svg" alt="" class="editor-close-desctop">
+                        <svg class="editor-close-mobile" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 1L1 17M1 1L17 17" stroke="white" stroke-width="2" stroke-linecap="round"></path>
+                        </svg>
                     </button>
                     <div class="editor__left">
                         <div class="editor__name">СОЛЯНКА ЗЛОДЕЙСКАЯ</div>
@@ -1881,7 +1884,8 @@
                         </div>
                         <div class="editor__btn-container">
                             <button class="btn product-item__btn">699 &#8381;</button>
-                        </div>    
+                        </div>   
+                        <div class="editor__info editor__info--mobile">32 см / 900 гр. / 2 200 Ккал</div> 
                     </div>
                 </div>
             </div>
@@ -2252,7 +2256,8 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <p class="modal-title">РАДЫ ВАС ВИДЕТЬ!</p>
+                    <p class="modal-title modal-title--desktop">РАДЫ ВАС ВИДЕТЬ!</p>
+                    <p class="modal-title modal-title--mobile">ЛИЧНЫЙ КАБИНЕТ</p>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M23 1L1 23M1 1L23 23" stroke-width="2" stroke-linecap="round"/>
@@ -2263,6 +2268,7 @@
                     <div class="modal-body__content">
                         <div class="modal-body__container">
                             <div class="modal-body__auth">
+                                <p class="auth-title--mobile">РАДЫ ВАС ВИДЕТЬ!</p>
                                 <p class="auth-title">ВВЕДИТЕ НОМЕР ТЕЛЕФОНА ДЛЯ АВТОРИЗАЦИИ</p>
                                 <input type="text" id="auth-phone" class="form-control comment-field auth-phone" placeholder="+7(___) ___-__-__">
                                 <div class="checkbox-container auth-agreement">
@@ -2277,6 +2283,7 @@
                             </div>    
 
                             <div class="modal-body__confirm">
+                                <p class="auth-title--mobile">ПОДТВЕРЖДЕНИЕ</p>
                                 <p class="auth-send__label">На телефон <span id="confirm-phone">+7 953 657-22-15</span> отправлен временный пароль, введите его, чтобы продолжить оформление заказа.</p>
                                 <input type="text" class="form-control comment-field auth-phone" placeholder="Секретный код">
                                 <button id="btn-auth-confirm" class="btn btn-secondary btn-block btn-auth-send btn-auth-confirm">ПОДТВЕРДИТЬ И ВОЙТИ</button>

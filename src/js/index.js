@@ -152,7 +152,7 @@ $(document).ready(function(){
                 {
                     breakpoint: 1024,
                     settings: {
-                        slidesToShow: 2,
+                        slidesToShow: 1,
                         variableWidth: true,
                     }
                 },
@@ -209,8 +209,8 @@ $(document).ready(function(){
         $('#modal-cart').removeAttr('style')
         $('.modal-backdrop').removeAttr('style');
         setTimeout(() => {
-            $('.modal-auth .modal-title').html('РАДЫ ВАС ВИДЕТЬ!')
-            $('.modal-body__content').removeClass('confirm');
+            $('.modal-auth .modal-title--desktop').html('РАДЫ ВАС ВИДЕТЬ!')
+            $('.modal-auth .modal-body').removeClass('confirm');
         }, 150);
         
     })
@@ -225,7 +225,7 @@ $(document).ready(function(){
         console.log($(this).is(':checked'))
         console.log(phone)
         if($(this).is(':checked')) {
-            if(phone.indexOf('_') == -1) {
+            if(phone.indexOf('_') == -1 && phone.length > 0) {
                 $('#btn-auth-send').removeAttr('disabled');
             }
             else {
@@ -249,14 +249,14 @@ $(document).ready(function(){
     });
 
     $('#btn-auth-send').on('click', function(){
-        $('.modal-auth .modal-title').html('ПОДТВЕРЖДЕНИЕ')
-        $('.modal-body__content').addClass('confirm');
+        $('.modal-auth .modal-title--desktop').html('ПОДТВЕРЖДЕНИЕ')
+        $('.modal-auth .modal-body').addClass('confirm');
     })
 
     $('.confirm-change-phone').on('click', function(e){
         e.preventDefault();
-        $('.modal-auth .modal-title').html('РАДЫ ВАС ВИДЕТЬ!')
-        $('.modal-body__content').removeClass('confirm');
+        $('.modal-auth .modal-title--desktop').html('РАДЫ ВАС ВИДЕТЬ!')
+        $('.modal-auth .modal-body').removeClass('confirm');
     })
 
     $('.mobile-burger-menu').on('click', function(){
@@ -283,48 +283,51 @@ $(document).ready(function(){
     var verticalEndPoint;
     var verticalDelta = 0;
     var currentSlide = 0;
-    document.querySelector('.product-list-wrap').addEventListener('touchstart', function (event) {
-        horizontalStartPoint = event.changedTouches[0].pageX;
-        verticalStartPoint = event.changedTouches[0].pageY;
-    }, false);
 
-    document.querySelector('.product-list-wrap').addEventListener('touchend', function (event) {
-        horizontalEndPoint = event.changedTouches[0].pageX;
-        verticalEndPoint = event.changedTouches[0].pageY;
-        horizontalDelta = horizontalEndPoint - horizontalStartPoint;
-        verticalDelta = verticalEndPoint - verticalStartPoint ;
-        
-        if (horizontalDelta > 80) {
-            console.log(Math.abs(horizontalDelta), 'horizontalDelta')
-            console.log(Math.abs(verticalDelta), 'verticalDelta')
-            if(Math.abs(horizontalDelta) > Math.abs(verticalDelta)) {
-                console.log('right');
-                if(currentSlide > 0) {
-                    currentSlide--;
-                    getProductGroup(currentSlide)
+    if(document.querySelector('.product-list-wrap')) {
+        document.querySelector('.product-list-wrap').addEventListener('touchstart', function (event) {
+            horizontalStartPoint = event.changedTouches[0].pageX;
+            verticalStartPoint = event.changedTouches[0].pageY;
+        }, false);
+    
+        document.querySelector('.product-list-wrap').addEventListener('touchend', function (event) {
+            horizontalEndPoint = event.changedTouches[0].pageX;
+            verticalEndPoint = event.changedTouches[0].pageY;
+            horizontalDelta = horizontalEndPoint - horizontalStartPoint;
+            verticalDelta = verticalEndPoint - verticalStartPoint ;
+            
+            if (horizontalDelta > 80) {
+                console.log(Math.abs(horizontalDelta), 'horizontalDelta')
+                console.log(Math.abs(verticalDelta), 'verticalDelta')
+                if(Math.abs(horizontalDelta) > Math.abs(verticalDelta)) {
+                    console.log('right');
+                    if(currentSlide > 0) {
+                        currentSlide--;
+                        getProductGroup(currentSlide)
+                    }
+                    
                 }
-                
+                else {
+                    console.log('verical')
+                }
             }
-            else {
-                console.log('verical')
+            else if (horizontalDelta < -80) {
+                console.log(Math.abs(horizontalDelta), 'horizontalDelta')
+                console.log(Math.abs(verticalDelta), 'verticalDelta')
+                if(Math.abs(horizontalDelta) > Math.abs(verticalDelta)) {
+                    console.log('left');
+                    if(currentSlide < 6) {
+                        currentSlide++;
+                        getProductGroup(currentSlide)
+                    }    
+                    
+                }
+                else {
+                    console.log('vertical')
+                }
             }
-        }
-        else if (horizontalDelta < -80) {
-            console.log(Math.abs(horizontalDelta), 'horizontalDelta')
-            console.log(Math.abs(verticalDelta), 'verticalDelta')
-            if(Math.abs(horizontalDelta) > Math.abs(verticalDelta)) {
-                console.log('left');
-                if(currentSlide < 6) {
-                    currentSlide++;
-                    getProductGroup(currentSlide)
-                }    
-                
-            }
-            else {
-                console.log('vertical')
-            }
-        }
-    }, false);
+        }, false);
+    }
 
     if($(window).outerWidth() < 768) {
         var height = $('.product-group-set').outerHeight() + 'px';
@@ -384,19 +387,20 @@ $(document).ready(function(){
         document.querySelector('.product-list').setAttribute('class', 'product-list' + ' ' + target);
     })
 
-    
-
-    $(window).scroll(function() {
-        var scrollLength = $(this).scrollTop();
-        // offsetTop = homeSlider.offset().top + homeSlider.outerHeight() - productNav.outerHeight() - header.outerHeight();
-        offsetTop = homeSlider.offset().top - (homeSlider.offset().top / 2);
-    
-        if(scrollLength >= offsetTop) {
-            productNav.addClass('visible')
-        } else {
-            productNav.removeClass('visible') 
-        }
-    });
+    console.log(productNav)
+    if(productNav.length > 0) {
+        $(window).scroll(function() {
+            var scrollLength = $(this).scrollTop();
+            // offsetTop = homeSlider.offset().top + homeSlider.outerHeight() - productNav.outerHeight() - header.outerHeight();
+            offsetTop = homeSlider.offset().top - (homeSlider.offset().top / 2);
+        
+            if(scrollLength >= offsetTop) {
+                productNav.addClass('visible')
+            } else {
+                productNav.removeClass('visible') 
+            }
+        });
+    }    
     
 });
 
