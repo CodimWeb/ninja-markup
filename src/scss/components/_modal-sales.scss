@@ -1,0 +1,130 @@
+.modal-sales .modal-dialog {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    margin: 0;
+    display: flex;
+}
+
+.modal-sales .modal-content {
+    background-color: transparent;
+    margin: auto;
+}
+
+.modal-sales .modal-header {
+    position: relative;
+    border: none;
+    padding: 21px 0;
+}
+
+.modal-sales .modal-header .close {
+    position: absolute;
+    top: 5px;
+    right: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-sales .modal-header .close svg {
+    width: 20px;
+    height: 20px;
+}
+
+.modal-sales .modal-body {
+    // max-width: 262px;
+    width: 100%;
+    padding: 0 57px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: 0.2s ease-in-out;
+}
+
+.modal-sales .modal-body.init {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sales-slider__img {
+    width: 100%;
+    border-radius: 3px;
+}
+
+.sales-slider__desctiption {
+    padding: 37px 12px 50px;
+    background: #141414;
+    border-radius: 0px 0px 12px 12px;
+    text-align: center;
+}
+
+.sales-slider__title {
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 40px;
+}
+
+.sales-slider__title span {
+    display: block;
+}
+
+.sales-slider__subtitle {
+    font-size: 16px;
+    line-height: 20px;
+    color: #C0C0C0;
+}
+
+.modal-sales .slick-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.modal-sales .sales-slider-prev {
+    left: 21px;
+}
+
+.modal-sales .sales-slider-next {
+    right: 21px;
+}
+
+.sales-slider .slick-dots {
+    position: static;
+    padding-left: 0;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.sales-slider .slick-dots li {
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+}
+
+.modal-backdrop.show {
+    opacity: 0.8;
+}
+
+@media (max-width: 374px) {
+
+    .modal-sales .modal-header .close {
+        right: 13px;
+    }
+
+    .modal-sales .modal-body {
+        padding: 0 37px;
+    }
+
+    .modal-sales .sales-slider-prev {
+        left: 13px;
+    }
+    
+    .modal-sales .sales-slider-next {
+        right: 13px;
+    }
+}

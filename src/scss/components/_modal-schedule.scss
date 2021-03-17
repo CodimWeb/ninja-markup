@@ -97,3 +97,24 @@
     font-weight: 700;
     padding: 14px 0;
 }
+
+@media (max-width: 1023px) {
+    .modal-schedule .modal-content {
+        margin-top: 70px;
+    }
+
+    .modal-schedule .close {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-schedule .close svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .modal-schedule .modal-body {
+        padding: 0 22px 47px;
+    }
+}

@@ -3,7 +3,6 @@
     left: 0;
     right: 0;
     top: 0;
-    // width: 100%;
     z-index: 15;
     display: flex;
     align-items: center;
@@ -61,10 +60,8 @@
 }
 
 .nav-list-products {
-    // transform: rotateX(90deg) translateZ(40px);
     transform: rotateX(-90deg) translateZ(40px);
     transform-origin: 0 0 0;
-    // transform-origin: 0 100% 0;
 }
 
 .nav-item {
@@ -504,6 +501,12 @@
 .mobile-header-logo {
     display: none;
 }
+
+// header для внутренних страниц 
+.header-short {
+    
+}
+
 
 @media (max-width: 1920px) {
     .header-link--time-delivery {

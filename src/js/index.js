@@ -27,6 +27,57 @@ $(document).ready(function(){
         infinite: true,
         slidesToScroll: 1,
         slidesToShow: 1,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    swipe: false,
+                }
+            },
+        ]
+    });
+
+    $('.main-slider .slick-item').on('click', function(){
+        if($(window).outerWidth() < 768) {
+            $('.modal-sales').modal('show')
+        }
+    })
+    
+    
+    $('#modal-sales').on('shown.bs.modal', function (event) {
+        $('.sales-slider').slick({
+            dots: true,
+            arrows: true,
+            prevArrow: $('.sales-slider-prev'),
+            nextArrow: $('.sales-slider-next'),
+            autoplay: true,
+            autoplaySpeed: 4000,
+            speed: 300,
+            infinite: true,
+            slidesToScroll: 1,
+            slidesToShow: 1,
+            asNavFor: '.main-slider .slick-slider'
+        });
+    })
+
+    $('.sales-slider').on('init', function(event){
+        $('#modal-sales .modal-body').addClass('init')
+        console.log(event, 'edge was hit')
+    });
+
+    $('#modal-sales').on('hidden.bs.modal', function (event) {
+        $('.sales-slider').slick('unslick');
+        $('#modal-sales .modal-body').removeClass('init')
+    })
+
+    $(window).on('orientationchange', function() {
+        if($('.sales-slider').length) {
+            var slider = $('.sales-slider')[0].slick;
+            // console.log(slider);
+            if(slider) {
+                $('.sales-slider')[0].slick.refresh();
+            }
+        }    
     });
 
     var header = $('.header');
@@ -466,7 +517,8 @@ function getProductGroup(currentSlide) {
         var height = $('.product-group-pizza').outerHeight() + 'px';
         var target = 'show-combo';
     }
-    document.querySelector('.product-list').setAttribute('class', 'product-list' + ' ' + target);
+    
+    $('.product-list').attr('class', 'product-list' + ' ' + target);
     $('.product-list').css('height', height)
     $('.product-nav__item').removeClass('active');
     $('[data-target='+target+']').addClass('active');
