@@ -16,6 +16,31 @@ import '../scss/style.scss';
 
 $(document).ready(function(){
 
+    // GET params
+    var getParams = (function() {
+        var params = window.location.href.split('?')[1];
+        if(params) {
+            var b = new Object();
+            params = params.split("&");
+            for (var i = 0; i < params.length; i++) {
+                var c = params[i].split("=");
+                b[c[0]] = c[1];
+            }
+            return b;
+        }    
+    })();
+
+    // если есть get параметры скролим или свайпим
+    if(getParams) {
+        if($(window).outerWidth() > 767) {
+            smoothScroll(getParams['target'])
+        }
+        else {
+            getProductGroup(getParams['slide'])
+            closeNav()
+        }
+    }
+
     $('.loader-wrap').fadeOut(1);
 
     $('.main-slider .slick-slider').slick({
@@ -438,7 +463,22 @@ $(document).ready(function(){
         document.querySelector('.product-list').setAttribute('class', 'product-list' + ' ' + target);
     })
 
-    console.log(productNav)
+    $('.smooth').on('click', function(e) {
+        e.preventDefault();
+        $('.smooth').removeClass('active');
+        $(this).addClass('active');
+        var target = $(this).attr('data-target');
+        var currentSlide = $(this).attr('data-slide');
+        if($(window).outerWidth() > 767) {
+            smoothScroll(target)
+        }
+        else {
+            getProductGroup(currentSlide)
+            closeNav()
+        }
+    })
+    
+
     if(productNav.length > 0) {
         $(window).scroll(function() {
             var scrollLength = $(this).scrollTop();
@@ -536,4 +576,10 @@ function scrollToProduct() {
     offsetTop = homeSlider.offset().top + homeSlider.outerHeight() - productNav.outerHeight() - header.outerHeight();
     $('body,html').animate({scrollTop: offsetTop}, 200);
 };
+
+function smoothScroll(target) {
+    console.log(target);
+    var offsetTop = $(target).offset().top - $('.header').outerHeight();
+    $('body,html').animate({scrollTop: offsetTop}, 800);
+}
 

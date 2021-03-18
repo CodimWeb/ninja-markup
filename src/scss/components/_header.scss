@@ -94,6 +94,14 @@
     
 }
 
+.nav-list-main .nav-link {
+    color: #FCC500;
+}
+
+.nav-list-main .nav-link.active {
+    color: #fff;
+}
+
 .header-link {
     display: flex;
     align-items: center;
@@ -503,8 +511,8 @@
 }
 
 // header для внутренних страниц 
-.header-short {
-    
+.header.header-short.scrolled .nav {
+    transform: rotateX(0);
 }
 
 
@@ -884,6 +892,10 @@
 
     .nav-backdrop {
         display: none;
+    }
+
+    .nav-scroll-container {
+        background: #141414;
     }
 
     .nav-container {
