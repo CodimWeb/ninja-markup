@@ -53,39 +53,134 @@
             <div class="container order-container">
                 <div class="order">
                     <div class="order-left">
-                        <p class="order-h1">Оформление заказа</p>
-                        <div class="order-h2">
-                            <p>Контакты</p>
-                        </div>
-                        <div class="order-contacts">
-                            <div class="order-form-group">
-                                <label for="" class="order-form-label">Имя</label>
-                                <div class="order-form-row">
-                                    <input type="text" class="form-control order-form-field" placeholder="Как вас зовут?">
-                                    <div class="error-block">! Укажите имя</div>
+                        <div class="order-contacts-wrap">
+                            <p class="order-h1">Оформление заказа</p>
+                            <div class="order-h2">
+                                <p>Контакты</p>
+                            </div>
+                            <div class="order-contacts">
+                                <div class="order-form-group">
+                                    <label for="" class="order-form-label">Имя</label>
+                                    <div class="order-form-row">
+                                        <input type="text" class="form-control order-form-field" placeholder="Как вас зовут?">
+                                        <div class="error-block">! Укажите имя</div>
+                                    </div>
+                                </div>
+                                <div class="order-form-group">
+                                    <label for="" class="order-form-label">Телефон</label>
+                                    <div class="order-form-row">
+                                        <input type="text" id="order-phone" class="form-control order-form-field" placeholder="+7(___) ___-__-__">
+                                    </div>
+                                </div>
+                                <div>
+                                    <a href="#" class="order-form-relogin">Войти под другим номером</a>
+                                </div>
+                                <div class="order-option">
+                                    <div class="order-option__text">Хочу подтвердить заказ по телефону</div>
+                                    <div class="toggler">
+                                        <input type="checkbox" id="confirm-by-phone" class="toggler__checkbox">
+                                        <label for="confirm-by-phone" class="toggler__label"></label>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="order-form-group">
-                                <label for="" class="order-form-label">Телефон</label>
-                                <div class="order-form-row">
-                                    <input type="text" id="order-phone" class="form-control order-form-field" placeholder="+7(___) ___-__-__">
+                            <div class="order-cart">
+                                <div class="order-cart__title">СОСТАВ ЗАКАЗА:</div>
+                                <div class="order-cart__list">
+                                    <div class="order-cart__item">
+                                        <div class="order-cart__item__left">
+                                            <div class="order-cart__item__type">Пицца 32 см<span class="order-cart__item__count">х2</span></div>
+                                            <div class="order-cart__item__name">Солянка Злодейская</div>
+                                        </div>
+                                        <div class="order-cart-item__right">
+                                            <div class="order-cart__item__price">1399 &#8381;</div>
+                                        </div>
+                                    </div>
+                                    <div class="order-cart__item">
+                                        <div class="order-cart__item__left">
+                                            <div class="order-cart__item__type">Своя Пицца 32см</div>
+                                        </div>
+                                        <div class="order-cart-item__right">
+                                            <div class="order-cart__item__price">940 &#8381;</div>
+                                        </div>
+                                    </div>
+                                    <div class="order-cart__item">
+                                        <div class="order-cart__item__left">
+                                            <div class="order-cart__item__type">Пицца 26 см</div>
+                                            <div class="order-cart__item__name">Ниндзя</div>
+                                        </div>
+                                        <div class="order-cart-item__right">
+                                            <div class="order-cart__item__price">0 &#8381;</div>
+                                        </div>
+                                    </div>
+                                    <div class="order-cart__item">
+                                        <div class="order-cart__item__left">
+                                            <div class="order-cart__item__type">Пицца 26 см</div>
+                                            <div class="order-cart__item__name">Английский завтрак</div>
+                                        </div>
+                                        <div class="order-cart-item__right">
+                                            <div class="order-cart__item__price">0 &#8381;</div>
+                                        </div>
+                                    </div>
+                                    <div class="order-cart__item">
+                                        <div class="order-cart__item__left">
+                                            <div class="order-cart__item__type">Промо пицца 32 см</div>
+                                            <div class="order-cart__item__name">Солянка Злодейская</div>
+                                        </div>
+                                        <div class="order-cart-item__right">
+                                            <div class="order-cart__item__price">389 &#8381;</div>
+                                        </div>
+                                    </div>
+                                    <div class="order-cart__item">
+                                        <div class="order-cart__item__left">
+                                            <div class="order-cart__item__type">Промо пицца 32 см</div>
+                                            <div class="order-cart__item__name">Солянка Злодейская</div>
+                                        </div>
+                                        <div class="order-cart-item__right">
+                                            <div class="order-cart__item__price">389 &#8381;</div>
+                                        </div>
+                                    </div>
+                                    <div class="order-cart__item">
+                                        <div class="order-cart__item__left">
+                                            <div class="order-cart__item__type">Промо пицца 32 см</div>
+                                            <div class="order-cart__item__name">Солянка Злодейская</div>
+                                        </div>
+                                        <div class="order-cart-item__right">
+                                            <div class="order-cart__item__price">389 &#8381;</div>
+                                        </div>
+                                    </div>
+                                    <div class="order-cart__item">
+                                        <div class="order-cart__item__left">
+                                            <div class="order-cart__item__type">Промо пицца 32 см</div>
+                                            <div class="order-cart__item__name">Солянка Злодейская</div>
+                                        </div>
+                                        <div class="order-cart-item__right">
+                                            <div class="order-cart__item__price">389 &#8381;</div>
+                                        </div>
+                                    </div>
+                                    <div class="order-cart__item">
+                                        <div class="order-cart__item__left">
+                                            <div class="order-cart__item__type">Промо пицца 32 см</div>
+                                            <div class="order-cart__item__name">Солянка Злодейская</div>
+                                        </div>
+                                        <div class="order-cart-item__right">
+                                            <div class="order-cart__item__price">389 &#8381;</div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div>
-                                <a href="#" class="order-form-relogin">Войти под другим номером</a>
-                            </div>
-                            <div class="order-option">
-                                <div class="order-option__text">Хочу подтвердить заказ по телефону</div>
-                                <div class="toggler">
-                                    <input type="checkbox" id="confirm-by-phone" class="toggler__checkbox">
-                                    <label for="confirm-by-phone" class="toggler__label"></label>
+                                <div class="order-cart__result">
+                                    <div class="order-discount">
+                                        <span>Скидка за<br/>самовывоз 10%</span>
+                                        <span>266 &#8381;</span>
+                                    </div>
+                                    <span>К оплате</span>
+                                    <span class="order-cart__result-price">2 667 &#8381;</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="order-h2">
-                            <p>Куда доставить</p>
-                        </div>
-                        <div>
+                        <div class="order-delivery-wrap">
+                            <div class="order-h2">
+                                <p>Куда доставить</p>
+                            </div>
                             <ul class="nav nav-tabs order-nav" id="order-tab" role="tablist">
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link active" id="delivery-tab" data-toggle="tab" href="#delivery" role="tab" aria-controls="delivery"aria-selected="true">Доставка</a>
@@ -97,7 +192,42 @@
                             <div class="tab-content order-tab-content" id="order-tab-content">
                                 <div class="tab-pane fade show active" id="delivery" role="tabpanel" aria-labelledby="delivery-tab">
                                     <div class="tab-panel">
-                                        <div class="address-list">
+                                        <div class="adress-slider slick-slider">
+                                            <div class="slick-item">
+                                                <div class="address-item">
+                                                    <div class="address-item__title">Привезем сюда</div>
+                                                    <div class="address-item__edit">
+                                                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.8532 0.289942C12.7595 0.19621 12.6323 0.143555 12.4998 0.143555C12.3672 0.143555 12.24 0.19621 12.1463 0.289942L10.4993 1.93687L14.2062 5.64371L15.8531 3.99778C15.8997 3.95134 15.9366 3.89616 15.9618 3.83542C15.987 3.77468 16 3.70956 16 3.64379C16 3.57803 15.987 3.51291 15.9618 3.45217C15.9366 3.39143 15.8997 3.33625 15.8531 3.28981L12.8532 0.289942ZM13.4992 6.35068L9.79238 2.64384L3.29266 9.14355H3.49965C3.63226 9.14355 3.75943 9.19623 3.85319 9.28999C3.94695 9.38376 3.99963 9.51093 3.99963 9.64353V10.1435H4.49961C4.63221 10.1435 4.75938 10.1962 4.85315 10.2899C4.94691 10.3837 4.99959 10.5109 4.99959 10.6435V11.1435H5.49957C5.63217 11.1435 5.75934 11.1961 5.8531 11.2899C5.94687 11.3837 5.99954 11.5108 5.99954 11.6434V12.1434H6.49952C6.63212 12.1434 6.7593 12.1961 6.85306 12.2899C6.94682 12.3836 6.9995 12.5108 6.9995 12.6434V12.8504L13.4992 6.35068ZM6.03154 13.8183C6.0105 13.7624 5.99966 13.7031 5.99954 13.6434V13.1434H5.49957C5.36696 13.1434 5.23979 13.0907 5.14603 12.9969C5.05226 12.9032 4.99959 12.776 4.99959 12.6434V12.1434H4.49961C4.36701 12.1434 4.23984 12.0907 4.14607 11.997C4.05231 11.9032 3.99963 11.776 3.99963 11.6434V11.1435H3.49965C3.36705 11.1435 3.23988 11.0908 3.14612 10.997C3.05235 10.9033 2.99968 10.7761 2.99968 10.6435V10.1435H2.4997C2.43992 10.1434 2.38065 10.1326 2.3247 10.1115L2.14571 10.2895C2.09806 10.3375 2.06064 10.3946 2.03572 10.4575L0.0358045 15.4573C-0.000564569 15.5481 -0.00946768 15.6477 0.0101989 15.7435C0.0298655 15.8394 0.0772369 15.9274 0.14644 15.9966C0.215644 16.0658 0.303636 16.1132 0.399508 16.1329C0.49538 16.1525 0.594916 16.1436 0.685776 16.1072L5.68556 14.1073C5.74842 14.0824 5.80557 14.045 5.85355 13.9973L6.03154 13.8193V13.8183Z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="address-item__name">Мой адрес</div>
+                                                    <div class="address-item__text">ул. 26 Бакинских Комиссаров, д. 20, кв. 64</div>
+                                                </div>
+                                            </div>
+                                            <div class="slick-item">    
+                                                <div class="address-item active">
+                                                    <div class="address-item__title">Привезем сюда</div>
+                                                    <div class="address-item__edit">
+                                                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.8532 0.289942C12.7595 0.19621 12.6323 0.143555 12.4998 0.143555C12.3672 0.143555 12.24 0.19621 12.1463 0.289942L10.4993 1.93687L14.2062 5.64371L15.8531 3.99778C15.8997 3.95134 15.9366 3.89616 15.9618 3.83542C15.987 3.77468 16 3.70956 16 3.64379C16 3.57803 15.987 3.51291 15.9618 3.45217C15.9366 3.39143 15.8997 3.33625 15.8531 3.28981L12.8532 0.289942ZM13.4992 6.35068L9.79238 2.64384L3.29266 9.14355H3.49965C3.63226 9.14355 3.75943 9.19623 3.85319 9.28999C3.94695 9.38376 3.99963 9.51093 3.99963 9.64353V10.1435H4.49961C4.63221 10.1435 4.75938 10.1962 4.85315 10.2899C4.94691 10.3837 4.99959 10.5109 4.99959 10.6435V11.1435H5.49957C5.63217 11.1435 5.75934 11.1961 5.8531 11.2899C5.94687 11.3837 5.99954 11.5108 5.99954 11.6434V12.1434H6.49952C6.63212 12.1434 6.7593 12.1961 6.85306 12.2899C6.94682 12.3836 6.9995 12.5108 6.9995 12.6434V12.8504L13.4992 6.35068ZM6.03154 13.8183C6.0105 13.7624 5.99966 13.7031 5.99954 13.6434V13.1434H5.49957C5.36696 13.1434 5.23979 13.0907 5.14603 12.9969C5.05226 12.9032 4.99959 12.776 4.99959 12.6434V12.1434H4.49961C4.36701 12.1434 4.23984 12.0907 4.14607 11.997C4.05231 11.9032 3.99963 11.776 3.99963 11.6434V11.1435H3.49965C3.36705 11.1435 3.23988 11.0908 3.14612 10.997C3.05235 10.9033 2.99968 10.7761 2.99968 10.6435V10.1435H2.4997C2.43992 10.1434 2.38065 10.1326 2.3247 10.1115L2.14571 10.2895C2.09806 10.3375 2.06064 10.3946 2.03572 10.4575L0.0358045 15.4573C-0.000564569 15.5481 -0.00946768 15.6477 0.0101989 15.7435C0.0298655 15.8394 0.0772369 15.9274 0.14644 15.9966C0.215644 16.0658 0.303636 16.1132 0.399508 16.1329C0.49538 16.1525 0.594916 16.1436 0.685776 16.1072L5.68556 14.1073C5.74842 14.0824 5.80557 14.045 5.85355 13.9973L6.03154 13.8193V13.8183Z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="address-item__name">Мой адрес</div>
+                                                    <div class="address-item__text">пр. им. газеты Красноярский Рабочий, д. 20, кв. 64, домофон</div>
+                                                </div>
+                                            </div>
+                                            <div class="slick-item">
+                                                <div class="address-add">
+                                                    <svg width="34" height="37" viewBox="0 0 34 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <rect x="15.0059" y="0.143555" width="3.75148" height="36"/>
+                                                        <rect x="33.7637" y="16.1436" width="4" height="33.7633" transform="rotate(90 33.7637 16.1436)"/>
+                                                    </svg>
+                                                    <div class="address-add__title">Добавить адрес</div> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="address-list">
                                             <div class="address-col">
                                                 <div class="address-item">
                                                     <div class="address-item__title">Привезем сюда</div>
@@ -131,7 +261,7 @@
                                                     <div class="address-add__title">Добавить адрес</div> 
                                                 </div>
                                             </div>    
-                                        </div>
+                                        </div> -->
                                         <div class="order-option">
                                             <div class="order-option__text dark">
                                                 Бесконтактная доставка
@@ -188,7 +318,55 @@
                                 </div>
                                 <div class="tab-pane fade" id="pickup" role="tabpanel" aria-labelledby="pickup-tab">
                                     <div class="tab-panel">
-                                        <div class="filial-list">
+                                        <div class="fillial-slider slick-slider">
+                                            <div class="slick-item">
+                                                <div class="radio-container">
+                                                    <input type="radio" name="filial" id="filial-1" class="radio-input">
+                                                    <label for="filial-1" class="radio-label">
+                                                        <div class="radio-label__text">78 Добровольческой бригады, д. 28</div>
+                                                        <div class="filial-time">10:00 - 23:40</div>
+                                                    </label>
+                                                </div>
+                                                <div class="radio-container">
+                                                    <input type="radio" name="filial" id="filial-2" class="radio-input">
+                                                    <label for="filial-2" class="radio-label">
+                                                        <div class="radio-label__text">Свердловская, д. 3а</div>
+                                                        <div class="filial-time">10:00 - 23:40</div>
+                                                    </label>
+                                                </div>
+                                                <div class="radio-container">
+                                                    <input type="radio" name="filial" id="filial-3" class="radio-input">
+                                                    <label for="filial-3" class="radio-label">
+                                                        <div class="radio-label__text">Мате Залки, д. 41</div>
+                                                        <div class="filial-time">10:00 - 23:40</div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="slick-item">
+                                                <div class="radio-container">
+                                                    <input type="radio" name="filial" id="filial-4" class="radio-input">
+                                                    <label for="filial-4" class="radio-label">
+                                                        <div class="radio-label__text">Коммунальная, д. 8а</div>
+                                                        <div class="filial-time">10:00 - 23:40</div>
+                                                    </label>
+                                                </div>
+                                                <div class="radio-container">
+                                                    <input type="radio" name="filial" id="filial-5" class="radio-input">
+                                                    <label for="filial-5" class="radio-label">
+                                                        <div class="radio-label__text">Баумана, д. 21</div>
+                                                        <div class="filial-time">10:00 - 23:40</div>
+                                                    </label>
+                                                </div>
+                                                <div class="radio-container">
+                                                    <input type="radio" name="filial" id="filial-6" class="radio-input">
+                                                    <label for="filial-6" class="radio-label">
+                                                        <div class="radio-label__text">Словцова, 4</div>
+                                                        <div class="filial-time">10:00 - 23:40</div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>    
+                                        <!-- <div class="filial-list">
                                             <div class="filial-col">
                                                 <div class="radio-container">
                                                     <input type="radio" name="filial" id="filial-1" class="radio-input">
@@ -235,7 +413,7 @@
                                                     </label>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="order-h2">
                                         <p>Время приготовления</p>
@@ -318,60 +496,8 @@
                     </div>
                     <div class="order-devider"></div>
                     <div class="order-right">
-                        <div class="order-cart">
-                            <div class="order-cart__title">СОСТАВ ЗАКАЗА:</div>
-                            <div class="order-cart__list">
-                                <div class="order-cart__item">
-                                    <div class="order-cart__item__left">
-                                        <div class="order-cart__item__type">Пицца 32 см<span class="order-cart__item__count">х2</span></div>
-                                        <div class="order-cart__item__name">Солянка Злодейская</div>
-                                    </div>
-                                    <div class="order-cart-item__right">
-                                        <div class="order-cart__item__price">1399 &#8381;</div>
-                                    </div>
-                                </div>
-                                <div class="order-cart__item">
-                                    <div class="order-cart__item__left">
-                                        <div class="order-cart__item__type">Своя Пицца 32см</div>
-                                    </div>
-                                    <div class="order-cart-item__right">
-                                        <div class="order-cart__item__price">940 &#8381;</div>
-                                    </div>
-                                </div>
-                                <div class="order-cart__item">
-                                    <div class="order-cart__item__left">
-                                        <div class="order-cart__item__type">Пицца 26 см</div>
-                                        <div class="order-cart__item__name">Ниндзя</div>
-                                    </div>
-                                    <div class="order-cart-item__right">
-                                        <div class="order-cart__item__price">0 &#8381;</div>
-                                    </div>
-                                </div>
-                                <div class="order-cart__item">
-                                    <div class="order-cart__item__left">
-                                        <div class="order-cart__item__type">Пицца 26 см</div>
-                                        <div class="order-cart__item__name">Английский завтрак</div>
-                                    </div>
-                                    <div class="order-cart-item__right">
-                                        <div class="order-cart__item__price">0 &#8381;</div>
-                                    </div>
-                                </div>
-                                <div class="order-cart__item">
-                                    <div class="order-cart__item__left">
-                                        <div class="order-cart__item__type">Промо пицца 32 см</div>
-                                        <div class="order-cart__item__name">Солянка Злодейская</div>
-                                    </div>
-                                    <div class="order-cart-item__right">
-                                        <div class="order-cart__item__price">389 &#8381;</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="order-cart__result">
-                                <span>К оплате</span>
-                                <span class="order-cart__result-price">2 667 &#8381;</span>
-                            </div>
-                        </div>
-                        <div class="deliviery-panel">
+                        
+                        <!-- <div class="deliviery-panel">
                             <div class="deliviery-panel__title">Дата доставки</div>
                             <select name="" id="" class="select-delivery">
                                 <option value="">1</option>
@@ -462,7 +588,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>    
             </div>

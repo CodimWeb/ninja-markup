@@ -4,8 +4,10 @@ import $ from 'jquery';
 
 //BS4 components
 // import bootstrap from 'bootstrap';
+import Util from 'bootstrap/js/dist/util.js'
 import Modal from 'bootstrap/js/dist/modal'
 import Tab from 'bootstrap/js/dist/tab'
+import ScrollSpy from 'bootstrap/js/dist/scrollspy'
 
 import '../js/slick.min.js';
 import select2 from 'select2';
@@ -26,20 +28,12 @@ $(document).ready(function(){
                 var c = params[i].split("=");
                 b[c[0]] = c[1];
             }
+
+            var newUrl = window.location.href.split('?')[0]; 
+            window.history.pushState('name', '', newUrl);
             return b;
         }    
     })();
-
-    // если есть get параметры скролим или свайпим
-    if(getParams) {
-        if($(window).outerWidth() > 767) {
-            smoothScroll(getParams['target'])
-        }
-        else {
-            getProductGroup(getParams['slide'])
-            closeNav()
-        }
-    }
 
     $('.loader-wrap').fadeOut(1);
 
@@ -61,6 +55,24 @@ $(document).ready(function(){
             },
         ]
     });
+
+    console.log($('.header').outerHeight());
+
+    $('body').scrollspy({ 
+        target: '#navbar-example',
+        offset:  150,
+    })
+
+     // если есть get параметры скролим или свайпим
+     if(getParams) {
+        if($(window).outerWidth() > 767) {
+            smoothScroll(getParams['target'])
+        }
+        else {
+            getProductGroup(getParams['slide'])
+            closeNav()
+        }
+    }
 
     $('.main-slider .slick-item').on('click', function(){
         if($(window).outerWidth() < 768) {
@@ -143,8 +155,6 @@ $(document).ready(function(){
     // показ редактирования пиццы
     $('.product-pizza .product-item__picture').on('click', function(){
         var offset = $(this).closest('.product-pizza').offset().top;
-        // $('.editor').css('top', offset + 'px');
-        // offset = offset - ($('.header').outerHeight() / 2) - ($(window).outerHeight() / 2) + ($(this).closest('.product-pizza').outerHeight(true) / 2); //
         offset = offset - $('.header').outerHeight() - (($(window).outerHeight() - $('.header').outerHeight() - $(this).closest('.product-pizza').outerHeight())/2);
         console.log(offset);
         console.log($(window).outerHeight())
@@ -152,9 +162,6 @@ $(document).ready(function(){
         var scrollLenght = Math.ceil(Math.abs(offset - currScroll));
         var animationTime = scrollLenght * 1.2;
 
-        // console.log(offset)
-        // console.log($(window).scrollTop(), 'scroll');
-        // console.log(scrollLenght)
         $('body,html').animate({scrollTop: offset}, animationTime).promise().then(function() {
             console.log('end animate');
             var scrollBarWidth = getScrollbarWidth()
@@ -465,8 +472,8 @@ $(document).ready(function(){
 
     $('.smooth').on('click', function(e) {
         e.preventDefault();
-        $('.smooth').removeClass('active');
-        $(this).addClass('active');
+        // $('.smooth').removeClass('active');
+        // $(this).addClass('active');
         var target = $(this).attr('data-target');
         var currentSlide = $(this).attr('data-slide');
         if($(window).outerWidth() > 767) {
@@ -491,7 +498,53 @@ $(document).ready(function(){
                 productNav.removeClass('visible') 
             }
         });
-    }    
+    }   
+    
+    /* ORDERS */
+    
+    $('.adress-slider').slick({
+        dots: false,
+        arrows: true,
+        autoplay: false,
+        draggable: false,
+        speed: 300,
+        infinite: false,
+        slidesToScroll: 1,
+        slidesToShow: 3,
+        prevArrow: $('.cart-slider-prev'),
+        nextArrow: $('.cart-slider-next'),
+    }); 
+
+    $('.fillial-slider').slick({
+        dots: true,
+        arrows: true,
+        autoplay: true,
+        // draggable: false,
+        speed: 300,
+        infinite: true,
+        slidesToScroll: 1,
+        slidesToShow: 2,
+        // prevArrow: $('.cart-slider-prev'),
+        // nextArrow: $('.cart-slider-next'),
+    }); 
+
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (event) {
+        event.target // newly activated tab
+        event.relatedTarget // previous active tab
+        if(event.target.id == 'pickup-tab') {
+            console.log('pickup')
+        }
+        else if (event.target.href == '#delivery') {
+            console.log('delivery')
+        }
+        console.log(event)
+        console.log(event.target)
+        console.log(event.relatedTarget)
+        
+    })
+    
+    
+    /* END ORDERS */
     
 });
 
@@ -525,47 +578,49 @@ function closeNav() {
 }
 
 function getProductGroup(currentSlide) {
-    if(currentSlide == 0) {
-        var height = $('.product-group-set').outerHeight() + 'px';
-        var target = 'show-set';
-    }
-    else if(currentSlide == 1) {
-        var height = $('.product-group-pizza').outerHeight() + 'px';
-        var target = 'show-pizza';
-    }
-    else if(currentSlide == 2) {
-        var height = $('.product-group-hot').outerHeight() + 'px';
-        var target = 'show-hot';
-    }
-    else if(currentSlide == 3) {
-        var height = $('.product-group-salads').outerHeight() + 'px';
-        var target = 'show-salads';
-    }
-    else if(currentSlide == 4) {
-        var height = $('.product-group-deserts').outerHeight() + 'px';
-        var target = 'show-deserts';
-    }
-    else if(currentSlide == 5) {
-        var height = $('.product-group-sauces').outerHeight() + 'px';
-        var target = 'show-sauces';
-    }
-    else if(currentSlide == 6) {
-        var height = $('.product-group-drinks').outerHeight() + 'px';
-        var target = 'show-drinks';
-    }
-    else if(currentSlide == 7) {
-        var height = $('.product-group-pizza').outerHeight() + 'px';
-        var target = 'show-combo';
-    }
-    
-    $('.product-list').attr('class', 'product-list' + ' ' + target);
-    $('.product-list').css('height', height)
-    $('.product-nav__item').removeClass('active');
-    $('[data-target='+target+']').addClass('active');
+    if($(window).outerWidth() < 1024) {
+        if(currentSlide == 0) {
+            var height = $('.product-group-set').outerHeight() + 'px';
+            var target = 'show-set';
+        }
+        else if(currentSlide == 1) {
+            var height = $('.product-group-pizza').outerHeight() + 'px';
+            var target = 'show-pizza';
+        }
+        else if(currentSlide == 2) {
+            var height = $('.product-group-hot').outerHeight() + 'px';
+            var target = 'show-hot';
+        }
+        else if(currentSlide == 3) {
+            var height = $('.product-group-salads').outerHeight() + 'px';
+            var target = 'show-salads';
+        }
+        else if(currentSlide == 4) {
+            var height = $('.product-group-deserts').outerHeight() + 'px';
+            var target = 'show-deserts';
+        }
+        else if(currentSlide == 5) {
+            var height = $('.product-group-sauces').outerHeight() + 'px';
+            var target = 'show-sauces';
+        }
+        else if(currentSlide == 6) {
+            var height = $('.product-group-drinks').outerHeight() + 'px';
+            var target = 'show-drinks';
+        }
+        else if(currentSlide == 7) {
+            var height = $('.product-group-pizza').outerHeight() + 'px';
+            var target = 'show-combo';
+        }
+        
+        $('.product-list').attr('class', 'product-list' + ' ' + target);
+        $('.product-list').css('height', height)
+        $('.product-nav__item').removeClass('active');
+        $('[data-target='+target+']').addClass('active');
 
-    setTimeout(function() {
-        scrollToProduct();
-    }, 250)
+        setTimeout(function() {
+            scrollToProduct();
+        }, 250)
+    }    
 }
 
 function scrollToProduct() {
