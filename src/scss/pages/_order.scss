@@ -8,6 +8,7 @@
     display: flex;
     position: relative;
     background: #141414;
+    overflow: hidden;
 }
 
 .order-left {
@@ -133,6 +134,10 @@
         color: #fff;
         text-decoration: none;
     }
+}
+
+.order-delivery-wrap {
+    position: relative;
 }
 
 .order-tab-content {
@@ -348,6 +353,15 @@
     color: #C0C0C0;
 }
 
+.fillial-slider {
+    padding: 16px 0 18px;
+}
+
+.fillial-slider .slick-item {
+    padding: 9px 0;
+    margin-right: 57px;
+}
+
 .delivery-time__noty {
     display: inline-block;
     padding: 4px 7px 5px;
@@ -391,6 +405,7 @@
 .comment-field {
     height: 50px;
     border: 1px solid #383838;
+    padding: 4px;
     background: #141414;
     font-weight: 300;
     font-size: 15px;
@@ -475,15 +490,18 @@
     }
 }
 
+.deliviery-panel-wrap {
+    width: 263px;
+    padding: 0 29px 0 32px;
+    position: absolute;
+    left: 100%;
+    top: -38px;
+    margin-left: 28px;
+}
+
 .deliviery-panel {
-    // position: absolute;
-    // top: -37px;
-    // left: 100%;
-    // width: 200px;
-    padding-top: 24px;
-    padding-bottom: 24px;
-    // margin-left: 61px;
-    margin: 10px 0;
+    padding-top: 30px;
+    // margin: 10px 0;
     border-top: 1px solid #FCC500;
 }
 
@@ -499,7 +517,7 @@
     background: #141414;
     height: 50px;
     border-radius: 6px;
-    margin: 6px 0;
+    margin: 0 0 12px;
 }
 
 // .select2-container--default.select2-container--open.select2-container--below .select-delivery {
@@ -517,7 +535,7 @@
 }
 
 .select2-container--default .select-delivery .select2-selection__arrow {
-    top: 14px;
+    top: 9px;
 }
 
 .select2-container--default .select-delivery .select2-selection__arrow b {
@@ -691,10 +709,22 @@
     line-height: 22px;
 }
 
-.detail-adress {
-    border-top: 1px solid #FCC500;
-    padding-top: 30px;
+.detail-adress-wrap {
+    width: 263px;
+    padding: 12px 29px 0 32px;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    margin-left: 28px;
+    background: #141414;
+    z-index: 2;
+}
 
+.detail-adress {
+    padding-top: 30px;
+    border-top: 1px solid #FCC500;
+    background: #141414;
+    height: 10000px;
 }
 
 .detail-address__group {
@@ -776,6 +806,26 @@
     right: 10px;
     font-weight: 300;
     font-size: 17px;
+}
+
+.pay-type-wrap {
+    position: relative;
+    
+}
+
+.pay-form-wrap {
+    width: 263px;
+    padding: 0 29px 0 32px;
+    position: absolute;
+    left: 100%;
+    top: 13px;
+    margin-left: 28px;
+    
+}
+
+.pay-form {
+    padding-top: 30px;
+    border-top: 1px solid #fcc500;
 }
 
 .pay-form__icon-card {

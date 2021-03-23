@@ -501,8 +501,10 @@ $(document).ready(function(){
     }   
     
     /* ORDERS */
-    
-    $('.adress-slider').slick({
+
+    var adressSlider = $('.adress-slider');
+    var fillialSlider = $('.fillial-slider');
+    adressSlider.slick({
         dots: false,
         arrows: true,
         autoplay: false,
@@ -511,35 +513,67 @@ $(document).ready(function(){
         infinite: false,
         slidesToScroll: 1,
         slidesToShow: 3,
-        prevArrow: $('.cart-slider-prev'),
-        nextArrow: $('.cart-slider-next'),
-    }); 
-
-    $('.fillial-slider').slick({
-        dots: true,
-        arrows: true,
-        autoplay: true,
-        // draggable: false,
-        speed: 300,
-        infinite: true,
-        slidesToScroll: 1,
-        slidesToShow: 2,
         // prevArrow: $('.cart-slider-prev'),
         // nextArrow: $('.cart-slider-next'),
     }); 
 
+    // fillialSlider.slick({
+    //     dots: true,
+    //     arrows: true,
+    //     autoplay: true,
+    //     // draggable: false,
+    //     speed: 300,
+    //     infinite: true,
+    //     slidesToScroll: 1,
+    //     slidesToShow: 2,
+    //     // prevArrow: $('.cart-slider-prev'),
+    //     // nextArrow: $('.cart-slider-next'),
+    // });
+
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (event) {
         event.target // newly activated tab
         event.relatedTarget // previous active tab
-        if(event.target.id == 'pickup-tab') {
-            console.log('pickup')
-        }
-        else if (event.target.href == '#delivery') {
+
+        //доставка
+        if (event.target.id == 'delivery-tab') {
+            fillialSlider.slick('unslick');
+            adressSlider.slick({
+                dots: false,
+                arrows: true,
+                autoplay: false,
+                draggable: false,
+                speed: 300,
+                infinite: false,
+                slidesToScroll: 1,
+                slidesToShow: 3,
+                // prevArrow: $('.cart-slider-prev'),
+                // nextArrow: $('.cart-slider-next'),
+            }); 
             console.log('delivery')
         }
-        console.log(event)
-        console.log(event.target)
-        console.log(event.relatedTarget)
+        // самовывоз
+        else if(event.target.id == 'pickup-tab') {
+            adressSlider.slick('unslick');
+            fillialSlider.slick({
+                dots: false,
+                arrows: true,
+                autoplay: false,
+                draggable: false,
+                variableWidth: true,
+                speed: 300,
+                infinite: false,
+                slidesToScroll: 1,
+                slidesToShow: 2,
+                // prevArrow: $('.cart-slider-prev'),
+                // nextArrow: $('.cart-slider-next'),
+            }); 
+            console.log('pickup')
+            
+        }
+        
+        // console.log(event)
+        // console.log(event.target)
+        // console.log(event.relatedTarget)
         
     })
     
