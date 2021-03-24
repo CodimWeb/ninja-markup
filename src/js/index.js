@@ -502,9 +502,9 @@ $(document).ready(function(){
     
     /* ORDERS */
 
-    var adressSlider = $('.adress-slider');
+    var addressSlider = $('.address-slider');
     var fillialSlider = $('.fillial-slider');
-    adressSlider.slick({
+    addressSlider.slick({
         dots: false,
         arrows: true,
         autoplay: false,
@@ -512,7 +512,7 @@ $(document).ready(function(){
         speed: 300,
         infinite: false,
         slidesToScroll: 1,
-        slidesToShow: 3,
+        slidesToShow: 2,
         // prevArrow: $('.cart-slider-prev'),
         // nextArrow: $('.cart-slider-next'),
     }); 
@@ -537,15 +537,16 @@ $(document).ready(function(){
         //доставка
         if (event.target.id == 'delivery-tab') {
             fillialSlider.slick('unslick');
-            adressSlider.slick({
+            addressSlider.slick({
                 dots: false,
                 arrows: true,
                 autoplay: false,
                 draggable: false,
+                variableWidth: true,
                 speed: 300,
                 infinite: false,
                 slidesToScroll: 1,
-                slidesToShow: 3,
+                slidesToShow: 2,
                 // prevArrow: $('.cart-slider-prev'),
                 // nextArrow: $('.cart-slider-next'),
             }); 
@@ -553,7 +554,7 @@ $(document).ready(function(){
         }
         // самовывоз
         else if(event.target.id == 'pickup-tab') {
-            adressSlider.slick('unslick');
+            addressSlider.slick('unslick');
             fillialSlider.slick({
                 dots: false,
                 arrows: true,
@@ -567,6 +568,7 @@ $(document).ready(function(){
                 // prevArrow: $('.cart-slider-prev'),
                 // nextArrow: $('.cart-slider-next'),
             }); 
+            $('.detail-address-wrap').removeClass('active');
             console.log('pickup')
             
         }
@@ -575,6 +577,14 @@ $(document).ready(function(){
         // console.log(event.target)
         // console.log(event.relatedTarget)
         
+    })
+
+    $('.address-add').on('click', function(){
+        $('.detail-address-wrap').addClass('active');
+    })
+
+    $('.radio-input').on('change', function(){
+        $('.detail-address-wrap').removeClass('active');
     })
     
     
