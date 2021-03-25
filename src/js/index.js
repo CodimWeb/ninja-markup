@@ -239,20 +239,6 @@ $(document).ready(function(){
                         variableWidth: true,
                     }
                 },
-                // {
-                //     breakpoint: 600,
-                //     settings: {
-                //         slidesToShow: 2,
-                //         slidesToScroll: 2
-                //     }
-                // },
-                // {
-                //     breakpoint: 480,
-                //     settings: {
-                //         slidesToShow: 1,
-                //         slidesToScroll: 1
-                //     }
-                // }
             ]
         });
     })
@@ -509,26 +495,19 @@ $(document).ready(function(){
         arrows: true,
         autoplay: false,
         draggable: false,
+        variableWidth: true,
         speed: 300,
         infinite: false,
         slidesToScroll: 1,
-        slidesToShow: 2,
-        // prevArrow: $('.cart-slider-prev'),
-        // nextArrow: $('.cart-slider-next'),
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    draggable: true,
+                }
+            },
+        ]
     }); 
-
-    // fillialSlider.slick({
-    //     dots: true,
-    //     arrows: true,
-    //     autoplay: true,
-    //     // draggable: false,
-    //     speed: 300,
-    //     infinite: true,
-    //     slidesToScroll: 1,
-    //     slidesToShow: 2,
-    //     // prevArrow: $('.cart-slider-prev'),
-    //     // nextArrow: $('.cart-slider-next'),
-    // });
 
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (event) {
         event.target // newly activated tab
@@ -546,9 +525,14 @@ $(document).ready(function(){
                 speed: 300,
                 infinite: false,
                 slidesToScroll: 1,
-                slidesToShow: 2,
-                // prevArrow: $('.cart-slider-prev'),
-                // nextArrow: $('.cart-slider-next'),
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            draggable: true,
+                        }
+                    },
+                ]
             }); 
             console.log('delivery')
         }
@@ -565,8 +549,14 @@ $(document).ready(function(){
                 infinite: false,
                 slidesToScroll: 1,
                 slidesToShow: 2,
-                // prevArrow: $('.cart-slider-prev'),
-                // nextArrow: $('.cart-slider-next'),
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            draggable: true,
+                        }
+                    },
+                ]
             }); 
             $('.detail-address-wrap').removeClass('active');
             console.log('pickup')
