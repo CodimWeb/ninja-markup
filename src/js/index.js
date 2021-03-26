@@ -495,6 +495,7 @@ $(document).ready(function(){
         arrows: true,
         autoplay: false,
         draggable: false,
+        swipe: false,
         variableWidth: true,
         speed: 300,
         infinite: false,
@@ -504,10 +505,35 @@ $(document).ready(function(){
                 breakpoint: 1024,
                 settings: {
                     draggable: true,
+                    swipe: true,
                 }
             },
         ]
     }); 
+
+    fillialSlider.slick({
+        dots: false,
+        arrows: true,
+        autoplay: false,
+        draggable: false,
+        swipe: false,
+        variableWidth: true,
+        speed: 300,
+        infinite: false,
+        slidesToScroll: 1,
+        // slidesToShow: 2,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    draggable: true,
+                    swipe: true,
+                    variableWidth: false,
+                    slidesToShow: 1,
+                }
+            },
+        ]
+    });
 
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (event) {
         event.target // newly activated tab
@@ -515,49 +541,49 @@ $(document).ready(function(){
 
         //доставка
         if (event.target.id == 'delivery-tab') {
-            fillialSlider.slick('unslick');
-            addressSlider.slick({
-                dots: false,
-                arrows: true,
-                autoplay: false,
-                draggable: false,
-                variableWidth: true,
-                speed: 300,
-                infinite: false,
-                slidesToScroll: 1,
-                responsive: [
-                    {
-                        breakpoint: 1024,
-                        settings: {
-                            draggable: true,
-                        }
-                    },
-                ]
-            }); 
+            // fillialSlider.slick('unslick');
+            // addressSlider.slick({
+            //     dots: false,
+            //     arrows: true,
+            //     autoplay: false,
+            //     draggable: false,
+            //     variableWidth: true,
+            //     speed: 300,
+            //     infinite: false,
+            //     slidesToScroll: 1,
+            //     responsive: [
+            //         {
+            //             breakpoint: 1024,
+            //             settings: {
+            //                 draggable: true,
+            //             }
+            //         },
+            //     ]
+            // }); 
             console.log('delivery')
         }
         // самовывоз
         else if(event.target.id == 'pickup-tab') {
-            addressSlider.slick('unslick');
-            fillialSlider.slick({
-                dots: false,
-                arrows: true,
-                autoplay: false,
-                draggable: false,
-                variableWidth: true,
-                speed: 300,
-                infinite: false,
-                slidesToScroll: 1,
-                slidesToShow: 2,
-                responsive: [
-                    {
-                        breakpoint: 1024,
-                        settings: {
-                            draggable: true,
-                        }
-                    },
-                ]
-            }); 
+            // addressSlider.slick('unslick');
+            // fillialSlider.slick({
+            //     dots: false,
+            //     arrows: true,
+            //     autoplay: false,
+            //     draggable: false,
+            //     variableWidth: true,
+            //     speed: 300,
+            //     infinite: false,
+            //     slidesToScroll: 1,
+            //     slidesToShow: 2,
+            //     responsive: [
+            //         {
+            //             breakpoint: 1024,
+            //             settings: {
+            //                 draggable: true,
+            //             }
+            //         },
+            //     ]
+            // }); 
             $('.detail-address-wrap').removeClass('active');
             console.log('pickup')
             
