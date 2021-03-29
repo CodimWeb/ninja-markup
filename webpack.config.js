@@ -88,6 +88,10 @@ module.exports = (env, options) => {
                 filename: 'order.html',
                 template: 'src/order.html'
             }),
+            new HtmlWebpackPlugin({
+                filename: 'order-accept.html',
+                template: 'src/order-accept.html'
+            }),
             //img,
             new CopyWebpackPlugin([{
                 from: './src/img',

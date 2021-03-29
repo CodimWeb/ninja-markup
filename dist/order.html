@@ -153,7 +153,7 @@
                                 </div>
                                 <div class="order-cart__result">
                                     <div class="order-discount">
-                                        <span>Скидка за<br/>самовывоз 10%</span>
+                                        <span>Скидка за <span class="order-discount-new-line">самовывоз 10%</span></span>
                                         <span>266 &#8381;</span>
                                     </div>
                                     <span>К оплате</span>
@@ -182,7 +182,7 @@
                                             если адресов 2 добавить класс adress-length-2
                                             если адресов 3 добавить класс adress-length-3
                                         -->
-                                        <div class="address-list adress-length-1">
+                                        <div class="address-list adress-length-2">
                                             <div class="address-slider slick-slider">
                                                 <div class="slick-item">
                                                     <div class="address-item">
@@ -196,7 +196,7 @@
                                                         <div class="address-item__text">ул. 26 Бакинских Комиссаров, д. 20, кв. 64</div>
                                                     </div>
                                                 </div>
-                                                <!-- <div class="slick-item">    
+                                                <div class="slick-item">    
                                                     <div class="address-item active">
                                                         <div class="address-item__title">Привезем сюда</div>
                                                         <div class="address-item__edit">
@@ -207,7 +207,7 @@
                                                         <div class="address-item__name">Мой адрес</div>
                                                         <div class="address-item__text">пр. им. газеты Красноярский Рабочий, д. 20, кв. 64, домофон</div>
                                                     </div>
-                                                </div> -->
+                                                </div>
                                             </div>
                                             <div class="address-add">
                                                 <svg class="icon-add-desctop" width="34" height="37" viewBox="0 0 34 37" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -299,10 +299,6 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="delivery-time__right">
-                                            <div class="comment-title">Комментарий к заказу</div>
-                                            <input type="text" class="form-control comment-field" placeholder="Ваш комментарий">
-                                        </div>
                                         <div class="deliviery-panel-wrap">
                                             <div class="deliviery-panel">
                                                 <div class="deliviery-panel__title">Дата доставки</div>
@@ -317,7 +313,11 @@
                                                     <option value="">1</option>
                                                 </select>
                                             </div>
-                                        </div>    
+                                        </div> 
+                                        <div class="delivery-time__right">
+                                            <div class="comment-title">Комментарий к заказу</div>
+                                            <input type="text" class="form-control comment-field" placeholder="Ваш комментарий">
+                                        </div>   
                                     </div>
                                     <div class="pay-type-wrap">
                                         <div class="order-h2">
@@ -333,6 +333,39 @@
                                                     <img src="img/icons/visa.svg" alt="">
                                                     <img src="img/icons/mir.svg" alt="">
                                                     <img src="img/icons/mastercard.svg" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="pay-form-wrap">
+                                                <div class="pay-form">
+                                                    <div class="detail-address__row">
+                                                        <div class="detail-address__col col-12">
+                                                            <input type="text" class="form-control comment-field detail-address__field" placeholder="Номер карты">
+                                                        </div>
+                                                    </div>
+                                                    <div class="detail-address__row">
+                                                        <div class="detail-address__col col-7">
+                                                            <input type="text" class="form-control comment-field detail-address__field" placeholder="Срок действия">
+                                                        </div>
+                                                        <div class="detail-address__col col-5">
+                                                            <input type="text" class="form-control comment-field detail-address__field" placeholder="CVC">
+                                                            <img class="pay-form__icon-card" src="img/icons/icon-card.svg">
+                                                        </div>
+                                                        <div class="detail-address__col col-12">
+                                                            <div class="checkbox-container pay-form-card">
+                                                                <input type="checkbox" class="checkbox-input" id="pay-form-card">
+                                                                <label for="pay-form-card" class="checkbox-label">
+                                                                    <div class="checkbox-label__text">Привязать карту к личному кабинету для быстрой оплаты следующих заказов</div>
+                                                                </label>
+                                                            </div>
+                                                            <div class="pay-form__security">
+                                                                Платеж безопасен. Мы не храним данные карт, все операции проводит PayKeeper - платежная система, сертифицированная по международному стандарту
+                                                                безопасности PCI DSS.
+                                                            </div>
+                                                            <div>
+                                                                <img class="pay-form__paykeeper" src="img/icons/paykeeper.svg" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="radio-container">
@@ -352,39 +385,7 @@
                                                 <input type="text" class="form-control comment-field" placeholder="name@example.com">
                                             </div>
                                         </div>
-                                        <div class="pay-form-wrap">
-                                            <div class="pay-form">
-                                                <div class="detail-address__row">
-                                                    <div class="detail-address__col col-12">
-                                                        <input type="text" class="form-control comment-field detail-address__field" placeholder="Номер карты">
-                                                    </div>
-                                                </div>
-                                                <div class="detail-address__row">
-                                                    <div class="detail-address__col col-7">
-                                                        <input type="text" class="form-control comment-field detail-address__field" placeholder="Срок действия">
-                                                    </div>
-                                                    <div class="detail-address__col col-5">
-                                                        <input type="text" class="form-control comment-field detail-address__field" placeholder="CVC">
-                                                        <img class="pay-form__icon-card" src="img/icons/icon-card.svg">
-                                                    </div>
-                                                    <div class="detail-address__col col-12">
-                                                        <div class="checkbox-container pay-form-card">
-                                                            <input type="checkbox" class="checkbox-input" id="pay-form-card">
-                                                            <label for="pay-form-card" class="checkbox-label">
-                                                                <div class="checkbox-label__text">Привязать карту к личному кабинету для быстрой оплаты следующих заказов</div>
-                                                            </label>
-                                                        </div>
-                                                        <div class="pay-form__security">
-                                                            Платеж безопасен. Мы не храним данные карт, все операции проводит PayKeeper - платежная система, сертифицированная по международному стандарту
-                                                            безопасности PCI DSS.
-                                                        </div>
-                                                        <div>
-                                                            <img class="pay-form__paykeeper" src="img/icons/paykeeper.svg" alt="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>    
+                                            
                                     </div>    
                                 </div>
                                 <div class="tab-pane fade" id="pickup" role="tabpanel" aria-labelledby="pickup-tab">
@@ -461,26 +462,26 @@
                                                     <div class="radio-label__text">На определенное время</div>
                                                 </label>
                                             </div>
+                                            <div class="deliviery-panel-wrap">
+                                                <div class="deliviery-panel">
+                                                    <div class="deliviery-panel__title">Дата доставки</div>
+                                                    <select name="" id="" class="select-delivery">
+                                                        <option value="">1</option>
+                                                        <option value="">1</option>
+                                                        <option value="">1</option>
+                                                    </select>
+                                                    <select name="" id="" class="select-delivery">
+                                                        <option value="">1</option>
+                                                        <option value="">1</option>
+                                                        <option value="">1</option>
+                                                    </select>
+                                                </div>
+                                            </div> 
                                         </div>
                                         <div class="delivery-time__right">
                                             <div class="comment-title">Комментарий к заказу</div>
                                             <input type="text" class="form-control comment-field" placeholder="Ваш комментарий">
                                         </div>
-                                        <div class="deliviery-panel-wrap">
-                                            <div class="deliviery-panel">
-                                                <div class="deliviery-panel__title">Дата доставки</div>
-                                                <select name="" id="" class="select-delivery">
-                                                    <option value="">1</option>
-                                                    <option value="">1</option>
-                                                    <option value="">1</option>
-                                                </select>
-                                                <select name="" id="" class="select-delivery">
-                                                    <option value="">1</option>
-                                                    <option value="">1</option>
-                                                    <option value="">1</option>
-                                                </select>
-                                            </div>
-                                        </div> 
                                     </div>
                                     <div class="pay-type-wrap">
                                         <div class="order-h2">
@@ -498,6 +499,39 @@
                                                     <img src="img/icons/mastercard.svg" alt="">
                                                 </div>
                                             </div>
+                                            <div class="pay-form-wrap">
+                                                <div class="pay-form">
+                                                    <div class="detail-address__row">
+                                                        <div class="detail-address__col col-12">
+                                                            <input type="text" class="form-control comment-field detail-address__field" placeholder="Номер карты">
+                                                        </div>
+                                                    </div>
+                                                    <div class="detail-address__row">
+                                                        <div class="detail-address__col col-7">
+                                                            <input type="text" class="form-control comment-field detail-address__field" placeholder="Срок действия">
+                                                        </div>
+                                                        <div class="detail-address__col col-5">
+                                                            <input type="text" class="form-control comment-field detail-address__field" placeholder="CVC">
+                                                            <img class="pay-form__icon-card" src="img/icons/icon-card.svg">
+                                                        </div>
+                                                        <div class="detail-address__col col-12">
+                                                            <div class="checkbox-container pay-form-card">
+                                                                <input type="checkbox" class="checkbox-input" id="pay-form-card">
+                                                                <label for="pay-form-card" class="checkbox-label">
+                                                                    <div class="checkbox-label__text">Привязать карту к личному кабинету для быстрой оплаты следующих заказов</div>
+                                                                </label>
+                                                            </div>
+                                                            <div class="pay-form__security">
+                                                                Платеж безопасен. Мы не храним данные карт, все операции проводит PayKeeper - платежная система, сертифицированная по международному стандарту
+                                                                безопасности PCI DSS.
+                                                            </div>
+                                                            <div>
+                                                                <img class="pay-form__paykeeper" src="img/icons/paykeeper.svg" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> 
                                             <div class="radio-container">
                                                 <input type="radio" name="pay-type" id="pickup-pay-type-card" class="radio-input">
                                                 <label for="pickup-pay-type-card" class="radio-label">
@@ -511,39 +545,6 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="pay-form-wrap">
-                                            <div class="pay-form">
-                                                <div class="detail-address__row">
-                                                    <div class="detail-address__col col-12">
-                                                        <input type="text" class="form-control comment-field detail-address__field" placeholder="Номер карты">
-                                                    </div>
-                                                </div>
-                                                <div class="detail-address__row">
-                                                    <div class="detail-address__col col-7">
-                                                        <input type="text" class="form-control comment-field detail-address__field" placeholder="Срок действия">
-                                                    </div>
-                                                    <div class="detail-address__col col-5">
-                                                        <input type="text" class="form-control comment-field detail-address__field" placeholder="CVC">
-                                                        <img class="pay-form__icon-card" src="img/icons/icon-card.svg">
-                                                    </div>
-                                                    <div class="detail-address__col col-12">
-                                                        <div class="checkbox-container pay-form-card">
-                                                            <input type="checkbox" class="checkbox-input" id="pay-form-card">
-                                                            <label for="pay-form-card" class="checkbox-label">
-                                                                <div class="checkbox-label__text">Привязать карту к личному кабинету для быстрой оплаты следующих заказов</div>
-                                                            </label>
-                                                        </div>
-                                                        <div class="pay-form__security">
-                                                            Платеж безопасен. Мы не храним данные карт, все операции проводит PayKeeper - платежная система, сертифицированная по международному стандарту
-                                                            безопасности PCI DSS.
-                                                        </div>
-                                                        <div>
-                                                            <img class="pay-form__paykeeper" src="img/icons/paykeeper.svg" alt="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> 
                                     </div>    
                                 </div>
                             </div>
@@ -580,6 +581,101 @@
                                 <input type="text" class="form-control comment-field" placeholder="name@example.com">
                             </div>
                         </div> -->
+                        <div class="order-cart order-cart--mobile">
+                            <div class="order-h2">
+                                <p>Состав заказа</p>
+                            </div>
+                            <div class="order-cart__list">
+                                <div class="order-cart__item">
+                                    <div class="order-cart__item__left">
+                                        <div class="order-cart__item__type">Пицца 32 см<span class="order-cart__item__count">х2</span></div>
+                                        <div class="order-cart__item__name">Солянка Злодейская</div>
+                                    </div>
+                                    <div class="order-cart-item__right">
+                                        <div class="order-cart__item__price">1399 &#8381;</div>
+                                    </div>
+                                </div>
+                                <div class="order-cart__item">
+                                    <div class="order-cart__item__left">
+                                        <div class="order-cart__item__type">Своя Пицца 32см</div>
+                                    </div>
+                                    <div class="order-cart-item__right">
+                                        <div class="order-cart__item__price">940 &#8381;</div>
+                                    </div>
+                                </div>
+                                <div class="order-cart__item">
+                                    <div class="order-cart__item__left">
+                                        <div class="order-cart__item__type">Пицца 26 см</div>
+                                        <div class="order-cart__item__name">Ниндзя</div>
+                                    </div>
+                                    <div class="order-cart-item__right">
+                                        <div class="order-cart__item__price">0 &#8381;</div>
+                                    </div>
+                                </div>
+                                <div class="order-cart__item">
+                                    <div class="order-cart__item__left">
+                                        <div class="order-cart__item__type">Пицца 26 см</div>
+                                        <div class="order-cart__item__name">Английский завтрак</div>
+                                    </div>
+                                    <div class="order-cart-item__right">
+                                        <div class="order-cart__item__price">0 &#8381;</div>
+                                    </div>
+                                </div>
+                                <div class="order-cart__item">
+                                    <div class="order-cart__item__left">
+                                        <div class="order-cart__item__type">Промо пицца 32 см</div>
+                                        <div class="order-cart__item__name">Солянка Злодейская</div>
+                                    </div>
+                                    <div class="order-cart-item__right">
+                                        <div class="order-cart__item__price">389 &#8381;</div>
+                                    </div>
+                                </div>
+                                <div class="order-cart__item">
+                                    <div class="order-cart__item__left">
+                                        <div class="order-cart__item__type">Промо пицца 32 см</div>
+                                        <div class="order-cart__item__name">Солянка Злодейская</div>
+                                    </div>
+                                    <div class="order-cart-item__right">
+                                        <div class="order-cart__item__price">389 &#8381;</div>
+                                    </div>
+                                </div>
+                                <div class="order-cart__item">
+                                    <div class="order-cart__item__left">
+                                        <div class="order-cart__item__type">Промо пицца 32 см</div>
+                                        <div class="order-cart__item__name">Солянка Злодейская</div>
+                                    </div>
+                                    <div class="order-cart-item__right">
+                                        <div class="order-cart__item__price">389 &#8381;</div>
+                                    </div>
+                                </div>
+                                <div class="order-cart__item">
+                                    <div class="order-cart__item__left">
+                                        <div class="order-cart__item__type">Промо пицца 32 см</div>
+                                        <div class="order-cart__item__name">Солянка Злодейская</div>
+                                    </div>
+                                    <div class="order-cart-item__right">
+                                        <div class="order-cart__item__price">389 &#8381;</div>
+                                    </div>
+                                </div>
+                                <div class="order-cart__item">
+                                    <div class="order-cart__item__left">
+                                        <div class="order-cart__item__type">Промо пицца 32 см</div>
+                                        <div class="order-cart__item__name">Солянка Злодейская</div>
+                                    </div>
+                                    <div class="order-cart-item__right">
+                                        <div class="order-cart__item__price">389 &#8381;</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-cart__result">
+                                <div class="order-discount">
+                                    <span>Скидка за<span class="order-discount-new-line">самовывоз 10%</span></span>
+                                    <span>266 &#8381;</span>
+                                </div>
+                                <span>К оплате</span>
+                                <span class="order-cart__result-price">2 667 &#8381;</span>
+                            </div>
+                        </div>
                         <button class="btn btn-secondary order-cart__send">Заказать еду</button>
                     </div>
                     <div class="order-devider"></div>
