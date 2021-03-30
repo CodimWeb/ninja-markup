@@ -43,7 +43,7 @@
 
 .order-accept__back {
     display: block;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 18px;
     line-height: 22px;
     text-transform: none;
@@ -61,4 +61,46 @@
     .order-accept {
         padding-bottom: 30px;
     }
+}
+
+@media (max-width: 767px) {
+
+    .order-accept {
+        padding: 38px 0;
+    }
+
+    .order-accept__content {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .order-ninja {
+        margin-top: -6px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .order-accept__back {
+        margin-top: 30px;
+    }
+
+    .order-accept__message {
+        max-width: 384px;
+        width: 100%;
+        margin: 0;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .order-accept__message:before {
+        left: 50%;
+        bottom: -47px;
+        margin-left: 64px;
+        transform: rotateZ(-90deg);
+    }
+
+    .order-accept__title {
+        margin-bottom: 10px;
+    }
+
 }

@@ -52,7 +52,7 @@ module.exports = (env, options) => {
                                 options: {
                                     plugins: [
                                         autoprefixer({
-                                            browsers:['ie >= 8', 'last 4 version']
+                                            browsers:['ie >= 8', 'last 2 version']
                                         }),
                                         cssnano ({})
                                     ],
@@ -62,6 +62,7 @@ module.exports = (env, options) => {
                             {
                                 loader: 'sass-loader',
                                 options: {
+                                    outputStyle: 'compressed',
                                     sourceMap: true
                                 }
                             },

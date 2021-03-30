@@ -6,8 +6,13 @@
     margin-top: -237px;
     height: 584px;
     padding-top: 24px;
-    background: url(../img/editor-bg.jpg) no-repeat center bottom;
-    background-size: 2560px;
+    // background: url(../img/editor-bg.jpg) no-repeat center bottom;
+    background-color: #141414;
+    background-image: url(../img/editor-bg-desctop-left.png), url(../img/editor-bg-desctop-right.png);
+    background-position: left bottom, right bottom;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 398px, 398px;
+    // background-size: 2560px;
     // display: none;
     visibility: hidden;
     opacity: 0;
@@ -349,6 +354,11 @@
     display: none;
 }
 
+@media (max-width: 1599px) {
+    .editor {
+        background-size: 318px,318px;
+    }
+}
 
 @media (max-width: 1279px) {
 
