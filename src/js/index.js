@@ -18,11 +18,12 @@ import '../scss/style.scss';
 
 $(document).ready(function(){
 
-    // disable modal scroll ios
     $('.modal').on('shown.bs.modal', function (e) {
+        $('html').addClass('disable-scroll-ios'); 
         $('body').addClass('disable-scroll-ios');
     });
     $('.modal').on('hidden.bs.modal', function (e) {
+        $('html').removeClass('disable-scroll-ios');
         $('body').removeClass('disable-scroll-ios');
     });
 
@@ -182,6 +183,8 @@ $(document).ready(function(){
             document.body.style.paddingRight = scrollBarWidth + 'px';
             document.body.style.overflow = 'hidden';
             $('.editor').addClass('open')
+            $('html').addClass('disable-scroll-ios');
+            $('body').addClass('disable-scroll-ios');
         });
     })
 
@@ -189,6 +192,8 @@ $(document).ready(function(){
     $('.btn-close-editor').on('click', function(){
         $('.editor').removeClass('open');
         document.body.removeAttribute('style');
+        $('html').removeClass('disable-scroll-ios');
+        $('body').removeClass('disable-scroll-ios');
     })
 
     // фиксим шапку при открытии модалки
@@ -417,22 +422,26 @@ $(document).ready(function(){
         $('.product-list').css('height', height)
     }
 
-    var isResize = false;
-    $(window).resize(function(){
-        if($(window).outerWidth() < 768) {
-            if(!isResize) {
-                isResize = true;
+    // var isResize = false;
+    $(window).resize(function() {
+        clearTimeout(window.resizedFinished);
+        window.resizedFinished = setTimeout(function(){
+            console.log('Resized finished.');
+            var scrollLenght = $(window).scrollTop();
+            console.log(scrollLenght)
+            if($(window).outerWidth() < 768) {
                 var height = $('.product-group-set').outerHeight() + 'px';
                 $('.product-list').css('height', height)
-                currentSlide = 0;
-                getProductGroup(currentSlide)
-            }    
-        }
-        else {
-            $('.product-list').css('height', 'auto')
-            isResize = false;
-        }
-    })
+                if(scrollLenght >= 100) { // что б не скролилось к наборам если юзер смотрит слайдер
+                    currentSlide = 0;
+                    getProductGroup(currentSlide) 
+                }
+            }
+            else {
+                $('.product-list').css('height', 'auto')
+            }
+        }, 250);
+    });
 
     $('.product-nav__item').on('click', function(){
         $('.product-nav__item').removeClass('active');
@@ -619,6 +628,19 @@ $(document).ready(function(){
     
     
     /* END ORDERS */
+
+    /*CONSTRUCTOR*/
+    $('.constructor__help__toogle').on('click', function(){
+        if($(this).hasClass('off')) {
+            $(this).removeClass('off');
+            $('.constructor__help__toogle__text').html('ВКЛ.');
+        }
+        else {
+            $(this).addClass('off')
+            $('.constructor__help__toogle__text').html('ВЫКЛ.');
+        }
+    })
+    /*END CONSTRUCTOR*/
     
 });
 
@@ -694,7 +716,7 @@ function getProductGroup(currentSlide) {
         setTimeout(function() {
             scrollToProduct();
         }, 250)
-    }    
+    }
 }
 
 function scrollToProduct() {

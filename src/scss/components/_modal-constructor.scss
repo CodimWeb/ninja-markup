@@ -1,0 +1,200 @@
+.modal-constructor {
+    width: auto;
+    left: 0;
+    right: 0;
+    padding-right: 0 !important;
+}
+
+.modal-constructor .modal-dialog {
+    width: 100%;
+    max-width: 100%;
+}
+
+.modal-constructor .modal-content {
+    height: 586px;
+    width: 100%;
+    border-radius: 0;
+    background-color: #141414;
+    background-image: url(../img/editor-bg-desctop-left.png), url(../img/editor-bg-desctop-right.png);
+    background-position: left bottom, right bottom;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 398px, 398px;
+}
+
+.modal-constructor .close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #fff;
+    padding: 0;
+    position: absolute;
+    top: -16px;
+    right: 10px;
+    transition: background-color .2s ease-in-out;
+    z-index: 10;
+
+    &:hover {
+        background-color: #fcc500;
+    }
+}
+
+.constructor {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 982px;
+    margin: 0 auto;
+}
+
+.constructor__help {
+    width: 224px;
+    max-width: 224px;
+    padding-top: 14px; 
+}
+
+.constructor__help__message {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 247px;
+    padding: 16px;
+    background: #1E1E1E;
+    border-radius: 12px;
+    text-align: center;
+    color: #DEDEDE;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.constructor__help__message:before {
+    content: "";
+    width: 44px;
+    height: 51px;
+    position: absolute;
+    bottom: -47px;
+    right: 34px;
+    transform: rotate(-90deg);
+    background-image: url(../img/order-tail.svg);
+    background-size: contain;
+}
+
+.constructor__help__btn {
+    display: flex;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 50%;
+    padding: 0;
+    background: #141414;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #8E8E8E;
+    transition: color 0.2s ease-in-out;
+}
+
+.constructor__help__btn svg path {
+    fill: #8E8E8E;
+    transition: 0.2s ease-in-out;
+}
+
+.constructor__help__btn:hover {
+    color: #DEDEDE;
+}
+
+.constructor__help__btn:hover svg path {
+    fill: #DEDEDE;
+}
+
+.constructor__help__prev {
+    padding-left: 4px;
+    justify-content: flex-start;
+    left: -16px;
+}
+
+.constructor__help__next {
+    padding-right: 4px;
+    justify-content: flex-end;
+    right: -16px;
+}
+
+.constructor__help__img {
+    padding-left: 25px;
+    margin-top: -14px;
+    position: relative;
+    z-index: 2;
+}
+
+.constructor__help__toogle-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 39px;
+    margin-top: -52px;
+    position: relative;
+    z-index: 3;
+}
+
+.constructor__help__toogle {
+    width: 39px;
+    height: 39px;
+    padding: 0;
+    background-color: transparent;
+    background-image: url(../img/constructor/help-toggle-sprite.svg#help-1);
+
+    &:hover {
+        background-image: url(../img/constructor/help-toggle-sprite.svg#help-2);
+    }
+
+    &:active {
+        background-image: url(../img/constructor/help-toggle-sprite.svg#help-3);
+    }
+}
+
+.constructor__help__toogle.off {
+    background-image: url(../img/constructor/help-toggle-sprite.svg#help-4);
+}
+
+.constructor__help__toogle__text {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 15px;
+    color: #8E8E8E;
+}
+
+.constructor__pizza {
+    position: relative;
+    width: 728px;
+    min-width: 728px;
+    margin-left: 20px;
+    padding-top: 24px;
+}
+
+.constructor__pizza__weil {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #141414;
+    opacity: 0.55;
+}
+
+.constructor__pizza__img {
+    width: 100%;
+}
+
+.constructor__weight {
+    color: red;
+}

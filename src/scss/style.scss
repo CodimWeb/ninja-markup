@@ -1,4 +1,3 @@
-
 // BS Abstract
 @import "~bootstrap/scss/functions";
 @import "abstract/variables"; // override bootstrap variables
@@ -45,11 +44,8 @@
 @import "components/modal-auth";
 @import "components/modal-schedule";
 @import "components/modal-sales";
+@import "components/modal-constructor";
 
 @import "pages/sales";
 @import "pages/about";
 @import "pages/order";
-
-body {
-    background: #000;
-}

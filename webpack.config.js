@@ -52,7 +52,7 @@ module.exports = (env, options) => {
                                 options: {
                                     plugins: [
                                         autoprefixer({
-                                            browsers:['ie >= 8', 'last 2 version']
+                                            browsers:['> 1%', 'last 2 version']
                                         }),
                                         cssnano ({})
                                     ],
