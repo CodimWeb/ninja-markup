@@ -18,14 +18,14 @@ import '../scss/style.scss';
 
 $(document).ready(function(){
 
-    $('.modal').on('shown.bs.modal', function (e) {
-        $('html').addClass('disable-scroll-ios'); 
-        $('body').addClass('disable-scroll-ios');
-    });
-    $('.modal').on('hidden.bs.modal', function (e) {
-        $('html').removeClass('disable-scroll-ios');
-        $('body').removeClass('disable-scroll-ios');
-    });
+    // $('.modal').on('shown.bs.modal', function (e) {
+    //     $('html').addClass('disable-scroll-ios'); 
+    //     $('body').addClass('disable-scroll-ios');
+    // });
+    // $('.modal').on('hidden.bs.modal', function (e) {
+    //     $('html').removeClass('disable-scroll-ios');
+    //     $('body').removeClass('disable-scroll-ios');
+    // });
 
     // GET params
     var getParams = (function() {
@@ -639,6 +639,10 @@ $(document).ready(function(){
             $(this).addClass('off')
             $('.constructor__help__toogle__text').html('ВЫКЛ.');
         }
+    })
+
+    $('.constructor-nav__btn').on('click', function(){
+        $(this).toggleClass('active');
     })
     /*END CONSTRUCTOR*/
     

@@ -195,6 +195,267 @@
     width: 100%;
 }
 
+.constructor__nav {
+    background: rgba(31, 31, 31, 0.8);
+    height: 98px;
+    display: flex;
+    padding: 18px 0 16px 17px; 
+    border-radius: 6px 0 0 6px;
+    margin-top: 13px;
+}
+
+.constructor-nav__btn {
+    width: 61px;
+    height: 61px;
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    position: relative;
+    margin-right: 12px;
+    opacity: 0.6;
+    // display: flex;
+    // padding: 18px 0 16px 17px;
+    
+    &:hover {
+        opacity: 0.9;
+    }
+
+    &:active {
+        opacity: 1;
+
+        .constructor-nav-text {
+            color: #F9451D;
+        }
+    }
+
+    &.active {
+        opacity: 1;
+
+        .constructor-nav-text {
+            color: #FCC500;
+        }
+
+        .constructor-nav-count {
+            background: #FCC500;
+        }
+    }
+
+}
+
+.constructor-nav__btn:last-child {
+    margin-right: 0;
+}
+
+.constructor-nav-icon {
+    display: block;
+    width: 51px;
+    height: 44px;
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+
+.constructor-nav-text {
+    display: block;
+    font-weight: 900;
+    font-size: 10px;
+    line-height: 12px;
+    margin-top: 5px;
+    color: #DEDEDE;
+    text-align: left;
+    font-family: Commissioner, sans-serif;
+}
+
+.constructor-nav-count {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    display: block;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    border-radius: 50%;
+    background: #DEDEDE;
+    color: #000;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+// соус
+.constructor-nav__btn--sauces .constructor-nav-icon {
+    background-image: url(../img/constructor/sauces-sprite.svg#sauces-default);
+}
+
+.constructor-nav__btn--sauces:active .constructor-nav-icon {
+    background-image: url(../img/constructor/sauces-sprite.svg#sauces-press);
+}
+
+.constructor-nav__btn--sauces.active .constructor-nav-icon {
+    background-image: url(../img/constructor/sauces-sprite.svg#sauces-active);
+}
+
+//мясо
+.constructor-nav__btn--meat .constructor-nav-icon {
+    background-image: url(../img/constructor/meat-sprite.svg#meat-default);
+    background-position-y: -2px;
+}
+
+.constructor-nav__btn--meat:active .constructor-nav-icon {
+    background-image: url(../img/constructor/meat-sprite.svg#meat-press);
+    background-position-y: -2px;
+}
+
+.constructor-nav__btn--meat.active .constructor-nav-icon {
+    background-image: url(../img/constructor/meat-sprite.svg#meat-active);
+    background-position-y: -2px;
+}
+
+//овощи
+.constructor-nav__btn--green .constructor-nav-icon {
+    background-image: url(../img/constructor/green-sprite.svg#green-default);
+}
+
+.constructor-nav__btn--green:active .constructor-nav-icon {
+    background-image: url(../img/constructor/green-sprite.svg#green-press);
+}
+
+.constructor-nav__btn--green.active .constructor-nav-icon {
+    background-image: url(../img/constructor/green-sprite.svg#green-active);
+}
+
+// сыр
+.constructor-nav__btn--cheese .constructor-nav-icon {
+    background-image: url(../img/constructor/cheese.svg);
+    background-position-y: 4px;
+}
+
+.constructor-nav__btn--cheese:active .constructor-nav-text {
+    color: #dedede;
+}
+
+.constructor-nav__btn--cheese.active {
+    opacity: 1;
+}
+
+//доп ингр
+.constructor-nav__btn--additional .constructor-nav-icon {
+    background-image: url(../img/constructor/additional-sprite.svg#additional-default);
+}
+
+.constructor-nav__btn--additional:active .constructor-nav-icon {
+    background-image: url(../img/constructor/additional-sprite.svg#additional-press);
+}
+
+.constructor-nav__btn--additional.active .constructor-nav-icon {
+    background-image: url(../img/constructor/additional-sprite.svg#additional-active);
+}
+
+.constructor-nav__btn:disabled {
+    opacity: 0.13;
+    pointer-events: none;
+}
+
+.constructor__composition {
+    width: 452px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 14px 16px 0;
+    background: rgba(31, 31, 31, 0.8);
+    height: 98px;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 15px;
+    color: #DEDEDE;
+    margin-right: 8px;
+    border-radius: 0 6px 6px 0;
+    margin-top: 13px;
+}
+
+.constructor__result {
+    margin-top: 13px;
+}
+
+.constructor__result__btn {
+    width: 138px;
+    height: 70px;
+    line-height: 70px;
+    padding: 0;
+    font-weight: 300;
+    font-size: 26px;
+    color: #fff;
+    background: #1E1E1E;
+
+    &:hover {
+        background: #DE5300;
+    }
+
+    &:active {
+        background: #FF5F00;
+    }
+
+    &:disabled {
+        background: #1E1E1E;
+        color: #7f7f7f;
+        pointer-events: none;
+    }
+}
+
 .constructor__weight {
-    color: red;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 15px;
+    color: #DEDEDE;
+    text-align: center;
+    margin-top: 7px;
+}
+
+.open-ingridients .constructor__help__message {
+    height: 165px;
+}
+
+.open-ingridients .constructor__nav {
+    margin-top: -55px;
+    position: relative;
+    z-index: 5;
+}
+
+.open-ingridients .constructor__composition {
+    margin-top: -55px;
+    position: relative;
+    z-index: 5;
+}
+
+.open-ingridients .constructor__result {
+    margin-top: -55px;
+    position: relative;
+    z-index: 5;
+}
+
+.constructor__ingridients {
+    width: 100%;
+    min-width: 100%;
+    margin-top: 10px;
+}
+
+.ingridients-list {
+    display: flex;
+}
+
+.sauces-group-1 {
+    width: 293px;
+    margin-right: 8px;
+}
+
+.sauces-group-2 {
+    width: 258px;
+    margin-right: 8px;
+}
+
+.sauces-group-3 {
+    width: 202px;
+}
+
+.ingridient-item {
+    margin: 4px 0;
 }
