@@ -641,8 +641,13 @@ $(document).ready(function(){
         }
     })
 
-    $('.constructor-nav__btn').on('click', function(){
-        $(this).toggleClass('active');
+    // $('.constructor-nav__btn').on('click', function(){
+    //     $(this).toggleClass('active');
+    // })
+
+    $('.btn-sauces').on('click', function(){
+        $('.btn-sauces').removeClass('active');
+        $(this).addClass('active');
     })
     /*END CONSTRUCTOR*/
     
