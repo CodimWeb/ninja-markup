@@ -36,6 +36,14 @@
     transition: background-color .2s ease-in-out;
     z-index: 10;
 
+    svg {
+        stroke: none;
+
+        path {
+            fill: #2C2C2C;
+        }
+    }
+
     &:hover {
         background-color: #fcc500;
     }
@@ -237,6 +245,10 @@
     border: none;
     background: transparent;
     color: inherit;
+
+    &:hover {
+        border: none;
+    }
 }
 
 .constructor-nav__btn {
@@ -551,6 +563,7 @@
     visibility: hidden;
     opacity: 0;
     transition: background-color .2s ease-in-out;
+    transition-delay: 0.05s;
 
     img {
         position: absolute;
@@ -579,6 +592,10 @@
 
 .btn-sauces {
     justify-content: center;
+}
+
+.btn-sauces__composition {
+    display: none;
 }
 
 .btn-multiple.select-1,
@@ -619,6 +636,7 @@
     .constructor__nav-tabs {
         width: auto;
         flex-direction: row;
+        margin-bottom: 0;
     }
 }
 
@@ -630,7 +648,27 @@
     }
 
     .modal-constructor .modal-content {
+        height: 100%;
+        background-image: none;
+    }
+
+    .modal-constructor .close {
+        top: 24px;
+        right: 24px;
+        background: #1E1E1E;
+
+        &:active {
+            background: #DE5300;
+        }
+    }
+
+    .modal-constructor .close svg path {
+        fill: #3D3D3D;
+    }
+
+    .constructor {
         min-height: 100%;
+        padding-top: 68px;
     }
 
     .constructor__help {
@@ -641,7 +679,74 @@
     .constructor__pizza {
         width: 100%;
         max-width: 600px;
+        min-width: 0;
+        max-height: 350px;
         margin: 0 auto;
-        padding-top: 68px;
+        padding-top: 0;
+    }
+
+    .constructor-action {
+        padding-bottom: 94px;
+        flex-wrap: wrap;
+    }
+
+    .constructor__nav {
+        flex: 1;
+        height: 71px;
+        padding: 5px 0 0;
+        margin: 0 17px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 6px;
+    }
+
+    .constructor__composition {
+        flex: auto;
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .constructor__result {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .constructor__result__btn {
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .constructor__ingridients {
+        margin-top: 0;
+        padding-top: 8px;
+
+    }
+
+    .btn-ingridient-lg, 
+    .btn-ingridient-md, 
+    .btn-ingridient-sm {
+        width: calc(50% - 8px);
+    }
+
+    .btn-sauces {
+        font-size: 16px;
+        line-height: 20px;
+        height: 71px;
+        display: block;
+        text-align: center;
+    }
+    
+    .btn-sauces__composition {
+        display: block;
+        font-size: 12px;
+        line-height: 14px;
+        white-space: normal;
+        margin-top: 5px;
+    }
+
+    .btn-sauces__composition__title {
+        font-weight: 500;
     }
 }
