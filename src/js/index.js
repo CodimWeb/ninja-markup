@@ -649,6 +649,19 @@ $(document).ready(function(){
         $('.btn-sauces').removeClass('active');
         $(this).addClass('active');
     })
+
+    var pizzulkinStep = 0;
+
+    $('.constructor__help__next').on('click', function(e) {
+        pizzulkinStep++;
+        getPizzulkinStep(e, pizzulkinStep)
+    });
+
+    $('.constructor__help__prev').on('click', function(e) {
+        pizzulkinStep--;
+        getPizzulkinStep(e, pizzulkinStep)
+    })
+
     /*END CONSTRUCTOR*/
     
 });
@@ -743,5 +756,33 @@ function smoothScroll(target) {
     console.log(target);
     var offsetTop = $(target).offset().top - $('.header').outerHeight();
     $('body,html').animate({scrollTop: offsetTop}, 800);
+}
+
+function getPizzulkinStep(e, pizzulkinStep) {
+    var pizzulkinMessage = ''
+    if(pizzulkinStep == 0) {
+        pizzulkinMessage = 'Привет! Меня зовут Пицулькин и я буду помогать Вам создавать пиццу! <span class="new-line">Ниндзяпиццу!</span>';
+        $('.constructor__help__prev').css('display', 'none');
+    }
+    else if(pizzulkinStep == 1) {
+        pizzulkinMessage = 'Минимальный состав для приготовления пиццы - это ее основа - тесто, сыр Гауда и соус на Ваш выбор.';
+        $('.constructor__help__prev').css('display', 'inline-block');
+    }
+    else if(pizzulkinStep == 2) {
+        pizzulkinMessage = 'Эти базовые ингридиенты включены в базовую стоимость - <span class="constructor__help__price">300 &#8381;!</span>';
+    }
+    else if(pizzulkinStep == 3) {
+        pizzulkinMessage = 'Ну что же, приступим к созданию пиццы! <span class="new-line">Заходите в раздел «Соусы»!</span>';
+        $('.constructor__help__next').addClass('constructor__help__finish');
+    }
+    else if(pizzulkinStep == 4) {
+        $('.constructor__help__message').addClass('hidden');
+        $('#constructor-nav-sauces').removeAttr('disabled');
+        $('.constructor').removeClass('constructor-start');
+        $('.constructor__result__btn').removeAttr('disabled').addClass('start');
+    }
+    $('.constructor__help__text').html(pizzulkinMessage);
+    console.log(e)
+    console.log(pizzulkinStep)
 }
 
