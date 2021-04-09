@@ -564,58 +564,13 @@ $(document).ready(function(){
 
         //доставка
         if (event.target.id == 'delivery-tab') {
-            // fillialSlider.slick('unslick');
-            // addressSlider.slick({
-            //     dots: false,
-            //     arrows: true,
-            //     autoplay: false,
-            //     draggable: false,
-            //     variableWidth: true,
-            //     speed: 300,
-            //     infinite: false,
-            //     slidesToScroll: 1,
-            //     responsive: [
-            //         {
-            //             breakpoint: 1024,
-            //             settings: {
-            //                 draggable: true,
-            //             }
-            //         },
-            //     ]
-            // }); 
             console.log('delivery')
         }
         // самовывоз
         else if(event.target.id == 'pickup-tab') {
-            // addressSlider.slick('unslick');
-            // fillialSlider.slick({
-            //     dots: false,
-            //     arrows: true,
-            //     autoplay: false,
-            //     draggable: false,
-            //     variableWidth: true,
-            //     speed: 300,
-            //     infinite: false,
-            //     slidesToScroll: 1,
-            //     slidesToShow: 2,
-            //     responsive: [
-            //         {
-            //             breakpoint: 1024,
-            //             settings: {
-            //                 draggable: true,
-            //             }
-            //         },
-            //     ]
-            // }); 
             $('.detail-address-wrap').removeClass('active');
             console.log('pickup')
-            
-        }
-        
-        // console.log(event)
-        // console.log(event.target)
-        // console.log(event.relatedTarget)
-        
+        }        
     })
 
     $('.address-add').on('click', function(){
@@ -641,16 +596,45 @@ $(document).ready(function(){
         }
     })
 
-    // $('.constructor-nav__btn').on('click', function(){
-    //     $(this).toggleClass('active');
-    // })
-
-    $('.btn-sauces').on('click', function(){
-        $('.btn-sauces').removeClass('active');
-        $(this).addClass('active');
-    })
-
     var pizzulkinStep = 0;
+    var sauces = [
+        {
+            id: '',
+            name: 'Соус «Дижонский сметанный»',
+            img: '/img/constructor/sauces/dijonskiy.jpg',
+            zIndex: 10,
+        },
+        {
+            id: '',
+            name: 'Соус «Классический»',
+            img: '/img/constructor/sauces/classic.jpg',
+            zIndex: 10,
+        },
+        {
+            id: '',
+            name: 'Соус «Цезарь»',
+            img: '/img/constructor/sauces/cesar.jpg',
+            zIndex: 10,
+        },
+        {
+            id: '',
+            name: 'Соус «Пикантный томатный»',
+            img: '/img/constructor/sauces/tomat.jpg',
+            zIndex: 10,
+        },
+        {
+            id: '',
+            name: 'Соус «Сырный»',
+            img: '/img/constructor/sauces/cheese.jpg',
+            zIndex: 10,
+        },
+        {
+            id: '',
+            name: 'Соус «Грибной»',
+            img: '/img/constructor/sauces/mushroom.jpg',
+            zIndex: 10,
+        },
+    ]
 
     $('.constructor__help__next').on('click', function(e) {
         pizzulkinStep++;
@@ -660,6 +644,53 @@ $(document).ready(function(){
     $('.constructor__help__prev').on('click', function(e) {
         pizzulkinStep--;
         getPizzulkinStep(e, pizzulkinStep)
+    })
+
+    $('.constructor__nav-tabs .constructor-nav__btn').on('click', function(e){
+        if($(this).hasClass('active')) {
+            e.preventDefault();
+            $(this).removeClass('active');
+            var target = $(this).attr('href');
+            $(target).removeClass('active show');
+            if($(window).outerWidth() >= 1024) {
+                getBubleHeight();
+            }
+            return false;
+        }
+    })
+
+    $('.constructor__nav-tabs .constructor-nav__btn').on('shown.bs.tab', function (event) {
+        event.target // newly activated tab
+        event.relatedTarget // previous active tab
+        console.log(event.target)
+        // соусы
+        if (event.target.id == 'constructor-nav-sauces') {
+            if($(window).outerWidth() >= 1024) {
+                getBubleHeight();
+            }
+            $('.constructor__pizza__weil').css('display', 'none');
+        }
+        // самовывоз
+        else if(event.target.id == 'pickup-tab') {
+            $('.detail-address-wrap').removeClass('active');
+            console.log('pickup')
+        }        
+    });
+
+    $('.btn-sauces').on('click', function() {
+        var name = $(this).attr('data-name');
+        let sauce = sauces.find(sauce => sauce.name == name);
+        console.log(sauce);
+        $('.constructor__result__btn').removeClass('start');
+        if($('#img-sauces').length) {
+            $('#img-sauces').remove()
+        }
+        $('.constructor__pizza').append(`<img src="${sauce.img}" class="pizza-ingridient" alt="" id="img-sauces" style="z-index: ${sauce.zIndex}">`)
+        $('.btn-sauces').removeClass('active');
+        $(this).addClass('active');
+        $('#composition-sauces').html(sauce.name);
+        $('#constructor-nav-sauces').find('.constructor-nav-count').html('<img src="img/constructor/icon-check.svg">')
+        $('.constructor-nav__btn').removeAttr('disabled');
     })
 
     /*END CONSTRUCTOR*/
@@ -784,5 +815,13 @@ function getPizzulkinStep(e, pizzulkinStep) {
     $('.constructor__help__text').html(pizzulkinMessage);
     console.log(e)
     console.log(pizzulkinStep)
+}
+
+function getBubleHeight() {
+    var constructorHeight = $('.constructor').outerHeight();
+    var pizzulkinHeight = $('.constructor__help__img').outerHeight();
+    var btnsHeight = $('.constructor-action').outerHeight();
+    var bubleHeight = constructorHeight - pizzulkinHeight - btnsHeight;
+    $('.constructor__help__message').css('height', bubleHeight + 'px');
 }
 

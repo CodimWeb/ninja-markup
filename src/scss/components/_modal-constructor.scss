@@ -277,6 +277,13 @@
     width: 100%;
 }
 
+.pizza-ingridient {
+    position: absolute;
+    top: 24px;
+    left: 0;
+    width: 100%;
+}
+
 .constructor-action {
     position: absolute;
     left: 0;
@@ -392,6 +399,10 @@
     text-align: center;
     font-size: 14px;
     font-weight: 700;
+}
+
+.constructor-nav-count img {
+    margin-left: 2px;
 }
 
 // соус
@@ -530,19 +541,16 @@
 }
 
 .constructor__result__btn.start {
-    background: #354A2E;
+    background: #1c1c1c;
     pointer-events: none;
-    animation: test 1.5s infinite linear;
+    animation: flashing 2s infinite linear;
 }
   
-@keyframes test {
-    from {
-        background: #354A2E;
-    }
-  
-    to {
-      background: #1c1c1c;
-    }
+@keyframes flashing {
+    0% { background: #1c1c1c; }
+    45% { background: #354A2E; }
+    55% { background: #354A2E; }
+    100% { background: #1c1c1c; }
 }
 
 .constructor__weight {
@@ -592,7 +600,7 @@
     margin: 4px;
     padding: 0 12px;
     overflow: hidden;
-    transition: background-color .2s ease-in-out;
+    transition: none;
     
     &:hover {
         background-color: #333;
@@ -660,8 +668,7 @@
     background-color: transparent;
     visibility: hidden;
     opacity: 0;
-    transition: background-color .2s ease-in-out;
-    transition-delay: 0.05s;
+    transition: none;
 
     img {
         position: absolute;

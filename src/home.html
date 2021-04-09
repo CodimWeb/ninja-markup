@@ -2470,7 +2470,17 @@
                             </ul>
                         </div>    
                         <div class="constructor__composition">
-                            <div class="constructor__composition__text">Тесто, Сыр Гауда, Соус дижонский сметанный, <span class="constructor__composition__group active">Охотничьи колбаски (60 гр.), Куриное филе (60 гр.), Сервелат (60 гр.),</span> Огурец маринованный, Перец Халопеньо, Перец болгарский, Помидорки черри, Дополнительный сыр Гауда, Соус чили, Сырный бортик</div>
+                            <!-- <div class="constructor__composition__text">Тесто, Сыр Гауда, Соус дижонский сметанный, 
+                                <span class="constructor__composition__group active">Охотничьи колбаски (60 гр.), Куриное филе (60 гр.), Сервелат (60 гр.),</span> 
+                                Огурец маринованный, Перец Халопеньо, Перец болгарский, Помидорки черри, Дополнительный сыр Гауда, Соус чили, Сырный бортик
+                            </div> -->
+                            <div class="constructor__composition__text">Тесто, Сыр Гауда,
+                                <span class="constructor__composition__group" id="composition-sauces"> Соус на Ваш выбор...</span>
+                                <span class="constructor__composition__group" id="composition-meat"></span>
+                                <span class="constructor__composition__group" id="composition-green"></span>
+                                <span class="constructor__composition__group" id="composition-cheese"></span>
+                                <span class="constructor__composition__group" id="composition-additional"></span>
+                            </div>
                         </div>
                         <div class="constructor__result">
                             <button class="btn constructor__result__btn" disabled>300 &#8381;</button> <!-- start -->
@@ -2480,7 +2490,7 @@
                             <div class="tab-content" id="">
                                 <div class="tab-pane fade" id="tab-sauces">
                                     <div class="ingridients-list">
-                                        <button class="btn constructor-ingridient btn-single btn-sauces btn-ingridient-lg active">
+                                        <button class="btn constructor-ingridient btn-single btn-sauces btn-ingridient-lg" data-name="Соус «Дижонский сметанный»">
                                             Соус «Дижонский сметанный»
                                             <span class="btn-ingridient__check-container">
                                                 <span class="btn-ingridient__check">
@@ -2492,7 +2502,7 @@
                                                  дижонская горчица, чесночный порошок, паприка молотая, сметана, мёд, соль, перец
                                             </span>
                                         </button>
-                                        <button class="btn constructor-ingridient btn-single btn-sauces btn-ingridient-md">
+                                        <button class="btn constructor-ingridient btn-single btn-sauces btn-ingridient-md" data-name="Соус «Классический»">
                                             Соус «Классический»
                                             <span class="btn-ingridient__check-container">
                                                 <span class="btn-ingridient__check">
@@ -2504,7 +2514,7 @@
                                                 сметана, чеснок, томатная паста, гвоздика, хмели-сунели, белый молотый перец, орехи, сыр
                                             </span>
                                         </button>
-                                        <button class="btn constructor-ingridient btn-single btn-sauces btn-ingridient-sm">
+                                        <button class="btn constructor-ingridient btn-single btn-sauces btn-ingridient-sm" data-name="Соус «Цезарь»">
                                             Соус «Цезарь»
                                             <span class="btn-ingridient__check-container">
                                                 <span class="btn-ingridient__check">
@@ -2516,7 +2526,7 @@
                                                 домашний майонез, вустерширский соус, чеснок, черный молотый перец,соль, винный уксус
                                             </span>
                                         </button>
-                                        <button class="btn constructor-ingridient btn-single btn-sauces btn-ingridient-lg">
+                                        <button class="btn constructor-ingridient btn-single btn-sauces btn-ingridient-lg" data-name="Соус «Пикантный томатный»">
                                             Соус «Пикантный томатный»
                                             <span class="btn-ingridient__check-container">
                                                 <span class="btn-ingridient__check">
@@ -2528,7 +2538,7 @@
                                                 помидоры, перец сладкий, лук, сахар, соль, черный перец горошком, кориандр, уксус
                                             </span>
                                         </button>
-                                        <button class="btn constructor-ingridient btn-single btn-sauces btn-ingridient-md">
+                                        <button class="btn constructor-ingridient btn-single btn-sauces btn-ingridient-md" data-name="Соус «Сырный»">
                                             Соус «Сырный»
                                             <span class="btn-ingridient__check-container">
                                                 <span class="btn-ingridient__check">
@@ -2540,7 +2550,7 @@
                                                 масло сливочное, пшеничная мука, молоко коровье, сыр твердый, соль, перец
                                             </span>
                                         </button>
-                                        <button class="btn constructor-ingridient btn-single btn-sauces btn-ingridient-sm">
+                                        <button class="btn constructor-ingridient btn-single btn-sauces btn-ingridient-sm" data-name="Соус «Грибной»">
                                             Соус «Грибной»
                                             <span class="btn-ingridient__check-container">
                                                 <span class="btn-ingridient__check">
