@@ -1,27 +1,27 @@
-// BS Abstract
+/* BS Abstract */
 @import "~bootstrap/scss/functions";
-@import "abstract/variables"; // override bootstrap variables
+@import "abstract/variables"; /*override bootstrap variables*/ 
 @import "~bootstrap/scss/mixins";
 
-//BS reboot
+/*BS reboot*/
 @import "~bootstrap/scss/reboot";
 
-// BS grid
+/* BS grid */
 @import "~bootstrap/scss/grid";
 
-// BS components
+/*BS components*/ 
 @import "~bootstrap/scss/transitions";
 @import "~bootstrap/scss/modal";
 @import "~bootstrap/scss/forms";
 @import "~bootstrap/scss/nav";
 
-// base custom
+/*base custom*/ 
 @import "base/fonts";
 @import "base/ui";
 @import "base/typography";
 @import "base/grid";
 
-// plugins
+/*plugins*/ 
 @import "plugin/slick";
 @import "~select2/src/scss/core.scss";
 

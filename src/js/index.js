@@ -654,8 +654,13 @@ $(document).ready(function(){
             $(target).removeClass('active show');
             if($(window).outerWidth() >= 1024) {
                 getBubleHeight();
+                
             }
+            showComposition();
             return false;
+        } 
+        else {
+            showIngridients();
         }
     })
 
@@ -667,6 +672,9 @@ $(document).ready(function(){
         if (event.target.id == 'constructor-nav-sauces') {
             if($(window).outerWidth() >= 1024) {
                 getBubleHeight();
+            }
+            else {
+                $('.constructor').addClass('tablet-open-ingridients');
             }
             $('.constructor__pizza__weil').css('display', 'none');
         }
@@ -825,3 +833,14 @@ function getBubleHeight() {
     $('.constructor__help__message').css('height', bubleHeight + 'px');
 }
 
+function showPizzulkin() {
+    $('.constructor').removeClass('tablet-open-ingridients tablet-open-composition').addClass('tablet-open-pizzulkin');
+}
+
+function showIngridients() {
+    $('.constructor').removeClass('tablet-open-composition tablet-open-pizzulkin').addClass('tablet-open-ingridients');
+}
+
+function showComposition() {
+    $('.constructor').removeClass('tablet-open-pizzulkin tablet-open-ingridients').addClass('tablet-open-composition');
+}
