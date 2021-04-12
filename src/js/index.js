@@ -597,6 +597,10 @@ $(document).ready(function(){
     })
 
     var pizzulkinStep = 0;
+    var showMeat = false;
+    var showGreen = false;
+    var showCheese = false;
+    var showAdditional = false;
     var sauces = [
         {
             id: '',
@@ -674,14 +678,24 @@ $(document).ready(function(){
                 getBubleHeight();
             }
             else {
-                $('.constructor').addClass('tablet-open-ingridients');
+                showIngridients();
             }
             $('.constructor__pizza__weil').css('display', 'none');
         }
         // самовывоз
-        else if(event.target.id == 'pickup-tab') {
-            $('.detail-address-wrap').removeClass('active');
-            console.log('pickup')
+        else if(event.target.id == 'constructor-nav-meat') {
+            if($(window).outerWidth() >= 1024) {
+                getBubleHeight();
+            }
+            else {
+                showIngridients();
+            }
+            if(!showMeat) {
+                $('.constructor__help__text').html('Ммм...мясо! Чтобы пицца была идеальной, советую добавить 3 порции одного или разного вида мяса - суммарно 150 - 180 грамм!')
+                $('.constructor__help__message').removeClass('hidden');
+                showPizzulkin();
+            }
+            showMeat = true;
         }        
     });
 
@@ -812,14 +826,29 @@ function getPizzulkinStep(e, pizzulkinStep) {
     }
     else if(pizzulkinStep == 3) {
         pizzulkinMessage = 'Ну что же, приступим к созданию пиццы! <span class="new-line">Заходите в раздел «Соусы»!</span>';
-        $('.constructor__help__next').addClass('constructor__help__finish');
+        if($(window).outerWidth() >= 1024) {
+            $('.constructor__help__next').addClass('constructor__help__finish');
+        }
     }
     else if(pizzulkinStep == 4) {
+        if($(window).outerWidth() >= 1024) {
+            $('.constructor__help__message').addClass('hidden');
+            $('#constructor-nav-sauces').removeAttr('disabled');
+            $('.constructor').removeClass('constructor-start');
+            $('.constructor__result__btn').removeAttr('disabled').addClass('start');
+        } else {
+            pizzulkinMessage = '.... чтобы посмотреть состав «Своей пиццы», необходимо просто отжать иконку раздела, в котором Вы находитесь!';
+            $('.constructor__help__next').addClass('constructor__help__finish');
+        }
+    }
+    // for tablet and mobile
+    else if(pizzulkinStep == 5) {
         $('.constructor__help__message').addClass('hidden');
         $('#constructor-nav-sauces').removeAttr('disabled');
         $('.constructor').removeClass('constructor-start');
         $('.constructor__result__btn').removeAttr('disabled').addClass('start');
     }
+
     $('.constructor__help__text').html(pizzulkinMessage);
     console.log(e)
     console.log(pizzulkinStep)
