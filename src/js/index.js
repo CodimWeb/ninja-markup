@@ -16,6 +16,11 @@ import Inputmask from "inputmask";
 //styles
 import '../scss/style.scss';
 
+var showMeat = false;
+var showGreen = false;
+var showCheese = false;
+var showAdditional = false;
+
 $(document).ready(function(){
 
     // $('.modal').on('shown.bs.modal', function (e) {
@@ -597,46 +602,99 @@ $(document).ready(function(){
     })
 
     var pizzulkinStep = 0;
-    var showMeat = false;
-    var showGreen = false;
-    var showCheese = false;
-    var showAdditional = false;
     var sauces = [
         {
-            id: '',
+            id: '368',
             name: 'Соус «Дижонский сметанный»',
             img: '/img/constructor/sauces/dijonskiy.jpg',
             zIndex: 10,
         },
         {
-            id: '',
+            id: '367',
             name: 'Соус «Классический»',
             img: '/img/constructor/sauces/classic.jpg',
             zIndex: 10,
         },
         {
-            id: '',
+            id: '569',
             name: 'Соус «Цезарь»',
             img: '/img/constructor/sauces/cesar.jpg',
             zIndex: 10,
         },
         {
-            id: '',
+            id: '369',
             name: 'Соус «Пикантный томатный»',
             img: '/img/constructor/sauces/tomat.jpg',
             zIndex: 10,
         },
         {
-            id: '',
+            id: '1618810',
             name: 'Соус «Сырный»',
             img: '/img/constructor/sauces/cheese.jpg',
             zIndex: 10,
         },
         {
-            id: '',
+            id: '1069218',
             name: 'Соус «Грибной»',
             img: '/img/constructor/sauces/mushroom.jpg',
             zIndex: 10,
+        },
+    ];
+
+    var meats = [
+        {
+            id: '375',
+            name: 'Сервелат',
+            img: '/img/constructor/meat/servelat.png',
+            weight: 60,
+            price: 105,
+            zIndex: 10,
+            quantity: 1,
+        },
+        {
+            id: '376',
+            name: 'Салями',
+            img: '/img/constructor/meat/salami.png',
+            weight: 50,
+            price: 100,
+            zIndex: 10,
+            quantity: 1,
+        },
+        {
+            id: '377',
+            name: 'Ветчина',
+            img: '/img/constructor/meat/vetchina.png',
+            weight: 60,
+            price: 70,
+            zIndex: 10,
+            quantity: 1,
+        },
+        {
+            id: '378',
+            name: 'Бекон',
+            img: '/img/constructor/meat/bacon.png',
+            weight: 60,
+            price: 80,
+            zIndex: 10,
+            quantity: 1,
+        },
+        {
+            id: '379',
+            name: 'Охотничьи колбаски',
+            img: '/img/constructor/meat/oh-kolbaski.png',
+            weight: 60,
+            price: 90,
+            zIndex: 10,
+            quantity: 1,
+        },
+        {
+            id: '380',
+            name: 'Куриное филе',
+            img: '/img/constructor/meat/chiken-file.png',
+            weight: 60,
+            price: 90,
+            zIndex: 10,
+            quantity: 1,
         },
     ]
 
@@ -682,8 +740,9 @@ $(document).ready(function(){
             }
             $('.constructor__pizza__weil').css('display', 'none');
         }
-        // самовывоз
+        // мясо
         else if(event.target.id == 'constructor-nav-meat') {
+            pizzulkinStep = 6
             if($(window).outerWidth() >= 1024) {
                 getBubleHeight();
             }
@@ -691,17 +750,23 @@ $(document).ready(function(){
                 showIngridients();
             }
             if(!showMeat) {
-                $('.constructor__help__text').html('Ммм...мясо! Чтобы пицца была идеальной, советую добавить 3 порции одного или разного вида мяса - суммарно 150 - 180 грамм!')
+                // $('.constructor__help__text').html('Ммм...мясо! Чтобы пицца была идеальной, советую добавить 3 порции одного или разного вида мяса - суммарно 150 - 180 грамм!')
                 $('.constructor__help__message').removeClass('hidden');
+                $('.constructor__help__next').removeClass('constructor__help__finish')
+                $('.constructor__help__prev').css('display', 'none');
+                getPizzulkinStep(event, pizzulkinStep)
                 showPizzulkin();
             }
             showMeat = true;
         }        
     });
 
+    // добавление соуса
+    var selectSauce = '';
     $('.btn-sauces').on('click', function() {
         var name = $(this).attr('data-name');
         let sauce = sauces.find(sauce => sauce.name == name);
+        selectSauce = sauce.name;
         console.log(sauce);
         $('.constructor__result__btn').removeClass('start');
         if($('#img-sauces').length) {
@@ -713,6 +778,104 @@ $(document).ready(function(){
         $('#composition-sauces').html(sauce.name);
         $('#constructor-nav-sauces').find('.constructor-nav-count').html('<img src="img/constructor/icon-check.svg">')
         $('.constructor-nav__btn').removeAttr('disabled');
+    })
+
+    // добавление мяса
+    var meatList = [];
+    var meatGroup = [];
+    $('.btn-meat').on('click', function(){
+        if(meatList.length >= 3) {
+            return false;
+        } 
+        var name = $(this).attr('data-name');
+        let meat = meats.find(meat => meat.name == name);
+        meatList.push(meat)
+        var groupItem = meatGroup.find(meat => meat.name == name);
+        if(groupItem) {
+            // var groupItem = Object.assign({}, item)
+            groupItem.quantity++;
+            console.log(groupItem.quantity)
+        }
+        else {
+            meatGroup.push(meat)
+        }
+
+        console.log(meatList);
+        if($(this).hasClass('select-1')) {
+            $(this).removeClass('select-1').addClass('select-2')
+            $(this).find('.btn-ingridient__check').eq(2).addClass('active');
+            $(this).find('.btn-ingridient__check').eq(1).addClass('active');
+        }
+        else if($(this).hasClass('select-2')) {
+            $(this).removeClass('select-2').addClass('active')
+            $(this).find('.btn-ingridient__check').addClass('active');
+        }
+        else if($(this).hasClass('active')) {
+            return false;
+        }
+        else {
+            $(this).addClass('select-1');
+            $('.constructor__pizza').append(`<img src="${meat.img}" class="pizza-ingridient" alt="" id="${meat.id}" style="z-index: ${meat.zIndex}">`)
+            $(this).find('.btn-ingridient__check').eq(2).addClass('active');
+        }
+
+        var compositionMeat = '';
+        console.log(meatGroup);
+        meatGroup.map((item) => {
+            compositionMeat += `, ${item.name} (${item.weight * item.quantity})`
+        })
+        $('#composition-meat').html(compositionMeat)
+    })
+
+    // удаление мяса
+    $('.btn-ingridient__check').on('click', function(e){
+        if($(this).hasClass('active')) {
+            e.preventDefault();
+            e.stopPropagation();
+            var name = $(this).closest('.constructor-ingridient').attr('data-name');
+            let meat = meats.find(meat => meat.name == name);
+            for(var i = 0; i < meatList.length; i++) {
+                if(meatList[i].id == meat.id) {
+                    meatList.splice(i, 1)
+                    break;
+                }
+            }
+
+            meatGroup = [];
+            var groupItem = meatGroup.find(meat => meat.name == name);
+            if(groupItem) {
+                // var groupItem = Object.assign({}, item)
+                groupItem.quantity++;
+                console.log(groupItem.quantity)
+            }
+            else {
+                meatGroup.push(meat)
+            }
+
+            var compositionMeat = '';
+            console.log(meatGroup);
+            meatGroup.map((item) => {
+                compositionMeat += `, ${item.name} (${item.weight * item.quantity})`
+            })
+            // meatList.push(meat)
+            console.log(meatList);
+            // $(this).removeClass('active');
+            var btn = $(this).closest('.constructor-ingridient');
+            console.log(meat);
+            if(btn.hasClass('active')) {
+                btn.removeClass('active').addClass('select-2')
+                btn.find('.btn-ingridient__check').eq(0).removeClass('active');
+            }
+            else if(btn.hasClass('select-2')) {
+                btn.removeClass('select-2').addClass('select-1')
+                btn.find('.btn-ingridient__check').eq(1).removeClass('active');
+            }
+            else if(btn.hasClass('select-1')) {
+                btn.removeClass('select-1')
+                btn.find('.btn-ingridient__check').eq(2).removeClass('active');
+                document.getElementById(meat.id).remove();
+            }
+        }   
     })
 
     /*END CONSTRUCTOR*/
@@ -813,6 +976,7 @@ function smoothScroll(target) {
 
 function getPizzulkinStep(e, pizzulkinStep) {
     var pizzulkinMessage = ''
+
     if(pizzulkinStep == 0) {
         pizzulkinMessage = 'Привет! Меня зовут Пицулькин и я буду помогать Вам создавать пиццу! <span class="new-line">Ниндзяпиццу!</span>';
         $('.constructor__help__prev').css('display', 'none');
@@ -829,6 +993,7 @@ function getPizzulkinStep(e, pizzulkinStep) {
         if($(window).outerWidth() >= 1024) {
             $('.constructor__help__next').addClass('constructor__help__finish');
         }
+        $('.constructor__help__next').removeClass('constructor__help__finish');
     }
     else if(pizzulkinStep == 4) {
         if($(window).outerWidth() >= 1024) {
@@ -848,10 +1013,29 @@ function getPizzulkinStep(e, pizzulkinStep) {
         $('.constructor').removeClass('constructor-start');
         $('.constructor__result__btn').removeAttr('disabled').addClass('start');
     }
+    // для мяса
+    else if(pizzulkinStep == 6) {
+        pizzulkinMessage = 'Ммм...мясо! Чтобы пицца была идеальной, советую добавить 3 порции одного или разного вида мяса - суммарно 150 - 180 грамм!';
+        $('.constructor__help__prev').css('display', 'none');
+    }
+    else if(pizzulkinStep == 7) {
+        pizzulkinMessage = 'Но, если хочется, можно ограничиться одной или двумя порициями! <span class="new-line">И кстати на будущее...</span>';
+        $('.constructor__help__prev').css('display', 'inline-block');
+        $('.constructor__help__next').removeClass('constructor__help__finish');
+    }
+    else if(pizzulkinStep == 8) {
+        pizzulkinMessage = '... чтобы добавить ту же самую порцию мяса, нужно нажать на наименовании. Чтобы убрать порцию мяса - нужно отжать «галочку»!';
+        $('.constructor__help__next').addClass('constructor__help__finish');
+    }
+
+    else if(pizzulkinStep == 9) {
+        $('.constructor__help__message').addClass('hidden');
+        showMeat = true;
+        showIngridients();
+    }
 
     $('.constructor__help__text').html(pizzulkinMessage);
-    console.log(e)
-    console.log(pizzulkinStep)
+    console.log('step', pizzulkinStep)
 }
 
 function getBubleHeight() {
