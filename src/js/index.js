@@ -698,6 +698,33 @@ $(document).ready(function(){
         },
     ]
 
+    var greens = [
+        {
+            id: '382',
+            name: 'Огурец маринованный',
+            img: '/img/constructor/green/Fresh_Ogurec.png',
+            weight: 30,
+            price: 30,
+            zIndex: 11,
+        },
+        {
+            id: '387',
+            name: 'Помидорки черри',
+            img: '/img/constructor/green/Pomidor_Cherry.png',
+            weight: 45,
+            price: 30,
+            zIndex: 11,
+        },
+        {
+            id: '390',
+            name: 'Ананас',
+            img: '/img/constructor/green/Ananas.png',
+            weight: 50,
+            price: 30,
+            zIndex: 11,
+        },
+    ]
+
     $('.constructor__help__next').on('click', function(e) {
         pizzulkinStep++;
         getPizzulkinStep(e, pizzulkinStep)
@@ -750,14 +777,35 @@ $(document).ready(function(){
                 showIngridients();
             }
             if(!showMeat) {
-                // $('.constructor__help__text').html('Ммм...мясо! Чтобы пицца была идеальной, советую добавить 3 порции одного или разного вида мяса - суммарно 150 - 180 грамм!')
                 $('.constructor__help__message').removeClass('hidden');
                 $('.constructor__help__next').removeClass('constructor__help__finish')
                 $('.constructor__help__prev').css('display', 'none');
                 getPizzulkinStep(event, pizzulkinStep)
                 showPizzulkin();
             }
-            showMeat = true;
+            else {
+                $('.constructor__help__message').addClass('hidden');
+            }
+            // showMeat = true;
+        }
+        // овощи
+        else if(event.target.id == 'constructor-nav-green') {
+            pizzulkinStep = 10
+            if($(window).outerWidth() >= 1024) {
+                getBubleHeight();
+            }
+            else {
+                showIngridients();
+            }
+            if(!showGreen) {
+                $('.constructor__help__message').removeClass('hidden');
+                $('.constructor__help__next').removeClass('constructor__help__finish')
+                $('.constructor__help__prev').css('display', 'none');
+                getPizzulkinStep(event, pizzulkinStep)
+                showPizzulkin();
+            } else {
+                $('.constructor__help__message').addClass('hidden');
+            }
         }        
     });
 
@@ -792,12 +840,11 @@ $(document).ready(function(){
         meatList.push(meat)
         var groupItem = meatGroup.find(meat => meat.name == name);
         if(groupItem) {
-            // var groupItem = Object.assign({}, item)
             groupItem.quantity++;
             console.log(groupItem.quantity)
         }
         else {
-            meatGroup.push(meat)
+            meatGroup.push(Object.assign({}, meat))
         }
 
         console.log(meatList);
@@ -822,7 +869,7 @@ $(document).ready(function(){
         var compositionMeat = '';
         console.log(meatGroup);
         meatGroup.map((item) => {
-            compositionMeat += `, ${item.name} (${item.weight * item.quantity})`
+            compositionMeat += `, ${item.name} (${item.weight * item.quantity} гр.)`
         })
         $('#composition-meat').html(compositionMeat)
     })
@@ -834,6 +881,7 @@ $(document).ready(function(){
             e.stopPropagation();
             var name = $(this).closest('.constructor-ingridient').attr('data-name');
             let meat = meats.find(meat => meat.name == name);
+            console.log(meat);
             for(var i = 0; i < meatList.length; i++) {
                 if(meatList[i].id == meat.id) {
                     meatList.splice(i, 1)
@@ -842,26 +890,31 @@ $(document).ready(function(){
             }
 
             meatGroup = [];
-            var groupItem = meatGroup.find(meat => meat.name == name);
-            if(groupItem) {
-                // var groupItem = Object.assign({}, item)
-                groupItem.quantity++;
-                console.log(groupItem.quantity)
-            }
-            else {
-                meatGroup.push(meat)
-            }
+            meatList.map((item) => {
+                var groupItem = meatGroup.find(groupMeat => item.id == groupMeat.id);
+                console.log(groupItem, 'groupItem')
+                if(groupItem) {
+                    // var groupItem = Object.assign({}, item)
+                    groupItem.quantity++;
+                    console.log(groupItem.quantity)
+                }
+                else {
+                    meatGroup.push(Object.assign({}, item))
+                }
+            })
+            
 
             var compositionMeat = '';
-            console.log(meatGroup);
+            console.log(meatList, 'list');
+            console.log(meatGroup, 'group');
             meatGroup.map((item) => {
-                compositionMeat += `, ${item.name} (${item.weight * item.quantity})`
+                compositionMeat += `, ${item.name} (${item.weight * item.quantity} гр.) `
             })
+            $('#composition-meat').html(compositionMeat)
             // meatList.push(meat)
-            console.log(meatList);
+            
             // $(this).removeClass('active');
             var btn = $(this).closest('.constructor-ingridient');
-            console.log(meat);
             if(btn.hasClass('active')) {
                 btn.removeClass('active').addClass('select-2')
                 btn.find('.btn-ingridient__check').eq(0).removeClass('active');
@@ -1031,6 +1084,21 @@ function getPizzulkinStep(e, pizzulkinStep) {
     else if(pizzulkinStep == 9) {
         $('.constructor__help__message').addClass('hidden');
         showMeat = true;
+        showIngridients();
+    }
+    else if(pizzulkinStep == 10) {
+        pizzulkinMessage = 'Овощи - крайне полезный источник витаминов и энергии для каждого ниндзя!';
+        $('.constructor__help__prev').css('display', 'none');
+        $('.constructor__help__next').removeClass('constructor__help__finish');
+    }
+    else if(pizzulkinStep == 11) {
+        pizzulkinMessage = 'Выбрать можно до 4 порций разных видов овощей. На каждый вид не больше одной порции!';
+        $('.constructor__help__prev').css('display', 'inline-block');
+        $('.constructor__help__next').addClass('constructor__help__finish');
+    }
+    else if(pizzulkinStep == 12) {
+        $('.constructor__help__message').addClass('hidden');
+        showGreen = true;
         showIngridients();
     }
 
