@@ -702,7 +702,7 @@ $(document).ready(function(){
         {
             id: '382',
             name: 'Огурец маринованный',
-            img: '/img/constructor/green/Fresh_Ogurec.png',
+            img: '/img/constructor/green/Mar_Ogurec.png',
             weight: 30,
             price: 30,
             zIndex: 11,
@@ -720,6 +720,62 @@ $(document).ready(function(){
             name: 'Ананас',
             img: '/img/constructor/green/Ananas.png',
             weight: 50,
+            price: 30,
+            zIndex: 11,
+        },
+        {
+            id: '383',
+            name: 'Лук',
+            img: '/img/constructor/green/Luk.png',
+            weight: 25,
+            price: 10,
+            zIndex: 11,
+        },
+        {
+            id: '385',
+            name: 'Перец болгарский',
+            img: '/img/constructor/green/Bolgar_Perec.png',
+            weight: 40,
+            price: 30,
+            zIndex: 11,
+        },
+        {
+            id: '389',
+            name: 'Перец Халопеньо',
+            img: '/img/constructor/green/Perec.png',
+            weight: 30,
+            price: 50,
+            zIndex: 11,
+        },
+        {
+            id: '388',
+            name: 'Маслины',
+            img: '/img/constructor/green/Olives.png',
+            weight: 20,
+            price: 25,
+            zIndex: 11,
+        },
+        {
+            id: '387',
+            name: 'Помидор',
+            img: '/img/constructor/green/Pomidor.png',
+            weight: 40,
+            price: 30,
+            zIndex: 11,
+        },
+        {
+            id: '381',
+            name: 'Огурец свежий',
+            img: '/img/constructor/green/Fresh_Ogurec.png',
+            weight: 30,
+            price: 30,
+            zIndex: 11,
+        },
+        {
+            id: '384',
+            name: 'Шампиньоны',
+            img: '/img/constructor/green/Gribi.png',
+            weight: 30,
             price: 30,
             zIndex: 11,
         },
@@ -929,6 +985,29 @@ $(document).ready(function(){
                 document.getElementById(meat.id).remove();
             }
         }   
+    })
+
+    // добавление овощщей
+    var greenList = [];
+    $('.btn-green').on('click', function(e){
+        var name = $(this).attr('data-name');
+        let green = greens.find(green => green.name == name);
+        if($(this).hasClass('active')) {
+            $(this).removeClass('active');
+            greenList = greenList.filter(green => green.name != name)
+            document.getElementById(green.id).remove();
+            console.log('green if')
+        }
+        else {
+            if(greenList.length >= 4) {
+                return false;
+            }
+            greenList.push(green)
+            $(this).addClass('active');
+            $('.constructor__pizza').append(`<img src="${green.img}" class="pizza-ingridient" alt="" id="${green.id}" style="z-index: ${green.zIndex}">`)
+            console.log('green else')
+        }
+        console.log(greenList, 'greenList')
     })
 
     /*END CONSTRUCTOR*/
