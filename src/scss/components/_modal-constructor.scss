@@ -288,7 +288,7 @@
     position: absolute;
     left: 0;
     bottom: 0;
-    z-index: 10;
+    z-index: 50;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -743,6 +743,31 @@
         background: transparent;
         opacity: 0.5;
     }
+}
+
+.btn-cheese {
+
+}
+
+.btn-cheese .btn-ingridient__check-container {
+    position: static;
+    width: 72px;
+    margin-right: -12px;
+}
+
+.btn-cheese .btn-ingridient__check {
+    opacity: 1;
+    visibility: visible;
+}
+
+.btn-cheese .btn-ingridient__check:last-child {
+    background: #3b6421;
+}
+
+.btn-cheese.active .btn-ingridient__check-container {
+    position: absolute;
+    width: 72px;
+    margin-right: 0;
 }
 
 .constructor-start .constructor__clear-container {

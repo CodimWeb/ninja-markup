@@ -781,6 +781,23 @@ $(document).ready(function(){
         },
     ]
 
+    var additionals = [
+        {
+            id: '420',
+            name: 'Сырный бортик',
+            img: '',
+            weight: 120,
+            price: 149,
+        },
+        {
+            id: '590',
+            name: 'Соус Чили',
+            img: '',
+            weight: 0,
+            price: 10,
+        },
+    ]
+
     $('.constructor__help__next').on('click', function(e) {
         pizzulkinStep++;
         getPizzulkinStep(e, pizzulkinStep)
@@ -809,6 +826,7 @@ $(document).ready(function(){
         }
     })
 
+    // переключение ингридиентов
     $('.constructor__nav-tabs .constructor-nav__btn').on('shown.bs.tab', function (event) {
         event.target // newly activated tab
         event.relatedTarget // previous active tab
@@ -862,7 +880,47 @@ $(document).ready(function(){
             } else {
                 $('.constructor__help__message').addClass('hidden');
             }
-        }        
+        }      
+        // сыр
+        else if(event.target.id == 'constructor-nav-cheese') {
+            pizzulkinStep = 13
+            if($(window).outerWidth() >= 1024) {
+                getBubleHeight();
+            }
+            else {
+                showIngridients();
+            }
+            if(!showCheese) {
+                $('.constructor__help__message').removeClass('hidden');
+                $('.constructor__help__next').removeClass('constructor__help__finish')
+                $('.constructor__help__prev').css('display', 'none');
+                getPizzulkinStep(event, pizzulkinStep)
+                showPizzulkin();
+            } else {
+                $('.constructor__help__message').addClass('hidden');
+            }
+            $('.constructor__pizza').append(`<img src="/img/constructor/cheese/Cheese_Gauda_Osnova.png" class="pizza-ingridient" alt="" id="" style="z-index: 12">`)
+        }  
+
+        // доп опции
+        else if(event.target.id == 'constructor-nav-additional') {
+            pizzulkinStep = 16
+            if($(window).outerWidth() >= 1024) {
+                getBubleHeight();
+            }
+            else {
+                showIngridients();
+            }
+            if(!showAdditional) {
+                $('.constructor__help__message').removeClass('hidden');
+                $('.constructor__help__next').removeClass('constructor__help__finish')
+                $('.constructor__help__prev').css('display', 'none');
+                getPizzulkinStep(event, pizzulkinStep)
+                showPizzulkin();
+            } else {
+                $('.constructor__help__message').addClass('hidden');
+            }
+        }
     });
 
     // добавление соуса
@@ -928,6 +986,12 @@ $(document).ready(function(){
             compositionMeat += `, ${item.name} (${item.weight * item.quantity} гр.)`
         })
         $('#composition-meat').html(compositionMeat)
+        if(meatList.length == 3) {
+            $('#constructor-nav-meat').find('.constructor-nav-count').html('<img src="img/constructor/icon-check.svg">')
+        }
+        else {
+            $('#constructor-nav-meat').find('.constructor-nav-count').html(3 - meatList.length)
+        }
     })
 
     // удаление мяса
@@ -984,7 +1048,13 @@ $(document).ready(function(){
                 btn.find('.btn-ingridient__check').eq(2).removeClass('active');
                 document.getElementById(meat.id).remove();
             }
-        }   
+        }
+        if(meatList.length == 3) {
+            $('#constructor-nav-meat').find('.constructor-nav-count').html('<img src="img/constructor/icon-check.svg">')
+        }
+        else {
+            $('#constructor-nav-meat').find('.constructor-nav-count').html(3 - meatList.length)
+        }
     })
 
     // добавление овощщей
@@ -1007,7 +1077,62 @@ $(document).ready(function(){
             $('.constructor__pizza').append(`<img src="${green.img}" class="pizza-ingridient" alt="" id="${green.id}" style="z-index: ${green.zIndex}">`)
             console.log('green else')
         }
+        var compositionGreen = '';
+        greenList.map((item) => {
+            compositionGreen += `, ${item.name}`
+        })
+        $('#composition-green').html(compositionGreen)
         console.log(greenList, 'greenList')
+        if(greenList.length == 4) {
+            $('#constructor-nav-green').find('.constructor-nav-count').html('<img src="img/constructor/icon-check.svg">')
+        }
+        else {
+            $('#constructor-nav-green').find('.constructor-nav-count').html(4 - greenList.length)
+        }
+    })
+
+    // добавление сыра
+    $('.btn-cheese').on('click', function(e){
+        console.log('fuck');
+        if($(this).hasClass('active')) {
+            $(this).removeClass('active')
+            document.getElementById('cheese-add').remove();
+            $('#composition-cheese').html('')
+            $('#constructor-nav-cheese').find('.constructor-nav-count').html('1')
+        }
+        else {
+            $(this).addClass('active')
+            $('.constructor__pizza').append(`<img src="/img/constructor/cheese/Cheese_Gauda_Dopolnitelno.png" class="pizza-ingridient" alt="" id="cheese-add" style="z-index: 12">`)
+            $('#composition-cheese').html(', Дополните льный Сыр Гауда')
+            $('#constructor-nav-cheese').find('.constructor-nav-count').html('<img src="img/constructor/icon-check.svg">')
+        }
+    });
+
+    // добавление доп ингр
+    var additionalList = [];
+    $('.btn-additional').on('click', function(e){
+        var name = $(this).attr('data-name');
+        let additional = additionals.find(additional => additional.name == name);
+        if($(this).hasClass('active')) {
+            $(this).removeClass('active')
+            additionalList = additionalList.filter(additional => additional.name != name)
+        }
+        else {
+            $(this).addClass('active')
+            additionalList.push(additional)
+        }
+        var compositionAdditional = '';
+        additionalList.map((item) => {
+            compositionAdditional += `, ${item.name}`
+        })
+        $('#composition-additional').html(compositionAdditional)
+        if(additionalList.length == 2) {
+            $('#constructor-nav-additional').find('.constructor-nav-count').html('<img src="img/constructor/icon-check.svg">')
+        }
+        else {
+            $('#constructor-nav-additional').find('.constructor-nav-count').html(2 - additionalList.length)
+        }
+        console.log(additionalList, 'additionalList')
     })
 
     /*END CONSTRUCTOR*/
@@ -1165,6 +1290,7 @@ function getPizzulkinStep(e, pizzulkinStep) {
         showMeat = true;
         showIngridients();
     }
+    // для овощей
     else if(pizzulkinStep == 10) {
         pizzulkinMessage = 'Овощи - крайне полезный источник витаминов и энергии для каждого ниндзя!';
         $('.constructor__help__prev').css('display', 'none');
@@ -1178,6 +1304,36 @@ function getPizzulkinStep(e, pizzulkinStep) {
     else if(pizzulkinStep == 12) {
         $('.constructor__help__message').addClass('hidden');
         showGreen = true;
+        showIngridients();
+    }
+
+    // для сыра
+    else if(pizzulkinStep == 13) {
+        pizzulkinMessage = 'Для вашего удобства - заложенная в цену порция сыра Гауда, просто не отображалась визуально! <span class="new-line">Но теперь все видно!</span>';
+        $('.constructor__help__prev').css('display', 'none');
+        $('.constructor__help__next').removeClass('constructor__help__finish');
+    }
+    else if(pizzulkinStep == 14) {
+        pizzulkinMessage = 'Вы можете добавить еще одну порцию сыра Гауда в вашу пиццу! <span class="new-line">Ниндзяпиццу!</span>';
+        $('.constructor__help__prev').css('display', 'inline-block');
+        $('.constructor__help__next').addClass('constructor__help__finish');
+    }
+
+    else if(pizzulkinStep == 15) {
+        $('.constructor__help__message').addClass('hidden');
+        showCheese = true;
+        showIngridients();
+    }
+    // для доп ингр
+    else if(pizzulkinStep == 16) {
+        pizzulkinMessage = 'Пицца не была бы Ниндзяпиццей без возможности добавить какую-либо изюминку!';
+        $('.constructor__help__prev').css('display', 'none');
+        $('.constructor__help__next').addClass('constructor__help__finish');
+    }
+
+    else if(pizzulkinStep == 17) {
+        $('.constructor__help__message').addClass('hidden');
+        showAdditional = true;
         showIngridients();
     }
 

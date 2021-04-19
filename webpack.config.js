@@ -37,7 +37,7 @@ module.exports = (env, options) => {
                     }]
                 },
                 {
-                    test: /\.scss$/,
+                    test: /\.(scss|css)$/,
                     use: ExtractTextPlugin.extract({
                         use: [
                             {
@@ -117,6 +117,7 @@ module.exports = (env, options) => {
         },
     }
 
-    conf.devtool = production ? false : 'eval-sourcemap';
+    // conf.devtool = production ? false : 'eval-sourcemap';
+    conf.devtool = production ? false : 'inline-source-map';
     return conf;
 }
