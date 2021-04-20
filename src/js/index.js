@@ -590,15 +590,26 @@ $(document).ready(function(){
     /* END ORDERS */
 
     /*CONSTRUCTOR*/
-    $('.constructor__help__toogle').on('click', function(){
+    $('#modal-constructor').on('show.bs.modal', function (event) {
+        closeNav()
+    })
+    
+    $('.constructor__help__toogle').on('click', function(e){
         if($(this).hasClass('off')) {
             $(this).removeClass('off');
-            $('.constructor__help__toogle__text').html('ВКЛ.');
+            $('.constructor__help__toogle__text').html('<span class="name">Пицулькин</span> ВКЛ.');
+            $('.constructor__help').removeClass('tablet-off pizzulkin-off')
+            getPizzulkinStep(e, pizzulkinStep)
         }
         else {
             $(this).addClass('off')
-            $('.constructor__help__toogle__text').html('ВЫКЛ.');
+            $('.constructor__help__toogle__text').html('<span class="name">Пицулькин</span> ВЫКЛ.');
+            $('.constructor__help').addClass('tablet-off pizzulkin-off')
+            getPizzulkinStep(e, 0)
         }
+        $('#constructor-nav-sauces').removeAttr('disabled');
+        $('.constructor').removeClass('constructor-start');
+        $('.constructor__result__btn').removeAttr('disabled').removeClass('start');
     })
 
     var pizzulkinStep = 0;
@@ -606,37 +617,37 @@ $(document).ready(function(){
         {
             id: '368',
             name: 'Соус «Дижонский сметанный»',
-            img: '/img/constructor/sauces/dijonskiy.jpg',
+            img: '/img/constructor/sauces/Sause_DijonSmetan.png',
             zIndex: 10,
         },
         {
             id: '367',
             name: 'Соус «Классический»',
-            img: '/img/constructor/sauces/classic.jpg',
+            img: '/img/constructor/sauces/Sause_Classic.png',
             zIndex: 10,
         },
         {
             id: '569',
             name: 'Соус «Цезарь»',
-            img: '/img/constructor/sauces/cesar.jpg',
+            img: '/img/constructor/sauces/Sause_Caesar.png',
             zIndex: 10,
         },
         {
             id: '369',
             name: 'Соус «Пикантный томатный»',
-            img: '/img/constructor/sauces/tomat.jpg',
+            img: '/img/constructor/sauces/Sause_PicTomatnii.png',
             zIndex: 10,
         },
         {
             id: '1618810',
             name: 'Соус «Сырный»',
-            img: '/img/constructor/sauces/cheese.jpg',
+            img: '/img/constructor/sauces/Sause_Cheese.png',
             zIndex: 10,
         },
         {
             id: '1069218',
             name: 'Соус «Грибной»',
-            img: '/img/constructor/sauces/mushroom.jpg',
+            img: '/img/constructor/sauces/Sause_Gribnoi.png',
             zIndex: 10,
         },
     ];
@@ -712,7 +723,7 @@ $(document).ready(function(){
             name: 'Помидорки черри',
             img: '/img/constructor/green/Pomidor_Cherry.png',
             weight: 45,
-            price: 30,
+            price: 35,
             zIndex: 11,
         },
         {
@@ -809,6 +820,10 @@ $(document).ready(function(){
     })
 
     $('.constructor__nav-tabs .constructor-nav__btn').on('click', function(e){
+        var targetComposition = $(this).attr('data-composition')
+            console.log(targetComposition, 'asdasd')
+            $('.constructor__composition__group').removeClass('active');
+            $(targetComposition).addClass('active')
         if($(this).hasClass('active')) {
             e.preventDefault();
             $(this).removeClass('active');
@@ -826,6 +841,9 @@ $(document).ready(function(){
         }
     })
 
+    var totalPrice = 300;
+    var totalWeight = 500;
+
     // переключение ингридиентов
     $('.constructor__nav-tabs .constructor-nav__btn').on('shown.bs.tab', function (event) {
         event.target // newly activated tab
@@ -833,6 +851,7 @@ $(document).ready(function(){
         console.log(event.target)
         // соусы
         if (event.target.id == 'constructor-nav-sauces') {
+            pizzulkinStep = 0
             if($(window).outerWidth() >= 1024) {
                 getBubleHeight();
             }
@@ -938,8 +957,10 @@ $(document).ready(function(){
         $('.btn-sauces').removeClass('active');
         $(this).addClass('active');
         $('#composition-sauces').html(sauce.name);
+        $('#constructor-nav-sauces').addClass('selected')
         $('#constructor-nav-sauces').find('.constructor-nav-count').html('<img src="img/constructor/icon-check.svg">')
         $('.constructor-nav__btn').removeAttr('disabled');
+
     })
 
     // добавление мяса
@@ -952,6 +973,12 @@ $(document).ready(function(){
         var name = $(this).attr('data-name');
         let meat = meats.find(meat => meat.name == name);
         meatList.push(meat)
+
+        totalPrice += meat.price;
+        totalWeight += meat.weight;
+        $('.constructor__result__btn').html(`${totalPrice} &#8381;`)
+        $('.constructor__weight').html(`${totalWeight} гр.`)
+
         var groupItem = meatGroup.find(meat => meat.name == name);
         if(groupItem) {
             groupItem.quantity++;
@@ -986,12 +1013,15 @@ $(document).ready(function(){
             compositionMeat += `, ${item.name} (${item.weight * item.quantity} гр.)`
         })
         $('#composition-meat').html(compositionMeat)
+        $('#constructor-nav-meat').addClass('selected')
         if(meatList.length == 3) {
             $('#constructor-nav-meat').find('.constructor-nav-count').html('<img src="img/constructor/icon-check.svg">')
         }
         else {
             $('#constructor-nav-meat').find('.constructor-nav-count').html(3 - meatList.length)
         }
+        
+        
     })
 
     // удаление мяса
@@ -1002,8 +1032,14 @@ $(document).ready(function(){
             var name = $(this).closest('.constructor-ingridient').attr('data-name');
             let meat = meats.find(meat => meat.name == name);
             console.log(meat);
-            for(var i = 0; i < meatList.length; i++) {
+            for(var i = meatList.length -1; i >= 0; i--) {
+                console.log(i, ' i')
+                console.log(meatList[i], 'fuck')
                 if(meatList[i].id == meat.id) {
+                    totalPrice -= meatList[i].price;
+                    totalWeight -= meatList[i].weight;
+                    $('.constructor__result__btn').html(`${totalPrice} &#8381;`)
+                    $('.constructor__weight').html(`${totalWeight} гр.`)
                     meatList.splice(i, 1)
                     break;
                 }
@@ -1055,6 +1091,11 @@ $(document).ready(function(){
         else {
             $('#constructor-nav-meat').find('.constructor-nav-count').html(3 - meatList.length)
         }
+
+        if(meatList.length == 0) {
+            $('#constructor-nav-meat').removeClass('selected')
+        }
+        
     })
 
     // добавление овощщей
@@ -1066,16 +1107,26 @@ $(document).ready(function(){
             $(this).removeClass('active');
             greenList = greenList.filter(green => green.name != name)
             document.getElementById(green.id).remove();
-            console.log('green if')
+            totalPrice -= green.price;
+            totalWeight -= green.weight;
+            $('.constructor__result__btn').html(`${totalPrice} &#8381;`)
+            $('.constructor__weight').html(`${totalWeight} гр.`)
+            if(greenList.length == 0) {
+                $('#constructor-nav-green').removeClass('selected')
+            }
         }
         else {
             if(greenList.length >= 4) {
                 return false;
             }
+            
             greenList.push(green)
             $(this).addClass('active');
             $('.constructor__pizza').append(`<img src="${green.img}" class="pizza-ingridient" alt="" id="${green.id}" style="z-index: ${green.zIndex}">`)
-            console.log('green else')
+            totalPrice += green.price;
+            totalWeight += green.weight;
+            $('.constructor__result__btn').html(`${totalPrice} &#8381;`)
+            $('.constructor__weight').html(`${totalWeight} гр.`)
         }
         var compositionGreen = '';
         greenList.map((item) => {
@@ -1083,6 +1134,10 @@ $(document).ready(function(){
         })
         $('#composition-green').html(compositionGreen)
         console.log(greenList, 'greenList')
+        if(greenList.length != 0) {
+            $('#constructor-nav-green').addClass('selected')
+        }
+        
         if(greenList.length == 4) {
             $('#constructor-nav-green').find('.constructor-nav-count').html('<img src="img/constructor/icon-check.svg">')
         }
@@ -1093,18 +1148,25 @@ $(document).ready(function(){
 
     // добавление сыра
     $('.btn-cheese').on('click', function(e){
-        console.log('fuck');
         if($(this).hasClass('active')) {
             $(this).removeClass('active')
             document.getElementById('cheese-add').remove();
             $('#composition-cheese').html('')
             $('#constructor-nav-cheese').find('.constructor-nav-count').html('1')
+            totalPrice -= 180;
+            totalWeight -= 130;
+            $('.constructor__result__btn').html(`${totalPrice} &#8381;`)
+            $('.constructor__weight').html(`${totalWeight} гр.`)
         }
         else {
             $(this).addClass('active')
             $('.constructor__pizza').append(`<img src="/img/constructor/cheese/Cheese_Gauda_Dopolnitelno.png" class="pizza-ingridient" alt="" id="cheese-add" style="z-index: 12">`)
             $('#composition-cheese').html(', Дополните льный Сыр Гауда')
             $('#constructor-nav-cheese').find('.constructor-nav-count').html('<img src="img/constructor/icon-check.svg">')
+            totalPrice += 180;
+            totalWeight += 130;
+            $('.constructor__result__btn').html(`${totalPrice} &#8381;`)
+            $('.constructor__weight').html(`${totalWeight} гр.`)
         }
     });
 
@@ -1116,16 +1178,31 @@ $(document).ready(function(){
         if($(this).hasClass('active')) {
             $(this).removeClass('active')
             additionalList = additionalList.filter(additional => additional.name != name)
+            totalPrice -= additional.price;
+            totalWeight -= additional.weight;
+            $('.constructor__result__btn').html(`${totalPrice} &#8381;`)
+            $('.constructor__weight').html(`${totalWeight} гр.`)
+            if(additionalList.length == 0) {
+                $('#constructor-nav-additional').removeClass('selected')
+            }
         }
         else {
             $(this).addClass('active')
             additionalList.push(additional)
+            totalPrice += additional.price;
+            totalWeight += additional.weight;
+            $('.constructor__result__btn').html(`${totalPrice} &#8381;`)
+            $('.constructor__weight').html(`${totalWeight} гр.`)
         }
         var compositionAdditional = '';
         additionalList.map((item) => {
             compositionAdditional += `, ${item.name}`
         })
         $('#composition-additional').html(compositionAdditional)
+        if(additionalList.length != 0) {
+            $('#constructor-nav-additional').addClass('selected')
+        }
+        
         if(additionalList.length == 2) {
             $('#constructor-nav-additional').find('.constructor-nav-count').html('<img src="img/constructor/icon-check.svg">')
         }
@@ -1134,6 +1211,9 @@ $(document).ready(function(){
         }
         console.log(additionalList, 'additionalList')
     })
+
+    // начать заново
+
 
     /*END CONSTRUCTOR*/
     
@@ -1250,7 +1330,9 @@ function getPizzulkinStep(e, pizzulkinStep) {
         if($(window).outerWidth() >= 1024) {
             $('.constructor__help__next').addClass('constructor__help__finish');
         }
-        $('.constructor__help__next').removeClass('constructor__help__finish');
+        else {
+            $('.constructor__help__next').removeClass('constructor__help__finish');
+        }
     }
     else if(pizzulkinStep == 4) {
         if($(window).outerWidth() >= 1024) {
