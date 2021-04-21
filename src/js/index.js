@@ -16,6 +16,7 @@ import Inputmask from "inputmask";
 //styles
 import '../scss/style.scss';
 
+var showSauce = false;
 var showMeat = false;
 var showGreen = false;
 var showCheese = false;
@@ -590,8 +591,12 @@ $(document).ready(function(){
     /* END ORDERS */
 
     /*CONSTRUCTOR*/
-    $('#modal-constructor').on('show.bs.modal', function (event) {
-        closeNav()
+    $('#modal-constructor').on('shown.bs.modal', function (event) {
+        $('.nav-wrap').removeClass('visible open');
+    })
+
+    $('#modal-constructor').on('hidden.bs.modal', function(e){
+        clearConsctuctor(e)
     })
     
     $('.constructor__help__toogle').on('click', function(e){
@@ -821,7 +826,6 @@ $(document).ready(function(){
 
     $('.constructor__nav-tabs .constructor-nav__btn').on('click', function(e){
         var targetComposition = $(this).attr('data-composition')
-            console.log(targetComposition, 'asdasd')
             $('.constructor__composition__group').removeClass('active');
             $(targetComposition).addClass('active')
         if($(this).hasClass('active')) {
@@ -857,6 +861,16 @@ $(document).ready(function(){
             }
             else {
                 showIngridients();
+            }
+            if(!showSauce) {
+                $('.constructor__help__message').removeClass('hidden');
+                $('.constructor__help__next').removeClass('constructor__help__finish')
+                $('.constructor__help__prev').css('display', 'none');
+                getPizzulkinStep(event, pizzulkinStep)
+                showPizzulkin();
+            }
+            else {
+                $('.constructor__help__message').addClass('hidden');
             }
             $('.constructor__pizza__weil').css('display', 'none');
         }
@@ -1213,7 +1227,35 @@ $(document).ready(function(){
     })
 
     // начать заново
+    $('.constructor__clear').on('click', function(e){
+        clearConsctuctor(e)
+    })
 
+    function clearConsctuctor(e) {
+        selectSauce = '';
+        meatList = [];
+        meatGroup = [];
+        greenList = [];
+        additionalList = [];
+        pizzulkinStep = 0;
+        $('.constructor-ingridient').removeClass('active select-1 select-2')
+        $('.btn-ingridient__check').removeClass('active');
+        $('.constructor-nav__btn').removeClass('active selected')
+        $('.constructor__ingridients .tab-pane').removeClass('active show');
+        $('#constructor-nav-sauces').find('.constructor-nav-count').html('1');
+        $('#constructor-nav-meat').attr('disabled', 'disabled').find('.constructor-nav-count').html('3');
+        $('#constructor-nav-green').attr('disabled', 'disabled').find('.constructor-nav-count').html('4');
+        $('#constructor-nav-cheese').attr('disabled', 'disabled').find('.constructor-nav-count').html('1');
+        $('#constructor-nav-additional').attr('disabled', 'disabled').find('.constructor-nav-count').html('2');
+        $('.constructor__composition__group').html('');
+        $('#composition-sauces').html(' Соус на Ваш выбор...');
+        $('.constructor__result__btn').html('300 &#8381;');
+        $('.constructor__weight').html('500 гр.');
+        $('.pizza-ingridient').remove();
+        $('.constructor__help__message').addClass('hidden').removeClass('tablet-open-ingridients').removeAttr('style');
+        getPizzulkinStep(e, pizzulkinStep)
+        console.log('clear')
+    }
 
     /*END CONSTRUCTOR*/
     
@@ -1340,6 +1382,7 @@ function getPizzulkinStep(e, pizzulkinStep) {
             $('#constructor-nav-sauces').removeAttr('disabled');
             $('.constructor').removeClass('constructor-start');
             $('.constructor__result__btn').removeAttr('disabled').addClass('start');
+            showSauce = true;
         } else {
             pizzulkinMessage = '.... чтобы посмотреть состав «Своей пиццы», необходимо просто отжать иконку раздела, в котором Вы находитесь!';
             $('.constructor__help__next').addClass('constructor__help__finish');
@@ -1351,6 +1394,8 @@ function getPizzulkinStep(e, pizzulkinStep) {
         $('#constructor-nav-sauces').removeAttr('disabled');
         $('.constructor').removeClass('constructor-start');
         $('.constructor__result__btn').removeAttr('disabled').addClass('start');
+        showSauce = true;
+        showIngridients();
     }
     // для мяса
     else if(pizzulkinStep == 6) {
