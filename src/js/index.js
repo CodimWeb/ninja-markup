@@ -1258,6 +1258,50 @@ $(document).ready(function(){
     }
 
     /*END CONSTRUCTOR*/
+
+    /*MAP DELIVERY*/ 
+    $('.delivery-map').on('mousemove', function(e){
+        console.log(e.target);
+        if($(e.target).hasClass('filial-point') || $(e.target).parent().hasClass('filial-point')) {
+            $('.filial-buble').css({
+                'display':'none',
+            })
+            console.log('true')
+            var target = $(e.target).attr('data-target')
+            console.log(target)
+            $(target).css({
+                'display':'block',
+                'left': '400px',
+                'top': '300px'
+            })
+        }
+        else {
+            console.log('false');
+            $('.filial-buble').css({
+                'display':'none',
+                'left': '400px',
+                'top': '300px'
+            })
+        }
+    })
+    // $('.filial-point').on('mouseover', function(){
+    //     console.log('mouseover')
+    //     var target = $(this).attr('data-target')
+    //     console.log(target)
+    //     $(target).css({
+    //         'display':'block',
+    //         'left': '400px',
+    //         'top': '300px'
+    //     })
+    // })
+    // $('.filial-point').on('mouseout', function(){
+    //     console.log('mouseout')
+    //     var target = $(this).attr('data-target')
+    //     $(target).css({
+    //         'display':'none'
+    //     })
+    // })
+    /*END MAP DELIVERY*/ 
     
 });
 

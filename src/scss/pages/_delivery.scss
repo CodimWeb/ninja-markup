@@ -1,5 +1,5 @@
 .delivery-container {
-    max-width:  1200px;
+    max-width:  1230px;
 }
 
 .delivery-title {
@@ -9,4 +9,253 @@
     color: #fff;
     margin: 80px 0 35px;
     text-align: center;
+}
+
+.delivery-map-wrap {
+    position: relative;
+    width: 1178px;
+    margin: 0 auto;
+}
+
+.delivery-map-panel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delivery-map {
+    position: relative;
+    width: 1178px;
+    height: 800px;
+    border-radius: 17px;
+    overflow: hidden;
+}
+
+.filial-point {
+    position: absolute;
+    cursor: pointer;
+}
+
+.filial-point-1 {
+    top: 432px;
+    left: 191px;
+}
+
+.filial-point-2 {
+    top: 462px;
+    left: 291px;
+}
+
+.filial-point-3 {
+    top: 333px;
+    left: 538px;
+}
+
+.filial-point-4 {
+    top: 292px;
+    left: 642px;
+}
+
+.filial-point-5 {
+    top: 624px;
+    left: 485px;
+}
+
+.filial-point-6 {
+    top: 532px;
+    left: 611px;
+}
+
+.delivery-help {
+    position: absolute;
+    left: 28px;
+    top: 28px;
+    width: 517px;
+    min-height: 120px;
+    padding: 9px 15px;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 12px;
+    z-index: 2;
+}
+
+.delivery-help__row {
+    display: flex;
+    align-items: center;
+}
+
+.delivery-help__left {
+    width: 64px;
+}
+
+.delivery-help__right {
+    flex: 1;
+}
+
+.delivery-help__place {
+    width: 29px;
+    background: #C5C5C5;
+    border-radius: 4px;
+}
+
+.delivery-help__num {
+    position: relative;
+    height: 20px;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 20px;
+    color: #000;
+    text-align: center;
+
+    &:before {
+        content: '';
+        width: 24px;
+        height: 8px;
+        background-image: url(../img/arrow-delivery.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        position: absolute;
+        left: 100%;
+    }
+}
+
+.delivery-help__num:first-child {
+    margin-bottom: 1px;
+}
+
+.delivery-help__num:first-child:after {
+    content: '';
+    width: 18px;
+    height: 1px;
+    background: #606060;
+    position: absolute;
+    left: 50%;
+    bottom: -1px;
+    transform: translateX(-50%);
+}
+
+.delivery-help__num:first-child:before {
+    top: 1px;
+    transform: rotateZ(-15deg);
+    margin-left: 6px;
+}
+
+.delivery-help__num:last-child:before {
+    top: 9px;
+    transform: rotateZ(15deg);
+    margin-left: 6px;
+}
+
+.delivery-help__text {
+    font-size: 12px;
+    line-height: 15px;
+    margin-bottom: 12px;
+}
+
+.delivery-help__text:last-child {
+    margin-bottom: 0;
+}
+
+.delivery-help__row:last-child {
+    margin-top: 6px;
+}
+
+.delivery-help__fillial {
+    width: 31px;
+    height: 31px;
+    position: relative;
+    background-image: url(../img/delivery-head.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+
+.delivery-help__fillial:before {
+    content: '';
+    width: 24px;
+    height: 8px;
+    background-image: url(../img/arrow-delivery.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 4px;
+}
+
+.delivery-buble {
+    width: 185px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 6px;
+    padding-left: 12px;
+    padding-bottom: 5px;
+}
+
+.filial-buble {
+    width: 245px;
+    padding-left: 72px;
+    position: absolute;
+    left: 20px;
+    top: 150px;
+    display: none;
+}
+
+.filial-ninja {
+    position: absolute;
+    left: 15px;
+    top: 19px;
+}
+
+.delivery-buble__title {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000;
+    padding: 5px 0;
+    border-bottom: 2px solid #000;
+}
+
+.delivery-buble__container {
+    padding: 5px 0;
+}
+
+.delivery-buble__text {
+    font-size: 12px;
+    line-height: 15px;
+    color: #000;
+}
+
+.delivery-buble__schedule {
+    position: relative;
+}
+
+.delivery-buble__schedule__item {
+    display: flex;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 15px;
+    margin-bottom: 4px;
+    color: #000;
+
+    span:nth-child(1) {
+        margin-right: 13px;
+        width: 40px;
+    }
+}
+
+.delivery-buble__schedule__time {
+    font-weight: 600;
+    margin: 0 !important;
+    font-family: Ubuntu;
+}
+
+.delivery-point-buble {
+    width: 224px;
+}
+
+.delivery-buble__street-list {
+    padding: 6px 0 8px 17px;
 }
