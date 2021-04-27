@@ -1,4 +1,5 @@
 const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
@@ -65,7 +66,8 @@ module.exports = (env, options) => {
                   }
             ]
         },
-        plugins: [
+        plugins: production ? [
+            new CleanWebpackPlugin(),
             new CopyWebpackPlugin([
                 {
                     from: './src/img',
@@ -104,7 +106,48 @@ module.exports = (env, options) => {
                 template: 'src/delivery.html'
             }),
             
-        ],
+        ] : 
+        [
+            new CopyWebpackPlugin([
+                {
+                    from: './src/img',
+                    to: './img'
+                },
+                {
+                    from: './src/fonts',
+                    to: './fonts'
+                },
+            ]),
+            new MiniCssExtractPlugin({
+                filename: "./css/style-[hash].css"
+            }),
+            new HtmlWebpackPlugin({  // Also generate a test.html
+                filename: 'home.html',
+                template: 'src/home.html'
+            }),
+            new HtmlWebpackPlugin({
+                filename: 'sales.html',
+                template: 'src/sales.html'
+            }),
+            new HtmlWebpackPlugin({
+                filename: 'about.html',
+                template: 'src/about.html'
+            }),
+            new HtmlWebpackPlugin({
+                filename: 'order.html',
+                template: 'src/order.html'
+            }),
+            new HtmlWebpackPlugin({
+                filename: 'order-accept.html',
+                template: 'src/order-accept.html'
+            }),
+            new HtmlWebpackPlugin({
+                filename: 'delivery.html',
+                template: 'src/delivery.html'
+            }),
+            
+        ]
+        ,
         optimization: {
             minimizer: [new UglifyJsPlugin({
                 test: /\.js(\?.*)?$/i,

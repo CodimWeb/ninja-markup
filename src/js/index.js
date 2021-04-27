@@ -1260,47 +1260,61 @@ $(document).ready(function(){
     /*END CONSTRUCTOR*/
 
     /*MAP DELIVERY*/ 
-    $('.delivery-map').on('mousemove', function(e){
-        console.log(e.target);
-        if($(e.target).hasClass('filial-point') || $(e.target).parent().hasClass('filial-point')) {
-            $('.filial-buble').css({
-                'display':'none',
-            })
-            console.log('true')
-            var target = $(e.target).attr('data-target')
-            console.log(target)
-            $(target).css({
-                'display':'block',
-                'left': '400px',
-                'top': '300px'
-            })
-        }
-        else {
-            console.log('false');
-            $('.filial-buble').css({
-                'display':'none',
-                'left': '400px',
-                'top': '300px'
-            })
-        }
+    // $('.delivery-map').on('mousemove', function(e){
+    //     console.log(e.target);
+    //     if($(e.target).hasClass('filial-point') || $(e.target).parent().hasClass('filial-point')) {
+    //         $('.filial-buble').css({
+    //             'display':'none',
+    //         })
+            
+    //         console.log(e.target)
+    //         console.log('true')
+    //         var target = $(e.target).attr('data-target')
+    //         console.log(target)
+    //         $(target).css({
+    //             'display':'block',
+    //             'left': '400px',
+    //             'top': '300px'
+    //         })
+    //     }
+    //     else {
+    //         console.log('false');
+    //         $('.filial-buble').css({
+    //             'display':'none',
+    //             'left': '400px',
+    //             'top': '300px'
+    //         })
+    //     }
+    // })
+    var mapWidth = 1178;
+    var mapHeight = 800;
+    $('.delivery-point').on('mouseenter', function(){
+        console.log('mouseover')
+        var target = $(this).attr('data-target')
+        var pointWidth = 30;
+        var pointHeight = 56;
+        var bubleWidth = $(target).outerWidth();
+        var bubleHeight = $(target).outerHeight();
+        var pointPosX = $(this).position().left;
+        var pointPosY = $(this).position().top;
+        var horisontalDirection = '';
+        var verticalDirection = '';
+        // if() {}
+        console.log(pointPosX, pointPosY);
+        console.log(bubleWidth, bubleHeight);
+        // $(target).css({
+        //     'display':'block',
+        //     'left': '400px',
+        //     'top': '300px'
+        // })
     })
-    // $('.filial-point').on('mouseover', function(){
-    //     console.log('mouseover')
-    //     var target = $(this).attr('data-target')
-    //     console.log(target)
-    //     $(target).css({
-    //         'display':'block',
-    //         'left': '400px',
-    //         'top': '300px'
-    //     })
-    // })
-    // $('.filial-point').on('mouseout', function(){
-    //     console.log('mouseout')
-    //     var target = $(this).attr('data-target')
-    //     $(target).css({
-    //         'display':'none'
-    //     })
-    // })
+    $('.delivery-point').on('mouseleave', function(){
+        console.log('mouseout')
+        var target = $(this).attr('data-target')
+        // $(target).css({
+        //     'display':'none'
+        // })
+    })
     /*END MAP DELIVERY*/ 
     
 });
