@@ -6,6 +6,9 @@
         a {
             color: #fff;
         }
+        button {
+            background-color: transparent;
+        }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -101,7 +104,7 @@
                                 <li class="nav-item"><a href="#" class="nav-link">ДОСТАВКА</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link">КОНТАКТЫ</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link">РАБОТА</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link">НАПИСАТЬ ДИРЕКТОРУ</a></li>
+                                <li class="nav-item"><a href="javascript:void(0);" class="nav-link" data-toggle="modal" data-target="#modal-director-message">НАПИСАТЬ ДИРЕКТОРУ</a></li>
                             </ul>
                             <ul class="nav-list nav-list-products">
                                 <li class="nav-item"><a href="#product-group-set" class="nav-link smooth active" data-target="#product-group-set" data-slide="0">НАБОРЫ</a></li>
@@ -2814,7 +2817,37 @@
             </div>
         </div>
     </div>
-
+    <div class="modal fade modal-director-message" id="modal-director-message" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23 1L1 23M1 1L23 23" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <p class="modal-title">Здравствуйте!</p>
+                    <p class="modal-title">Оставьте ваши комментарий, имя и телефон, и с Вами обязательно свяжутся.</p>
+                </div>
+                <div class="modal-body">
+                    <form action="" class="modal-director-message__form">
+                        <div class="form-group">
+                            <input type="text" name="" class="form-control modal-director-message__input" placeholder="Ваше имя">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="" class="form-control modal-director-message__input" placeholder="Ваш номер телефона">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="" class="form-control modal-director-message__textarea" placeholder="Ваше сообщение"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-secondary btn-block modal-director-message__btn" data-dismiss="modal" aria-label="Close">ОТПРАВИТЬ</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 
