@@ -568,7 +568,7 @@
 
 .modal-delivery .modal-header {
     border: none;
-    padding: 94px 35px 40px;
+    padding: 94px 35px 10px;
     display: block;
 }
 
@@ -578,13 +578,13 @@
 }
 
 .modal-delivery .modal-header .modal-title {
-    font-size: 26px;
+    font-size: 25px;
     line-height: 32px;
     font-weight: 700;
     margin-bottom: 4px;
 }
 
-.modal-delivery .modal-header .modal-subtitle {
+.modal-delivery .modal-subtitle {
     font-size: 16px;
     line-height: 20px;
     color: #fff;
@@ -598,6 +598,10 @@
 .modal-delivery .modal-body {
     overflow-y: scroll;
     padding: 0 35px 30px;
+}
+
+.modal-delivery .modal-body .modal-subtitle {
+    margin: 20px 0;
 }
 
 .modal-filial-item {
@@ -843,5 +847,20 @@
 
     .delivery-map-mobile {
         display: block;
+    }
+}
+
+// landscape
+@media (max-width: 1023px) and (min-aspect-ratio: 13 / 9) {
+    .modal-delivery .modal-dialog {
+        padding-top: 30px;
+    }
+
+    .modal-delivery .modal-dialog:after {
+        display: none;
+    }
+
+    .modal-delivery .modal-header {
+        padding: 24px 55px 10px 35px;
     }
 }
